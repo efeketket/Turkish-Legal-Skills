@@ -1,0 +1,14 @@
+# Local validation environments and Python caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment values
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db

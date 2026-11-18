@@ -1,0 +1,4 @@
+# Official Agent Skills reference validator pinned to its source revision.
+skills-ref @ git+https://github.com/agentskills/agentskills.git@f130f348f502d9804278a617f86929846896d2e9#subdirectory=skills-ref
+strictyaml==1.7.3
+markdown-it-py==4.0.0
