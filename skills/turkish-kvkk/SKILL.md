@@ -1,24 +1,19 @@
 ---
 name: turkish-kvkk
 description: >-
-  Phase 0 preview for scoping a software review under Turkish privacy law (KVKK).
-  Use when someone requests a KVKK compliance review of a SaaS product or asks
-  what to prepare for a Turkish data protection review. Türkiye'de kişisel veri
-  koruma ve KVKK uyumluluk denetimi taleplerinde kapsamı ve gerekli girdileri belirler.
+  Stage 1 business discovery for a Turkish personal data protection (KVKK) review.
+  Use to begin a KVKK review of a business, software product or SaaS service, or
+  to identify what to prepare. KVKK incelemesine hazırlıkta ve incelemenin ilk
+  aşamasında işletmeyi, iş süreçlerini ve olası kişisel veri akışlarını inceler.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Turkish KVKK
 
-**Phase 0 · Geçici kapsam belirleme yönergesi**
+**Aşama 1 · İşletmenin ve faaliyetlerinin tanınması**
 
-1. Kullanıcıya bu sürümün kapsam ve girdi belirleme yardımı sunduğunu söyle. Yanıtı kullanıcının dilinde ver.
-2. Kullanıcının istediği çıktıyı ve incelenecek ürün veya süreci özetle. Eksikse sistem sınırını, ortamı ve inceleme amacını sor.
-3. Kullanıcının paylaşabileceği girdileri listele. Sistem diyagramı, veri kategorileri, üçüncü taraf servis listesi ve mevcut dokümanların maskelenmiş örnekleri yeterli başlangıç girdileridir. Gerçek kişisel veri, erişim anahtarı veya üretim kaydı isteme.
-4. Kapsamı, mevcut girdileri ve açık soruları kısaca kaydet. İnceleme bulgusu, hukuki sonuç veya belge taslağı üretme.
-
-## Planlanan kapsam
-
-Yazılım mimarisi ve kişisel veri akışlarının keşfi, veritabanı ve üçüncü taraf servis incelemesi, saklama ve silme süreçlerinin değerlendirilmesi, güncel mevzuat doğrulaması, teknik ve hukuki risk değerlendirmesi, aydınlatma metni ve ilgili belge taslakları ile kanıta dayalı denetim raporları sonraki aşamalar için planlanıyor.
+1. KVKK incelemesi istendiğinde [Aşama 1 metodolojisini](references/stage-1-business-discovery.md) aç ve uygula. Yalnızca hazırlık isteniyorsa aynı referansı kullanarak kapsamı, mevcut girdileri ve gereken belgeleri belirle.
+2. İlk incelemeyi salt okunur yürüt. Önce erişilebilir bilgileri değerlendir. İncelemeyi etkileyen açıklar için açıklama iste. Yanıtı kullanıcının dilinde ver.
+3. Aşama 1 incelemesinde [Markdown şablonunu](assets/stage-1-outputs.md) kullanarak beş çıktıyı ve aşama geçiş değerlendirmesini hazırla. Değerlendirmeyi keşif kapsamıyla sınırla. Kesin KVKK uygunluk veya aykırılık kararı ve nihai hukuki görüş üretme.

@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Phase 0 preview for scoping a review of software under Türkiye's personal data protection framework (KVKK) and identifying the inputs it would require. |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Stage 1 business discovery for a review under Türkiye's personal data protection framework (KVKK), including preparation, process mapping and preliminary data flow and role assessment. |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install
@@ -22,13 +22,13 @@ npx skills add efeketket/Turkish-Legal-Skills
 # Install a single skill for Codex in the current project
 npx skills add efeketket/Turkish-Legal-Skills --skill turkish-kvkk -a codex
 
-# Install the preview from a local copy of this repository
+# Install the skill from a local copy of this repository
 npx skills add "<path-to-Turkish-Legal-Skills>" --skill turkish-kvkk -a codex --copy
 ```
 
 Use `--list` with `add` to see the available skills before installing. Use `-g` for a user-wide installation. Use `--copy` when symlinks are unavailable or you want a standalone copy. See the [Skills CLI command reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md).
 
-For manual installation, copy the entire `skills/turkish-kvkk/` folder into a [skill directory for your agent](docs/compatibility.md#manual-installation), such as `.agents/skills/` at the target project's root for Codex. Open a new session if the agent does not pick up the change. Ask it to use `turkish-kvkk` to scope a software review, and check that it identifies itself as the Phase 0 preview.
+For manual installation, copy the entire `skills/turkish-kvkk/` folder into a [skill directory for your agent](docs/compatibility.md#manual-installation), such as `.agents/skills/` at the target project's root for Codex. Open a new session if the agent does not pick up the change. Ask it to use `turkish-kvkk` to begin a Stage 1 review of a software project. The [synthetic scenario guide](tests/stage-1/README.md) describes how to check the response.
 
 For CLI-managed installs, use `npx skills list` to find the installed copy. For GitHub installs, use `npx skills check` to check for updates and `npx skills update turkish-kvkk` to update it from its recorded source. For a local-path install, rerun the original add command when the source changes. Use `npx skills remove turkish-kvkk` from the project to remove it, adding `-g` for a global install. For a manual install, replace the installed folder to update it or remove that folder to uninstall it.
 
@@ -42,7 +42,7 @@ npx skills find "Turkish data protection"
 npx skills find "KVKK uyumluluk denetimi"
 ```
 
-These searches illustrate how to look for a skill. A catalog listing for this preview is pending verification after publication. An agent without external search needs a source or an installed copy. See [Discovery and distribution](docs/discovery.md) for catalog entry paths and post-publication checks.
+These searches illustrate how to look for a skill. A catalog listing is pending verification after publication. An agent without external search needs a source or an installed copy. See [Discovery and distribution](docs/discovery.md) for catalog entry paths and post-publication checks.
 
 ## Agent compatibility
 

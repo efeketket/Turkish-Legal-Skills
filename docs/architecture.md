@@ -22,6 +22,12 @@ Use skill-relative Markdown links for bundled files and forward slashes in paths
 
 Keep shared contributor guidance in `docs/`. If multiple skills eventually need the same runtime material, bundle a reviewed copy in each consumer and record its source and revision. A future maintainer tool can check or synchronize those copies before release. Installations receive the bundled copies and require only explicitly documented runtime prerequisites.
 
+## KVKK review stages
+
+The [KVKK entrypoint](../skills/turkish-kvkk/SKILL.md) routes discovery requests to the [Stage 1 reference](../skills/turkish-kvkk/references/stage-1-business-discovery.md) and loads the [output template](../skills/turkish-kvkk/assets/stage-1-outputs.md) for a Stage 1 review. Keep each implemented stage in its own skill-bundled reference with its inputs, outputs and transition criteria. Add routing as stages become available.
+
+Stage 1 puts five outputs in one Markdown document so that processes, flows, preliminary roles and open items can refer to the same evidence. Subsequent stages can consume the scope, stable record IDs, source locations, verification status, open items and transition assessment. Keep record IDs when updating the evidence so later stages can follow prior findings. The stage transition records each criterion and its supporting evidence in Markdown.
+
 ## Versioning
 
 Track each skill's maturity in its instructions and its independent version in `metadata.version`. The preview starts at `0.1.0`. Use patch increments for corrections, minor increments for new behavior and major increments for breaking workflow or output changes once stable. During `0.x`, describe breaking changes explicitly in the pull request. A change to one skill requires reviewing that skill's version only. For now, pull requests record changes. If release tags become useful, use names such as `turkish-kvkk-v0.1.0` to identify the skill and the repository snapshot.
@@ -29,3 +35,5 @@ Track each skill's maturity in its instructions and its independent version in `
 ## Validation
 
 Pull requests run the [Agent Skills reference validator](https://github.com/agentskills/agentskills/tree/main/skills-ref) and local checks for exact filenames, Markdown bodies and paths to bundled references. The validation job runs without agent credentials and checks package structure. Agent activation, catalog indexing and legal content review have separate evidence requirements.
+
+The [Stage 1 scenario guide](../tests/stage-1/README.md) describes behavioral evaluation with synthetic inputs. Record agent behavior separately from automated package validation.

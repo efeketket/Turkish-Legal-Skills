@@ -12,7 +12,7 @@ Agents with a terminal can use `npx skills find` when the user requests a search
 
 ## Search metadata
 
-The canonical metadata lives in each `SKILL.md`. Keep a stable skill name and use concise Turkish and English descriptions of tasks the package actually supports. The Phase 0 preview covers scoping a software review under Türkiye's personal data protection framework. Its description uses KVKK, Turkish privacy law, Turkish data protection and KVKK uyumluluk denetimi in that context. A broader collection description can describe Turkish legal research as a project goal.
+The canonical metadata lives in each `SKILL.md`. Keep a stable skill name and use concise Turkish and English descriptions of tasks the package actually supports. The KVKK skill description covers preparation and Stage 1 business discovery for a review under Türkiye's personal data protection framework. A broader collection description can describe Turkish legal research as a project goal.
 
 Use the following as search and selection probes. A search match and an agent deciding to load an installed skill are separate results.
 
