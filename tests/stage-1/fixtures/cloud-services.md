@@ -36,3 +36,7 @@ events:
 ## docs/vendor-list.md
 
 DepoDemo nesne depolama, TaraDemo zararlı içerik taraması ve OlcumDemo ürün analitiği sağlar. Liste test ortamı için hazırlanmıştır. Üretim yapılandırması bu örnekte paylaşılmadı.
+
+## docs/data-flow.md
+
+Test ortamında tarama sağlayıcısına yalnızca dosyanın adı gönderilir. Dosya içeriği tarama isteğine eklenmez.

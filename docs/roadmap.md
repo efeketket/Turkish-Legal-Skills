@@ -8,6 +8,8 @@ Ship the portable layout, the `turkish-kvkk` scope preview, validation, contribu
 
 Phase 1.1 implements [Stage 1 business discovery](../skills/turkish-kvkk/references/stage-1-business-discovery.md) as a read-only review. It produces five linked outputs, including preliminary data flows, preliminary roles and open items. [Synthetic scenarios](../tests/stage-1/README.md) cover the Stage 1 workflow. Methodology stages 2–8 are planned.
 
+Phase 1.2 adds a Stage 1 Markdown checker, a bilingual skill-routing matrix and synthetic checks for provenance, disclosure and trust boundaries. The [evaluation guide](../tests/stage-1/README.md) describes the procedure for testing additional clients, and the [compatibility guide](compatibility.md) records client observations.
+
 Further Phase 1 work includes the following.
 
 1. Define a source register with issuing authority, identifiers, effective dates and a verification date. Have a qualified reviewer check legal interpretations.

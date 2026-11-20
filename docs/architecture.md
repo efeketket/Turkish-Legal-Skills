@@ -28,12 +28,14 @@ The [KVKK entrypoint](../skills/turkish-kvkk/SKILL.md) routes discovery requests
 
 Stage 1 puts five outputs in one Markdown document so that processes, flows, preliminary roles and open items can refer to the same evidence. Subsequent stages can consume the scope, stable record IDs, source locations, verification status, open items and transition assessment. Keep record IDs when updating the evidence so later stages can follow prior findings. The stage transition records each criterion and its supporting evidence in Markdown.
 
+Record later evidence under a new `K-…` ID with its date and scope. Keep the original evidence record and link both versions to the same `E-…` item when resolving a gap or recording a discrepancy. Record the updated status and new evidence link in the handoff note. When a transition decision changes, keep a reference to the earlier decision, its date and its supporting IDs. The Markdown document can carry this history between stages without a separate store.
+
 ## Versioning
 
 Track each skill's maturity in its instructions and its independent version in `metadata.version`. The preview starts at `0.1.0`. Use patch increments for corrections, minor increments for new behavior and major increments for breaking workflow or output changes once stable. During `0.x`, describe breaking changes explicitly in the pull request. A change to one skill requires reviewing that skill's version only. For now, pull requests record changes. If release tags become useful, use names such as `turkish-kvkk-v0.1.0` to identify the skill and the repository snapshot.
 
 ## Validation
 
-Pull requests run the [Agent Skills reference validator](https://github.com/agentskills/agentskills/tree/main/skills-ref) and local checks for exact filenames, Markdown bodies and paths to bundled references. The validation job runs without agent credentials and checks package structure. Agent activation, catalog indexing and legal content review have separate evidence requirements.
+Pull requests run the [Agent Skills reference validator](https://github.com/agentskills/agentskills/tree/main/skills-ref) and local checks for exact filenames, Markdown bodies and paths to bundled references. The same job exercises the Stage 1 Markdown checker and checks that the five output names match the methodology and template. A maintainer can run the checker on a completed report, with optional source-location and marker checks against a synthetic fixture. The validation job requires no agent credentials. Agent activation, catalog indexing and legal content review have separate evidence requirements.
 
 The [Stage 1 scenario guide](../tests/stage-1/README.md) describes behavioral evaluation with synthetic inputs. Record agent behavior separately from automated package validation.

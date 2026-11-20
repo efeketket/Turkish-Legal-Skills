@@ -46,7 +46,7 @@ These searches illustrate how to look for a skill. A catalog listing is pending 
 
 ## Agent compatibility
 
-Codex, Claude Code, Cursor, GitHub Copilot and Gemini CLI document Agent Skills support on specific surfaces. See the [compatibility matrix](docs/compatibility.md) for installation paths, surface limits and the Phase 0 test status.
+Codex, Claude Code, Cursor, GitHub Copilot and Gemini CLI document Agent Skills support on specific surfaces. See the [compatibility matrix](docs/compatibility.md) for installation paths, surface limits and observed client test results.
 
 ## Contribute
 
