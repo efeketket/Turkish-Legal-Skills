@@ -2,13 +2,15 @@
 
 ## Automated checks and example report
 
-The repository [validation commands](../../CONTRIBUTING.md#pull-requests) run both report checkers' unit tests. The Stage 2 checker takes a completed Stage 2 report and its Stage 1 source report. The following command checks the [worked report](samples/manual-and-incomplete-stage-2.md) against its [prior report](samples/manual-and-incomplete-stage-1.md) and [synthetic excerpts](fixtures/manual-and-incomplete.md).
+The repository [validation commands](../../CONTRIBUTING.md#pull-requests) run the report checkers' unit tests. The Stage 2 checker takes a completed Stage 2 report and its Stage 1 source report. The following command checks the [worked report](samples/manual-and-incomplete-stage-2.md) against its [prior report](samples/manual-and-incomplete-stage-1.md) and [synthetic excerpts](fixtures/manual-and-incomplete.md).
 
 ```bash
 python -X utf8 tests/validate_stage_2.py tests/stage-2/samples/manual-and-incomplete-stage-2.md --stage-1 tests/stage-2/samples/manual-and-incomplete-stage-1.md --fixture tests/stage-2/fixtures/manual-and-incomplete.md
 ```
 
 Omit `--fixture` for structural validation of a project report. Fixture mode checks source locations for new file-backed evidence and disclosure markers. For a response containing both reports, save the two Markdown sections separately at their top-level headings without editing the contents. The checker resolves inherited IDs against Stage 1 and identifies missing records, view inconsistencies and incomplete handoffs. It flags common explicit compliance verdicts. A reviewer still checks the underlying evidence, legal characterizations and the report's overall legal scope.
+
+The recorded Phase 1.3 prompts below cover discovery and inventory. The draft role workflow has its own cases, including a Stage 2-only scope check. [Stage 3 evaluation](../stage-3/README.md)
 
 ## Reproduce the agent runs
 

@@ -11,6 +11,7 @@ description: >-
 license: MIT
 metadata:
   version: "0.3.0"
+  stage-3: "draft-preview"
 ---
 
 # Turkish KVKK
@@ -25,6 +26,7 @@ metadata:
 ## Aşama yönlendirmesi
 
 - **Hazırlık ve Aşama 1.** Hazırlık isteniyorsa [Aşama 1 metodolojisiyle](references/stage-1-business-discovery.md) kapsamı, mevcut girdileri ve gereken belgeleri belirle. Yeni incelemede aynı referansı uygula ve [Aşama 1 şablonuyla](assets/stage-1-outputs.md) keşif kapsamındaki beş çıktıyı ve geçiş değerlendirmesini hazırla. Kullanıcı kapsamı Aşama 1 ile sınırladığında burada dur.
-- **Kapsamlı inceleme veya Aşama 2.** Mevcut Aşama 1 raporu varsa beş çıktısını, kanıt kaydını ve geçiş değerlendirmesini kullan. Mevcut rapor yoksa önce Aşama 1'i tamamla. Ardından [Aşama 2 referansındaki devir adımlarıyla](references/stage-2-processing-activities.md#aşama-1den-devir) teknik başlangıç yeterliliğini değerlendir. Devamı engelleyen açıklar varsa dayanak ve hedefli bilgi talebini kaydet. Yeterli temel varsa devredilen kayıt kimliklerini ve açıkları koruyarak [Aşama 2 metodolojisini](references/stage-2-processing-activities.md) uygula. [Aşama 2 şablonuyla](assets/stage-2-outputs.md) altı çıktıyı ve geçiş değerlendirmesini tek ön çalışma raporunda sun. İki raporu aynı yanıtta veriyorsan her birini kendi birinci düzey Markdown başlığıyla başlat.
+- **Kapsamlı inceleme, faaliyet envanteri veya Aşama 2.** Mevcut Aşama 1 raporu varsa beş çıktısını, kanıt kaydını ve geçiş değerlendirmesini kullan. Mevcut rapor yoksa önce Aşama 1'i tamamla. Ardından [Aşama 2 referansındaki devir adımlarıyla](references/stage-2-processing-activities.md#aşama-1den-devir) teknik başlangıç yeterliliğini değerlendir. Devamı engelleyen açıklar varsa dayanak ve hedefli bilgi talebini kaydet. Yeterli temel varsa devredilen kayıt kimliklerini ve açıkları koruyarak [Aşama 2 metodolojisini](references/stage-2-processing-activities.md) uygula. [Aşama 2 şablonuyla](assets/stage-2-outputs.md) altı çıktıyı ve geçiş değerlendirmesini tek ön çalışma raporunda sun. Kullanıcı kapsamı hazırlık, keşif veya envanterle sınırladığında istenen son aşamada dur.
+- **Tam KVKK incelemesi veya faaliyet bazlı rol değerlendirmesi · Aşama 3 taslağı.** [Teknik devir yönergesini](references/stage-3-integration.md) aç ve Aşama 2 ana envanteri ile geçiş gerekçesinden başlangıç yeterliliğini değerlendir. Eksik girdileri eldeki belgelerden güvenilir biçimde oluşturabiliyorsan önce gereken önceki aşamaları tamamla. Başlayabilen kapsamlar için [hukuk ekibinin taslağını](references/stage-3-legal-roles.md) ve [Aşama 3 şablonunu](assets/stage-3-outputs.md) yükle. Rol değerlendirmesi hukukçu incelemesine açık bir ön çalışmadır. Sonraki aşamalara rol bağlantılarını devret.
 
-Raporları teslim etmeden önce her rapordaki kayıt bağlantılarını çözümle. Her geçiş ölçütünün gerekçe hücresine en az bir dayanak kimliği yaz. Genel geçiş sonucu ve aktarım notunu şablondaki iki madde işaretiyle ver. Aktarım notuna her açık kaydın tam kimliğini yaz.
+Birden fazla aşama raporunu aynı yanıtta veriyorsan her birini kendi birinci düzey Markdown başlığıyla başlat. Raporları teslim etmeden önce her rapordaki kayıt bağlantılarını çözümle. Her geçiş ölçütünün gerekçe hücresine en az bir dayanak kimliği yaz. Genel geçiş sonucu ve aktarım notunu şablondaki iki madde işaretiyle ver. Aktarım notuna her açık kaydın tam kimliğini yaz.

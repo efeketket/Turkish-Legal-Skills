@@ -49,3 +49,7 @@ Earlier drafts were opened on jurisdiction-neutral prompts. The final routing de
 ## Phase 1.3 local verification
 
 On 21 November 2026, the Stage 2 package was exercised in fresh local Windows projects with Codex CLI `0.171.0-alpha.13`, `gpt-6.2-sol` and low reasoning effort. Testing covered natural routing into both stages, an explicit Stage 2 continuation with an existing Stage 1 report, a blocked handoff, a Stage 1-only request and a UK GDPR-only request. See the [Phase 1.3 observations](../tests/stage-2/README.md#phase-13-observations) for per-case results, including template and source-location findings. The observations cover this local Codex CLI configuration. Other clients and hosted surfaces have no Stage 2 activation results in this repository.
+
+## Phase 1.4 local verification
+
+On 22 November 2026, the draft preview ran on the same local Windows Codex CLI and model. Natural selection reached Stages 1–3, explicit selection continued from both prior reports, the Stage 1-only and Stage 2-only cases stopped at the requested stage, and the blocked case sought missing evidence. Report checks varied by run, including earlier-stage transition labels and file locators. The final natural and explicit Stage 3 outputs passed the Stage 3 structural and fixture checks. [Phase 1.4 observations](../tests/stage-3/README.md#phase-14-observations)
