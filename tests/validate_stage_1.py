@@ -87,10 +87,10 @@ def record_ids(text, prefixes="BSVREK"):
     return {record for record in RECORD_ID.findall(text) if record[0] in prefixes}
 
 
-def resolve_ranges(text, records):
-    cited = record_ids(text)
+def resolve_ranges(text, records, id_pattern=RECORD_ID, range_pattern=RECORD_RANGE):
+    cited = set(id_pattern.findall(text))
     invalid = set()
-    for prefix, first, last in RECORD_RANGE.findall(text):
+    for prefix, first, last in range_pattern.findall(text):
         span = f"{prefix}{first}–{prefix}{last}"
         try:
             start, end = int(first), int(last)
@@ -107,8 +107,8 @@ def resolve_ranges(text, records):
     return cited, invalid
 
 
-def has_detail(text):
-    return bool(re.search(r"\w", RECORD_ID.sub("", text)))
+def has_detail(text, id_pattern=RECORD_ID):
+    return bool(re.search(r"\w", id_pattern.sub("", text)))
 
 
 def fixture_line_counts(fixture):
@@ -262,7 +262,7 @@ def validate_evidence(record, row, gaps, fixture_files, errors):
     validate_source(record, row, fixture_files, errors)
 
 
-def validate_transition(body, rows, sample_rows, references, errors):
+def validate_transition(body, rows, sample_rows, references, errors, id_pattern=RECORD_ID):
     expected = {normalized_label(row[0]) for row in sample_rows}
     if len(rows) != len(expected) or {normalized_label(row[0]) for row in rows} != expected:
         errors.append(f"{TRANSITION}: her şablon ölçütü bir kez bulunmalı.")
@@ -272,7 +272,7 @@ def validate_transition(body, rows, sample_rows, references, errors):
         status, _ = status_and_detail(status, TRANSITION_STATUS)
         statuses.add(status)
         references[label] = [detail]
-        if not status or not record_ids(detail) or not has_detail(detail):
+        if not status or not id_pattern.search(detail) or not has_detail(detail, id_pattern):
             errors.append(f"{label}: geçerli durum, gerekçe ve kayıt bağlantısı gerekli.")
 
     notes = [
@@ -283,7 +283,7 @@ def validate_transition(body, rows, sample_rows, references, errors):
                if normalized_label(note).startswith(normalized_label(OVERALL))]
     handoff = [note[len(HANDOFF):].lstrip(" .:–—-") for note in notes
                if normalized_label(note).startswith(normalized_label(HANDOFF))]
-    if len(overall) != 1 or len(handoff) != 1 or not has_detail(handoff[0]):
+    if len(overall) != 1 or len(handoff) != 1 or not has_detail(handoff[0], id_pattern):
         errors.append(f"{TRANSITION}: tek genel durum ve tek aktarım notu gerekli.")
         return
     status, reason = status_and_detail(overall[0], TRANSITION_STATUS)
@@ -292,7 +292,7 @@ def validate_transition(body, rows, sample_rows, references, errors):
         combined = "Karşılanmadı"
     elif statuses == {"Karşılandı"}:
         combined = "Karşılandı"
-    if status != combined or not has_detail(reason):
+    if status != combined or not has_detail(reason, id_pattern):
         errors.append(f"{TRANSITION}: genel durum ölçütlerle tutarlı ve gerekçeli olmalı.")
     references[OVERALL] = [reason]
     references[HANDOFF] = handoff
