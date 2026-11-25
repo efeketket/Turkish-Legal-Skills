@@ -6,16 +6,15 @@
 
 - İlk taslağın dayanak sürümü: 0.3.0
 
-- Güncel inceleme sürümü: 0.4.0 · `draft-preview`
+- Güncel inceleme sürümü: 0.4.0 · Yayımlanmamış
 
-- Taslak durumu: Hukukçu incelemesine açık
+- Metodoloji, çıktı şablonu ve faaliyet bazlı devir: 26.11.2026 tarihinde hukukçularca onaylandı
 
 - Hazırlanma tarihi: 22.11.2026
 
 - Ön koşul: Aşama 1 ve Aşama 2 çıktıları
 
-> Bu metodoloji taslaktır. Hukukçu değerlendirmesi ve proje onayı tamamlanmadan kesinleşmiş kabul edilmemelidir.
-> Phase 1.6 çalışma metni, 26.11.2026 tarihli hukuk incelemesindeki zorunlu düzeltmeleri yansıtır ve yeniden hukukçu incelemesine açıktır.
+> Somut faaliyetlere ilişkin rol raporları hukukçu incelemesine açık taslaklardır. Canlı Codex CLI doğrulaması ve teknik yayımlama kabulü açıktır.
 
 # 1. Amaç
 

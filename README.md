@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.4.0`. Counsel approved the Phase 1.5 [Stage 2 methodology](tests/stage-2/README.md). The Phase 1.6 [Stage 3 role assessment](tests/stage-3/README.md) is a `draft-preview` awaiting counsel review. |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.4.0`. Counsel approved the Stage 2 and Stage 3 methodologies. Live CLI validation remains open. Stage 4 preparation supports activity-level intake. [Stage 3 counsel decision](docs/küb-docs/history/asama3-kapanıs.md) · [Stage 4 intake](skills/turkish-kvkk/references/stage-4-intake.md) |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install
@@ -30,7 +30,7 @@ Use `--list` with `add` to see the available skills before installing. Use `-g` 
 
 For manual installation, copy the entire `skills/turkish-kvkk/` folder into a [skill directory for your agent](docs/compatibility.md#manual-installation), such as `.agents/skills/` at the target project's root for Codex. Open a new session if the agent does not pick up the change. Ask for a KVKK review to start with business discovery and continue to the preliminary inventory when the evidence supports it. A review limited to Stage 1 produces the five discovery outputs and a transition assessment. To resume, provide the existing Stage 1 report. See the [Stage 1 scenarios](tests/stage-1/README.md) and the [Stage 2 example report and checks](tests/stage-2/README.md).
 
-For a full KVKK review or role assessment by processing activity, the preview uses the Stage 2 master inventory, activity-level decisions and role inputs to prepare a draft for counsel. An open item can defer the affected activity while review proceeds for others. Requests limited to business discovery or the inventory end at the requested stage. [Stage 3 example and checks](tests/stage-3/README.md)
+For a full KVKK review or role assessment by processing activity, Stage 3 uses the Stage 2 master inventory, activity-level decisions and role inputs to prepare a draft report for counsel. An open item can defer the affected scope. Requests limited to discovery or inventory end at the requested stage. Requests covering processing conditions can continue to Stage 4 intake for an activity-level handoff and preparation note. [Stage 3 examples and checks](tests/stage-3/README.md) · [Stage 4 intake example](tests/stage-4/samples/phase-1.5-stage-4-intake.md)
 
 For CLI-managed installs, use `npx skills list` to find the installed copy. For GitHub installs, use `npx skills check` to check for updates and `npx skills update turkish-kvkk` to update it from its recorded source. For a local-path install, rerun the original add command when the source changes. Use `npx skills remove turkish-kvkk` from the project to remove it, adding `-g` for a global install. For a manual install, replace the installed folder to update it or remove that folder to uninstall it.
 

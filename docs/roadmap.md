@@ -14,13 +14,15 @@ Phase 1.3 integrates Stage 2 processing activity identification in `turkish-kvkk
 
 Phase 1.4 adds a draft Stage 3 preview for activity-level role assessment. It connects six report outputs to the Stage 2 inventory and records separate factual and legal statuses, sources and scoped handoffs. The legal team will review the methodology and source findings before a version is approved. Stages 4–8 remain planned. [Stage 3 methodology](../skills/turkish-kvkk/references/stage-3-legal-roles.md) · [Source review](stage-3-source-review.md) · [Evaluation](../tests/stage-3/README.md)
 
-Phase 1.5 prepares `turkish-kvkk` `0.4.0` for legal review. It applies the nine Stage 2 corrections, distinguishes the Stage 1 starting threshold from the Stage 2 handoff, records evidence limits by environment and preserves dated revisions across activity splits or mergers. Stage 3 uses the revised handoff in its draft workflow. [Acceptance evidence](../tests/stage-2/README.md#phase-15-acceptance-evidence) · [Legal review brief](küb-docs/phase-1.5-hukuk-inceleme-promptu.md)
+Phase 1.5 prepares `turkish-kvkk` `0.4.0` for legal review. It applies the nine Stage 2 corrections, distinguishes the Stage 1 starting threshold from the Stage 2 handoff, records evidence limits by environment and preserves dated revisions across activity splits or mergers. Stage 3 uses the revised handoff. [Acceptance evidence](../tests/stage-2/README.md#phase-15-acceptance-evidence) · [Legal review brief](küb-docs/history/phase-1.5-hukuk-inceleme-promptu.md)
 
-After counsel approves Stages 2 and 3 and the final revisions pass validation, start Stage 4 on processing conditions using the approved activity and role handoffs.
+Phase 1.6 closes Stage 3 legal review on 26 November 2026. Counsel approved the role methodology, report template and activity-level handoff and confirmed the existing Stage 2 approval. Live Codex CLI validation remains open for technical release and live-use acceptance. [Counsel decision](küb-docs/history/asama3-kapanıs.md) · [Verification record](../tests/stage-3/README.md)
+
+Stage 4 development starts with intake from the Stage 2 inventory and Stage 3 handoff. Substantive review requires matching decisions for the activity, scope and Stage 4 target. The draft template and two synthetic scenarios are ready for counsel feedback on evidence thresholds, candidate conditions and special-category data. [Stage 4 intake](../skills/turkish-kvkk/references/stage-4-intake.md) · [Counsel questions and scenarios](küb-docs/asama-4-hukuk-inceleme-promptu.md)
 
 Further Phase 1 work includes the following.
 
-1. Have a qualified reviewer check the Stage 3 source register and legal interpretations. Decide which source records to carry across later stages.
+1. Verify live Stage 3 behavior in separate natural and explicit Codex CLI sessions. Capture skill and reference reads, validator results, project file snapshots and trace safety checks.
 2. Deepen technical evidence for actual storage and deletion practices in preparation for later legal assessment. Use synthetic fixtures for evaluation.
 3. Compare observed system behavior with corresponding statements in privacy notices and other documentation. Give each finding a source, observed evidence, confidence level and open questions. Route legal conclusions and draft documents to human review.
 4. Test install and removal, explicit invocation and automatic selection across named client versions. Evaluate Turkish and English prompts, including cases outside the skill's scope. After publication, check catalog results independently.

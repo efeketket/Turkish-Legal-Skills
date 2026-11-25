@@ -1,6 +1,6 @@
 # Aşama 3 · Teknik uygulama yönergesi
 
-[Hukuk ekibinin taslak metodolojisi](stage-3-legal-roles.md) ve [rapor şablonu](../assets/stage-3-outputs.md) bu yönergeyle birlikte kullanılır. Hukuk ekibi metni ayrı tutulur. Buradaki kayıt ve devir kuralları teknik uygulamayı tarif eder. Her rol sonucu taslak olarak hukukçu incelemesine sunulur.
+[Hukukçu onaylı rol metodolojisi](stage-3-legal-roles.md) ve [rapor şablonu](../assets/stage-3-outputs.md) bu yönergeyle birlikte kullanılır. Buradaki kayıt ve devir kuralları teknik uygulamayı tarif eder. Her rol sonucu taslak olarak hukukçu incelemesine sunulur.
 
 ## Başlangıç ve kapsam
 

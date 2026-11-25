@@ -1,6 +1,6 @@
 # Stage 3 draft evaluation
 
-Stage 3 is a `draft-preview` in the unreleased `turkish-kvkk` 0.4.0 package. The checker resolves six required outputs, the supporting records and the 15 transition criteria against the supplied upstream reports. It checks current activity coverage, matching scope and party across views, evidence for production claims, activity boundaries and history, and open items tied to each restricted handoff. Fixture mode checks source locations, disclosure and instruction markers, the planted fictitious decision and unsupported source verification. Legal characterization, source content and approval require counsel review.
+Counsel approved the Stage 3 methodology, report template and activity-level handoff on 26 November 2026. The package remains unreleased at `turkish-kvkk` 0.4.0. Individual role reports remain drafts for counsel review. The checker resolves six required outputs, the supporting records and the 15 transition criteria against the supplied upstream reports. It checks current activity coverage, matching scope and party across views, evidence for production claims, activity boundaries and history, and open items tied to each restricted handoff. Fixture mode checks source locations, disclosure and instruction markers, the planted fictitious decision and unsupported source verification. [Counsel decision](../../docs/küb-docs/history/asama3-kapanıs.md)
 
 ## Automated checks
 
@@ -35,6 +35,8 @@ The checks above ran on 26 November 2026 with `.venv/Scripts/python.exe -X utf8`
 | `tests/validate_stage_3.py` | Separate role scenario, reviewed inventory as input | 0 | Report passed |
 
 The handoff regression rejects an attempt to promote any Stage 4, 5 or 7 row for the current chain's `A-004` or `A-005` without an explicit Stage 2 decision for that activity and target. It accepts the same promotion when a synthetic Stage 2 decision expressly opens that target.
+
+Counsel accepted the source and handoff revisions (Z5 and Z8). The verification finding (Z9) remains partial because live behavior is open. The live evidence is required for technical acceptance before release or live use. [Counsel decision](../../docs/küb-docs/history/asama3-kapanıs.md)
 
 ## Synthetic chains
 
