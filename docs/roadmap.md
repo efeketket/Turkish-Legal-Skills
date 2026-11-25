@@ -14,6 +14,10 @@ Phase 1.3 integrates Stage 2 processing activity identification in `turkish-kvkk
 
 Phase 1.4 adds a draft Stage 3 preview for activity-level role assessment. It connects six report outputs to the Stage 2 inventory and records separate factual and legal statuses, sources and scoped handoffs. The legal team will review the methodology and source findings before a version is approved. Stages 4–8 remain planned. [Stage 3 methodology](../skills/turkish-kvkk/references/stage-3-legal-roles.md) · [Source review](stage-3-source-review.md) · [Evaluation](../tests/stage-3/README.md)
 
+Phase 1.5 prepares `turkish-kvkk` `0.4.0` for legal review. It applies the nine Stage 2 corrections, distinguishes the Stage 1 starting threshold from the Stage 2 handoff, records evidence limits by environment and preserves dated revisions across activity splits or mergers. Stage 3 uses the revised handoff in its draft workflow. [Acceptance evidence](../tests/stage-2/README.md#phase-15-acceptance-evidence) · [Legal review brief](küb-docs/phase-1.5-hukuk-inceleme-promptu.md)
+
+After counsel approves Stages 2 and 3 and the final revisions pass validation, start Stage 4 on processing conditions using the approved activity and role handoffs.
+
 Further Phase 1 work includes the following.
 
 1. Have a qualified reviewer check the Stage 3 source register and legal interpretations. Decide which source records to carry across later stages.

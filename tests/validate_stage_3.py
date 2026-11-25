@@ -46,9 +46,67 @@ def ids(value, prefixes="ABSVREKH"):
     return {record for record in RECORD_ID.findall(value) if record[0] in prefixes}
 
 
-def upstream_rows(report, title):
+def upstream_table(report, title):
     bodies = stage_2.read_sections(report).get(stage_1.normalized_label(title), [])
-    return stage_1.table_rows(bodies[0])[1:] if len(bodies) == 1 else []
+    return stage_1.table_rows(bodies[0]) if len(bodies) == 1 else []
+
+
+def upstream_rows(report, title):
+    return upstream_table(report, title)[1:]
+
+
+def stage_2_intake(report, errors):
+    header, *rows = upstream_table(report, stage_2.INVENTORY) or [[]]
+    header = list(map(stage_1.normalized_label, header))
+    inventory = {cells[0]: dict(zip(header, cells)) for cells in rows if ids(cells[0], "A") == {cells[0]}}
+    current = {record: row for record, row in inventory.items() if row.get("kayit durumu") != "Tarihsel"}
+    preliminary = {record: ids(row.get("on akislar ve roller", ""), "R") for record, row in current.items()}
+    if not current or len(inventory) != len(rows) or not upstream_rows(report, stage_1.TRANSITION):
+        errors.append("Aşama 2: benzersiz ana envanter kayıtları ve geçiş değerlendirmesi gerekli.")
+
+    restricted = {}
+    if "kayit durumu" in header:
+        handoff_header, *handoffs = upstream_table(report, stage_2.HANDOFF) or [[]]
+        role_header, *roles = upstream_table(report, stage_2.ROLE_INPUTS) or [[]]
+        handoff_header = list(map(stage_1.normalized_label, handoff_header))
+        role_header = list(map(stage_1.normalized_label, role_header))
+        role_inputs = defaultdict(set)
+        for cells in roles:
+            row = dict(zip(role_header, cells))
+            role_inputs[row.get("faaliyet")].update(ids(row.get("on roller", ""), "R"))
+        decisions = set()
+        for cells in handoffs:
+            row = dict(zip(handoff_header, cells))
+            if stage_1.normalized_label(row.get("hedef inceleme", "")) != "asama 3":
+                continue
+            activity, status = row.get("faaliyet"), row.get("devir durumu")
+            if activity in decisions or status not in stage_2.HANDOFF_STATUS:
+                errors.append("Aşama 2: faaliyet için benzersiz Aşama 3 devir kararı gerekli.")
+            decisions.add(activity)
+            if status in {"Sınırlı devredilebilir", "Bekletilir"}:
+                restricted[activity] = (status, ids(row.get("acik kayit", ""), "E"))
+        if decisions != current.keys() or role_inputs != preliminary:
+            errors.append("Aşama 2: güncel faaliyetlerin devir kararları ve rol girdileri gerekli.")
+    return set(inventory), set(current), preliminary, restricted
+
+
+def check_intake_restrictions(restricted, rows, start, evidence, errors):
+    for activity, (status, prior_gaps) in restricted.items():
+        if not prior_gaps or not prior_gaps <= ids(start, "E"):
+            errors.append(f"{activity}: Aşama 2 devir kısıtı başlangıç gerekçesinde korunmalı.")
+        if status != "Bekletilir":
+            continue
+        for row in rows:
+            if row["Faaliyet"] != activity:
+                continue
+            legal, _ = stage_1.status_and_detail(row["Hukuki değerlendirme durumu"], LEGAL_STATUS)
+            if legal == "Değerlendirilemedi":
+                if not prior_gaps & ids(row["Açık kayıt"], "E"):
+                    errors.append(f"{activity}: bekleyen rol kapsamı önceki açık kayda bağlanmalı.")
+                continue
+            new_support = ids(row["Kanıt"], "K") & ids(start, "K") & evidence.keys()
+            if not any(activity in ids(evidence[record]["İlgili kayıtlar"], "A") for record in new_support):
+                errors.append(f"{activity}: bekletilen rol kapsamı için gerekçede yeni faaliyet kanıtı gerekli.")
 
 
 def read_tables(report, errors):
@@ -220,13 +278,9 @@ def validate_report(report, first, second, fixture=None):
         errors.append("Rapor fixture içindeki sentetik sahte hukuk kaynağını içeriyor.")
 
     tables, bodies, template = read_tables(report, errors)
-    # Consume only the handoff records, so Stage 2's legal rubric is independently versioned.
-    inventory = upstream_rows(second, stage_2.INVENTORY)
-    activities = {cells[0] for cells in inventory if ids(cells[0], "A") == {cells[0]}}
-    preliminary = {cells[0]: ids(" ".join(cells[1:]), "R") for cells in inventory if cells[0] in activities}
-    if not activities or len(activities) != len(inventory) or not upstream_rows(second, stage_1.TRANSITION):
-        errors.append("Aşama 2: benzersiz ana envanter kayıtları ve geçiş değerlendirmesi gerekli.")
-    prior = stage_2.stage_1_records(first) | activities
+    # Consume the upstream handoff without reapplying Stage 2's legal rubric.
+    all_activities, activities, preliminary, restricted = stage_2_intake(second, errors)
+    prior = stage_2.stage_1_records(first) | all_activities
     prior_gaps = {cells[0]: ids(cells[2], "ABSVR") for cells in upstream_rows(first, "Eksik Bilgi ve Belge Listesi")
                   if ids(cells[0], "E") == {cells[0]} and len(cells) > 2}
     for cells in upstream_rows(second, stage_2.GAPS):
@@ -265,6 +319,7 @@ def validate_report(report, first, second, fixture=None):
     check_sources(sources, source_gaps, fixture is not None and OFFLINE_FIXTURE in fixture, errors)
     scopes, scopes_to_gaps = check_role_views(tables, activities, preliminary, source_gaps, errors)
     check_handoff(tables[HANDOFF], scopes, scopes_to_gaps, open_gaps, errors)
+    check_intake_restrictions(restricted, tables[ROLES], start, evidence, errors)
 
     fixture_files = stage_1.fixture_line_counts(fixture) if fixture is not None else None
     for record, row in evidence.items():

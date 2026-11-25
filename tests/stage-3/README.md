@@ -10,7 +10,7 @@ python -X utf8 -m unittest discover -s tests
 python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/role-assessment-stage-3.md --stage-1 tests/stage-3/samples/prior-stage-1.md --stage-2 tests/stage-3/samples/prior-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
 ```
 
-Omit `--fixture` for structural checks on a project report. If one reply contains multiple stages, save each stage from its top-level Markdown heading without changing the report. The Stage 3 checker consumes the inventory, open items, evidence and transition record without reapplying Stage 2's assessment criteria. Run the existing earlier-stage checkers separately when testing the complete chain.
+Omit `--fixture` for structural checks on a project report. If one reply contains multiple stages, save each stage from its top-level Markdown heading without changing the report. The Stage 3 checker consumes the inventory, open items, evidence and transition record. Phase 1.5 inputs also carry activity-level decisions and preliminary role IDs. The worked Stage 3 report revisits the deferred `A-002` after new synthetic evidence and keeps the unidentified recipient unresolved. Earlier Stage 2 report formats can still serve as Stage 3 inputs. Run the earlier-stage checkers separately when testing the complete chain.
 
 ## Synthetic case
 

@@ -248,8 +248,8 @@ def check_record_field(record, row, column, prefixes, has_open_item, errors):
         errors.append(f"{record}: {column} alanındaki kayıt bağlantısı eksik veya yanlış türde.")
 
 
-def validate_evidence(record, row, gaps, fixture_files, errors):
-    if normalized_label(row["Kaynak türü"]) not in {normalized_label(label) for label in SOURCE_TYPES}:
+def validate_evidence(record, row, gaps, fixture_files, errors, *, source_types=SOURCE_TYPES):
+    if normalized_label(row["Kaynak türü"]) not in {normalized_label(label) for label in source_types}:
         errors.append(f"{record}: kaynak türü geçersiz.")
     status, boundary = status_and_detail(row["Doğrulama durumu ve sınırı"], VERIFICATION)
     location = row["Kaynak ve konum"]

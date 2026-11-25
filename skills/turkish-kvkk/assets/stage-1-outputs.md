@@ -51,6 +51,8 @@ Süreç, akış ve rol satırlarında ilgili kanıt kimliklerine atıf yap. Çel
 
 ## Aşama Geçiş Değerlendirmesi
 
+Bu değerlendirme Aşama 2'ye başlangıç eşiğidir. İşletme, süreçler, bilinen taraflar ve olası veri işleme alanları araştırmaya başlanabilecek kadar açık olmalıdır. Faaliyetlerin kesin sınırları ve fiilî kullanım Aşama 2'de araştırılır. Her ölçütü dayanağıyla değerlendir ve hangi açığın başlangıcı engellediğini gerekçede göster. `E-…` açılması ilgili inceleme ölçütünün sağlandığını tek başına göstermez.
+
 | Geçiş ölçütü | Durum | Gerekçe ve ilgili kayıtlar |
 | --- | --- | --- |
 | Temel faaliyetler anlaşıldı | … | … |

@@ -161,6 +161,46 @@ Bilgilerin tamamının kesin olarak doğrulanması zorunlu değildir. Ancak doğ
 Bu aşamanın tamamlanması, kişisel veri işleme faaliyetlerinin hukuka uygun olduğu veya işletmenin KVKK’ya uyumlu bulunduğu anlamına gelmez.
 <!-- Hukuk ekibi kaynak metni sonu -->
 
+## Phase 1.5 · Hukuk ekibi düzeltmelerinin uygulanması
+
+Yukarıdaki 1–69 numaralı talimatlar özgün sırasıyla korunur. Hukuk ekibinin 22 Kasım 2026 tarihli revizyonu aşağıda belirtilen konularda önceki metne göre önceliklidir. Her alt başlık ilgili talimat numaralarını ve rapordaki düzeltme numarasını gösterir.
+
+### İki geçiş eşiği · Düzeltme 5, bölüm 5 ve talimat 57–69
+
+- Aşama 1 → 2 eşiğinde işletme ve kapsam, temel iş süreçleri, bilinen taraflar ve olası kişisel veri işleme alanları hakkında araştırmaya başlanabilecek bir çerçeve ara. Açıkların kaydı ve etkisi bu değerlendirmeye dahildir. Faaliyetlerin eksiksiz belirlenmesi veya fiilî kullanımın doğrulanması Aşama 2 çalışmasına aittir.
+- Aşama 2 → sonraki incelemelerde on bir ölçütün her birini genel kapsamda ve her güncel faaliyet için uygula. `Karşılandı`, gerekli incelemenin dayanağı kaydedildiğinde ve açıklar ilgili incelemeyi engellemediğinde kullanılır. `Karşılanmadı`, inceleme yapılmadığında veya önemli faaliyet belirlenemediğinde kullanılır. `Değerlendirilemedi`, inceleme denenip güvenilir sonuç alınamadığında kullanılır. Yalnız `E-…` açılması incelemenin yapıldığını veya yeterli olduğunu göstermez. Gerekçede denenen incelemeyi veya yapılmayan işi belirt, dayanağı ve varsa devamı etkileyen açığı bağla.
+- Her faaliyet ve ilgili sonraki inceleme için ayrı karar ver. Amaç ve temel operasyon belirlenmişse, örneğin veri kaynağı açığıyla rol incelemesi sınırlı biçimde başlayabilir. Amaç veya temel operasyon belirsizse etkilenen incelemeyi beklet, açığı ve devam koşulunu yaz. Genel özetin durumu diğer faaliyetler için otomatik karar oluşturmaz.
+- Çelişki incelemesinde iddiaları ancak aynı faaliyet, sistem, ortam, dönem ve karşılaştırılabilir kapsam için karşı karşıya getir. Örneğin resepsiyonun fiziksel defteri hakkındaki beyan ile uygulama olay kodu tek başına ortak bir iddiayı sınamaz. Karşılaştırılabilir dayanak yoksa ölçüt `Değerlendirilemedi` olur. Fiziksel kayıt veya belirsiz kişi bağlantısı da kategori taraması yerine geçmez. Tarama denenip sonuçlandırılamadıysa `Değerlendirilemedi` yaz.
+
+### Kanıtın doğruladığı kapsam · Düzeltme 8, talimat 35 ve 50–56
+
+İşletme beyanını, sözleşme veya politika belgesini, kaynak kod incelemesini, yapılandırma incelemesini, test ortamı gözlemini, üretim ortamı yapılandırmasını, üretimde fiilî çalışma kaydını ve teknik çıkarımı ayrı kaynak türleriyle kaydet. Diğer belgeleri kendi türüyle göster. Her `K-…` için kaynak ve konum, ortam veya sistem, inceleme tarihi, kapsam, doğruladığı husus ve tek başına doğrulamadığı husus yaz. Olgusal güven düzeyini hukuki yorumdan ayrı tut. Devirde kullanılan eski kanıtın kapsamı yeterince açık değilse aynı kimliğe kapsam notu ekle.
+
+Örneğin bir belge dosya adı kontrolü iddiasını destekler, kaynak kod dosya baytlarının analiz bileşenine gönderilebildiğini, test kaydı ise yalnız o testte çalıştığını gösterebilir. Üretim yapılandırması etkinliği gösterebilir. Üretimde fiilî çalışma için inceleme kapsamına ait maskelenmiş çalışma kaydı ara. Teknik gönderim, varış bileşeninin içeriği nasıl analiz ettiğini veya hukuki aktarımı tek başına kanıtlamaz.
+
+### Faaliyet sınırları · Düzeltme 1, talimat 6–12
+
+Combined yaklaşımında işlemenin kimin adına yapıldığını, amacı kimin belirlediğini, operasyonu kimin hangi süreçte yürüttüğünü, araç ve karar yetkilerini, sistemleri, ayrıştırılabilirliği ve aynı verinin başka amaç veya işlevlerde kullanımını birlikte değerlendir. Ortak randevu platformunda kendi amaç, erişim ve süreç kararlarını alan iki bağımsız ofisin randevu yönetimini ayrı faaliyet kaydet. Aynı ofisin tek randevu amacına hizmet eden form, rezervasyon deposu ve hatırlatma kuyruğunu operasyonel bütünlük varsa bir faaliyet altında tut. Aynı randevu verisini bağımsız bir pazarlama seçimine veya başka amaçla veri birleştirmeye açan operasyonu ayrıca incele.
+
+### Kategori, alt kategori ve amaç · Düzeltme 2, talimat 18–24 ve 36–39
+
+Hybrid yaklaşımında temel kategori, işletmeye özgü somut alt kategori ve işleme amacını üç ayrı alanda yaz. Örneğin `İletişim`, `Abonelik bildirim e-postası` ve `Yenileme teklifi göndermek` sırasıyla bu üç alanı doldurur. `Pazarlama` gibi amaç belirten genel etiketle veri içeriğini adlandırma. Gerçek alanı ve ilgili kişi grubunu her amaçla ilişkilendir. Güncel m. 6'ya göre özel nitelik taramasını yap. Somut kategori ve dayanağı varsa `Doğrulandı`, işaret var ve doğrulama eksikse `İhtimal`, taranan kapsamda işaret yoksa `Gösterge yok`, tarama sonuçlandırılamadıysa `Değerlendirilemedi` yaz. Görüntünün varlığı veya çevresel bağlam tek başına biyometrik kategori tespiti için yeterli dayanak oluşturmaz.
+
+### Manuel kayıtlar ve otomatik analiz · Düzeltme 3–4, talimat 12, 30–35, 53 ve 69
+
+- Kanun m. 2 ve 3 çerçevesinde fiziksel kaydın varlığını ve yapılandırılmış veri kayıt sistemi olma niteliğini ayrı incele. Kişi, tarih, işlem türü veya başka düzenleme ölçütünü, eski bir kişi kaydının bulunabilirliğini, düzenli süreç kullanımını, saklama ve erişimi sor. `Veri kayıt sistemi niteliği doğrulandı`, `Veri kayıt sistemi niteliği doğrulanamadı` veya `Veri kayıt sistemi niteliği konusunda değerlendirme için ek bilgi gerekiyor` sonucunu dayanağıyla kaydet. Kriterle aranan ve düzenli kullanılan defter ile düzeni ve erişimi bilinmeyen gelişigüzel notları ayrı değerlendir. Sistem niteliği belirsizken otomatik olmayan işlemin kanun kapsamını kesinleştirme.
+- Kişiye ilişkin puan, profil veya sınıflandırmayı, insanın fiilen inceleme zamanı ve sonucu değiştirme yetkisini, insan müdahalesi olmadan gerçekleşen sonucu ve kişinin nasıl etkilendiğini ayrı yaz. Sadece puan üretilmesi, karar öncesi esaslı insan incelemesi ve incelemesiz otomatik ret ayrı olgulardır. Sonraki incelemeye m. 11/1-g bakımından ilgili olguları taşı; uygunsuzluk veya hak ihlali hükmü verme.
+
+### Rol incelemesine devir ve ön envanter · Düzeltme 6–7, talimat 45 ve 63–69
+
+- Faaliyet bazında tarafları ve `R-…` ön rollerini, sözleşme/protokolleri, talimatları ve hizmet kapsamını, amaç ve temel vasıtalar üzerindeki fiilî karar yetkilerini, teknik/operasyonel yetkileri, erişim, kullanım ve paylaşımı, alt sağlayıcı ve entegrasyonları, sözleşme–uygulama farkları ile beyan çelişkilerini `K-…` ve `E-…` bağlantılarıyla taşı. Ön rol, taslak rol araştırmasına başlangıç verisidir. Teknik sistemler arası veri gönderimini teknik akış olarak kaydet ve hukuki aktarım değerlendirmesini ilgili aşamaya bırak.
+- Kişisel Veri İşleme Faaliyetleri Envanteri, faaliyetlerin ve operasyonların tespitine yönelik ön çalışmadır. Nihai mevzuat envanteri ile KVKK uyum veya uyumsuzluk kararı sonraki hukuki incelemelere aittir. İşleme şartlarını, alıcı gruplarını, saklama sürelerini, yurt dışına aktarım koşullarını ve güvenlik tedbirlerini ilgili aşamalara taşı.
+
+### Gerekçeli kayıt geçmişi · Düzeltme 9, talimat 4–5 ve 57–62
+
+Her revizyonu önceki tespit, tarih, kapsam ve `K-…`; yeni bilgi ve `K-…`, yeni sonuç, revizyon tarihi, gerekçe, etkilenen faaliyet ve çıktı ile ilgili `E-…` ve güncel durumuyla kaydet. Bölme ve birleştirmede eski `A-…` kaydını envanterde tarihsel olarak işaretle, yeni kimlikleri eskiye bağla ve önceki kanıt ile açıkları koru. Ardışık revizyonları ayrı satırlarda sakla. Tarihsel faaliyeti güncel devir kapsamına dahil etme.
+
+Kanun ve yönetmelik bağlayıcı mevzuattır. Kurul kararlarını kendi somut olayları, Kurum rehberi ve SSS'yi açıklayıcı kaynak olarak kullan. Hukuki kaynağın güncelliğini ve erişilen bölümü kaydet.
 
 ## Teknik uygulama
 
@@ -181,7 +221,7 @@ Amaç, operasyonel işlev ve sistemi birlikte değerlendir. Somut işleme amacı
 
 ### Veri kategorileri ve amaç bağlantıları
 
-Ortak temel kategori adları için `Kimlik`, `İletişim`, `Müşteri İşlem`, `İşlem Güvenliği`, `Finans`, `Özlük` ve `Pazarlama` gibi tutarlı etiketler kullan. Bu teknik başlangıç etiketleri örnek ve genişletilebilir. Bir işletmeye özgü ayrıntıyı `Müşteri İşlem / Rezervasyon` gibi bir alt kategoriyle göster. Yeni bir temel kategori gerekiyorsa kapsamını tanımla ve mevcut kategorilerin anlamını koru. Örneğin alanı “rezervasyon başlangıç zamanı” veya `contact_email` olarak belirt. Veri değerini rapora taşıma.
+Ortak temel kategori adları için `Kimlik`, `İletişim`, `Müşteri İşlem`, `İşlem Güvenliği`, `Finans` ve `Özlük` gibi tutarlı etiketler kullan. İşletmeye özgü ayrıntıyı `Rezervasyon zaman bilgisi` gibi ayrı bir alt kategori alanına yaz. Yeni bir temel kategori gerekiyorsa kapsamını tanımla ve mevcut kategorilerin anlamını koru. Örneğin alanı “rezervasyon başlangıç zamanı” veya `contact_email` olarak belirt. Veri değerini rapora taşıma.
 
 İlgili kişi grubu, gerçek alan ve toplama kaynağı arasındaki her ilişkiyi kategori matrisine yaz. İlgili kişi tarafından sağlanan veriyi, üçüncü taraf ve entegrasyon verisini, sistem üretimini, manuel girişi ve türetilmiş bilgiyi ayırt et. Her faaliyet ve alan için ilgili bütün somut amaçları amaç matrisine bağla. Doğrudan veya dolaylı belirlenebilirliği, tüzel kişi bilgisinin gerçek kişiyle ilişkisini ve özel nitelikli veri ihtimalini kaynak metodolojisine göre değerlendir. Özel nitelik ihtimali varsa Kanun'un güncel 6. maddesini erişilebilen birincil kaynaktan doğrula ve kaynak ile kontrol durumunu göster. Çevrimdışı incelemede kullanıcının sağladığı güncel birincil kaynağı kullan. Ağ erişimi kapalıysa kabuktan dış istek deneme. Doğrulama için kaynak yoksa ihtimali ve doğrulama eksiğini hukukçu incelemesine devret ve yerel kanıtlarla devam et.
 

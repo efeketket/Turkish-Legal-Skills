@@ -10,7 +10,47 @@ python -X utf8 tests/validate_stage_2.py tests/stage-2/samples/manual-and-incomp
 
 Omit `--fixture` for structural validation of a project report. Fixture mode checks source locations for new file-backed evidence and disclosure markers. For a response containing both reports, save the two Markdown sections separately at their top-level headings without editing the contents. The checker resolves inherited IDs against Stage 1 and identifies missing records, view inconsistencies and incomplete handoffs. It flags common explicit compliance verdicts. A reviewer still checks the underlying evidence, legal characterizations and the report's overall legal scope.
 
-The recorded Phase 1.3 prompts below cover discovery and inventory. The draft role workflow has its own cases, including a Stage 2-only scope check. [Stage 3 evaluation](../stage-3/README.md)
+## Phase 1.5 acceptance evidence
+
+The [worked Stage 2 report](samples/manual-and-incomplete-stage-2.md) uses the existing Stage 1 report and a synthetic pilot extension. The [Stage 2 tests](../test_validate_stage_2.py) check the worked outcomes and reject targeted mutations. A separate [Stage 3 test suite](../test_validate_stage_3.py) checks consumption of the revised and earlier handoff formats. The matrix below describes repository-level acceptance. Legal approval and live agent behavior are evaluated separately.
+
+| # | Acceptance criterion | Status and evidence |
+| --- | --- | --- |
+| 1 | Separate independent businesses on one platform | Met. The pilot agreement supports A-004 for AlfaAtölye and A-005 for BetaStüdyo, with their own purposes and decisions. The test checks distinct inventory records on KurguPlatform. |
+| 2 | Keep complementary systems with one purpose together | Met. A-004 links the form, store, queue and register to one admission process. The test checks that the operations share A-004. |
+| 3 | Keep data categories and purposes separate | Met. The health category, movement accommodation field and admission purpose occupy distinct cells. Tests reject `Pazarlama` as a category and a purpose link that disagrees with the purpose matrix. |
+| 4 | Distinguish possible and confirmed sensitive data | Met. K-025 supports the health field in its synthetic scope. The image-based possibility remains under E-012. The checker rejects a confirmed category without a K record. |
+| 5 | Assess the structure of manual records | Met. The sample shows the three outcomes for the original visitor book, an indexed register and ad hoc notes. The checker rejects a confirmed system with unknown retrieval criteria. |
+| 6 | Distinguish analysis, human review and automated outcome | Met. K-026 records score only, a substantive decision by a reviewer and automated refusal in separate test paths. The checker rejects a missing outcome. |
+| 7 | Apply separate start and handoff thresholds | Met. The Stage 1 material supports a Stage 2 start. A-002 still waits for a Stage 3 handoff. Both thresholds have their own criteria and evidence. |
+| 8 | Explain the three criterion statuses | Met. The activity assessments demonstrate `Karşılandı`, `Karşılanmadı` and `Değerlendirilemedi` with reasons. A mutation that cites only the opening of E-002 is rejected. The two original unsupported positive assessments were corrected. |
+| 9 | Keep other activities moving when one is blocked | Met. A-001 can proceed to role research with E-002. A-002 waits under E-009. Tests reject an ungrounded release or a blocker assigned from the other activity. |
+| 10 | Explain the status of the preliminary inventory | Met. The sample and template identify the report and inventory as preliminary and explain the limits of the output. Tests check the scope marker and explicit verdicts. |
+| 11 | Carry activity-level inputs into Stage 3 | Met. The role inputs carry R-006, R-019 and the activity evidence. The Stage 3 sample reassesses A-002 using newly cited evidence and retains the unresolved recipient scope. Tests check missing decisions, switched preliminary roles and unsupported reassessment. |
+| 12 | Bound technical facts to their evidence | Met. K-020 covers code, K-022 test execution and K-028 configuration. Tests reject promotion to observed production use, use of another activity's observation and missing verification limits. |
+| 13 | Preserve earlier records and dated revision reasoning | Met. The A-003 split retains A-003 as historical, links A-004/A-005 and records K-023, K-024 and E-010. Tests reject hidden history, inconsistent dates, missing successors and missing gap status. |
+
+The working tree uses `0.4.0` for the unreleased Phase 1.5 review version. The minor increment from `0.3.0` covers the integrated Stage 3 draft preview and additional required Stage 2 report fields. Stage 1 reports keep their existing schema. Stage 3 can consume older Stage 2 reports. The current Stage 2 checker expects the Phase 1.5 structure for reports submitted under the revised rubric.
+
+### Legal source check
+
+Checked on 24 November 2026. This records source access for the revision. The project's examples are synthetic.
+
+| Source type | Verified scope and access limits |
+| --- | --- |
+| Statute, Law 6698 | The ministry page supports Articles 2, 3, 4 and 11/1-g. It displays the pre-2024 wording of Articles 6 and 9. The consolidated Mevzuat Bilgi Sistemi PDF timed out. [Ministry text](https://www.aile.gov.tr/kvkk/mevzuat/) |
+| Amending statute, Law 7499 | Article 33 and its effective date were checked in the TBMM text. The linked Resmî Gazete page timed out. The KVKK comparison document supplies the post-amendment Article 6. [TBMM text](https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y2/KanunMetni/48c107c3-a4dc-468e-bcf2-f7c8c24af1b0.htm) · [KVKK comparison](https://kvkk.gov.tr/SharedFolderServer/CMSFiles/4eba766b-7425-4cd4-97f5-cb09c4cf4ef9.pdf) |
+| Regulation | The indexed official KVKK text confirms the inventory definition and the provision on preparation in Article 5. [Registry regulation](https://www.kvkk.gov.tr/Icerik/5442/VERI-SORUMLULARI-SICILI-HAKKINDA-YONETMELIK) |
+| Explanatory guidance | The official inventory guide confirms the broader inventory fields. The uppercase PDF address worked. The SSS page timed out, and the official PDF explains criteria-based physical filing and ad hoc paper notes. [Inventory guide, p. 33](https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/14a17049-71da-4417-a07b-961f75a0070e.PDF#page=33) · [SSS, pp. 31–32](https://kvkk.gov.tr/SharedFolderServer/CMSFiles/c148901d-cd7f-43ff-ae9a-978fb78fb43c.pdf) |
+| Case-specific Board decisions | The official indexed summaries cover purpose and means in 2020/71 and the facts of the software-sharing arrangement in 2021/1303. The underlying complete decisions were outside this check. [2020/71](https://www.kvkk.gov.tr/Icerik/6874/2020-71) · [2021/1303](https://www.kvkk.gov.tr/Icerik/7288/2021-1303) |
+
+Renewed legal review covers activity-specific blockers, classification when a data source or method is incomplete, the factual basis for structured manual processing, the substance of human review and the scope of the Article 11/1-g issue. Stage 3 legal conclusions remain in draft. The current consolidated statutory text and case-specific application remain part of legal review.
+
+### Phase 1.5 agent-run status
+
+The local `codex --version` returned `0.171.0-alpha.13`. `codex login status` and a read-only `codex exec` preflight in an empty temporary directory stopped with `Could not find home directory` before a turn began. Natural activation, Stage 1 → 2 and activity-level handoff therefore have no new live agent results in this environment. The tests include fixture-based disclosure, instruction-marker, source-location and trace-check regressions. The historical agent observations below cover Phase 1.3.
+
+The Phase 1.3 prompts below cover discovery and inventory. The current manual fixture adds the Phase 1.5 pilot extension to the original case. The draft role workflow has its own cases, including a Stage 2-only scope check. [Stage 3 evaluation](../stage-3/README.md)
 
 ## Reproduce the agent runs
 
@@ -44,7 +84,7 @@ Use “$turkish-kvkk Continue this Turkish KVKK review using the existing stage-
 | Case | Fixture and prior report | Review observations |
 | --- | --- | --- |
 | C · Missing source or purpose | [KurguZiyaret excerpt](fixtures/manual-and-incomplete.md) and [Stage 1 report](samples/manual-and-incomplete-stage-1.md) | Reuses the prior report. Preserves `E-009` and records the upstream source and purpose as open. The function is evidence about code behavior. Actual use needs its own evidence. |
-| F · Manual processing | Same run as C | The paper visitor register appears in the inventory and linked views. Source is the interview statement. Its access and disposal questions remain visible under `E-002`. |
+| F · Manual processing | Same run as C | The paper visitor register appears in the inventory and linked views. The statement supports the register's reported existence. Questions about classification, retrieval, access and disposal remain under `E-002`. |
 | G · Blocked handoff | [Incomplete business excerpt](../stage-1/fixtures/incomplete-business.md) and [Stage 1 report](../stage-1/samples/incomplete-business-report.md) | Identifies `E-001` and `E-002` as barriers to starting the inventory. Returns a documented start decision and requests targeted, masked information. |
 
 A separate source-format run repeats C/F with the added instruction “For the synthetic source-location check, format each file-backed source as Dosya: path#L1-L3 using the corresponding excerpt heading as the path and counting from the first line of the excerpt. Use a single #L1 for a one-line source.”

@@ -125,6 +125,38 @@ class StageThreeReports(unittest.TestCase):
         self.assertEqual(stage_3.validate_report(REPORT, FIRST, changed, FIXTURE), [])
         self.assert_rejected(REPORT, "ana envanter kayıtları ve geçiş değerlendirmesi", second=SECOND.split("## Aşama Geçiş")[0])
 
+    def test_phase_15_requires_activity_decisions_and_preliminary_roles(self):
+        decision = next(line for line in SECOND.splitlines() if line.startswith("| A-002 | Aşama 3 |"))
+        self.assert_rejected(REPORT, "devir kararları ve rol girdileri gerekli", second=SECOND.replace(decision, ""))
+        role_row = next(line for line in SECOND.splitlines() if line.startswith("| A-002 | KurguZiyaret ve müşteri ofisi olası"))
+        self.assert_rejected(REPORT, "devir kararları ve rol girdileri gerekli",
+                             second=SECOND.replace(role_row, role_row.replace("R-019", "R-006")))
+
+    def test_blocked_stage_two_scope_requires_new_evidence_for_a_role_view(self):
+        self.assert_rejected(REPORT.replace("Aşama 2'de E-009 nedeniyle", "Aşama 2'de E-002 nedeniyle", 1)
+                             .replace("(E-009, E-013, K-028)", "(E-013, K-028)", 1),
+                             "devir kısıtı başlangıç gerekçesinde korunmalı")
+        self.assert_rejected(REPORT.replace("K-023, K-024, K-025, K-026). Bunlar", "K-020). Bunlar", 1),
+                             "bekletilen rol kapsamı için gerekçede yeni faaliyet kanıtı gerekli")
+
+    def test_intake_keeps_historical_activity_available_without_new_role_scope(self):
+        sample = CASES.parent / "stage-2/samples/manual-and-incomplete-stage-2.md"
+        errors = []
+        records, current, preliminary, restricted = stage_3.stage_2_intake(sample.read_text(encoding="utf-8"), errors)
+        self.assertEqual(errors, [])
+        self.assertEqual(records - current, {"A-003"})
+        self.assertEqual(preliminary["A-002"], {"R-019"})
+        self.assertEqual(restricted["A-002"], ("Bekletilir", {"E-009"}))
+
+    def test_legacy_stage_two_schema_still_supports_stage_three(self):
+        previous = SECOND.split("### Aşama 1 → 2 Başlangıç Eşiği", 1)[0]
+        inventory = stage_3.upstream_table(previous, stage_2.INVENTORY)
+        for cells in inventory:
+            previous = previous.replace("| " + " | ".join(cells) + " |", "| " + " | ".join(cells[:-2]) + " |", 1)
+        previous = previous.replace("| " + " | ".join(["---"] * len(inventory[0])) + " |",
+                                    "| " + " | ".join(["---"] * (len(inventory[0]) - 2)) + " |", 1)
+        self.assertEqual(stage_3.validate_report(REPORT, FIRST, previous, FIXTURE), [])
+
     def test_agent_safety_observations_flag_writes_outbound_calls_and_disclosure(self):
         with tempfile.TemporaryDirectory() as directory:
             project = Path(directory)

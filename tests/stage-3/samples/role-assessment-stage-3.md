@@ -4,7 +4,7 @@
 - İnceleme kapsamı, ortam, tarih ve sürüm: KurguZiyaret, kiracılar ve ilgili sağlayıcılar. Sentetik alıntılar, 22 Kasım 2026, ürün sürümü belirtilmedi.
 - Aşama 1 raporu ve tarihi: [Sentetik Aşama 1 raporu](prior-stage-1.md), tarih belirtilmedi.
 - Aşama 2 raporu ve tarihi, özgün geçiş durumu ve gerekçesi: [Sentetik Aşama 2 raporu](prior-stage-2.md), 21 Kasım 2026. Değerlendirilemedi — olayın üst veri kaynağı ve yaşam döngüsü belirsiz (E-009, E-002).
-- Aşama 3 başlangıç kararı, kapsamları ve dayanak kayıtları: A-001, A-002 ve A-003 başlangıç için izlenebilir (K-011, K-020, K-022). A-002 dış alıcı kapsamı yalnız belirsizlik kaydıyla açıldı (E-009, E-013).
+- Aşama 3 başlangıç kararı, kapsamları ve dayanak kayıtları: A-001 defter sınırlarıyla ilerler (K-011, E-002). A-003 abonelik belgesiyle devralınır (K-022). Aşama 2'de E-009 nedeniyle bekleyen A-002, yeni sözleşme ve gözlemlerle kiracı, metrik ve demo alt kapsamlarında yeniden değerlendirildi (K-023, K-024, K-025, K-026). Bunlar sentetik ortamla sınırlı. Dış alıcı alt kapsamı belirsiz kalır (E-009, E-013, K-028).
 
 ## Faaliyet Bazlı Hukuki Rol Matrisi
 

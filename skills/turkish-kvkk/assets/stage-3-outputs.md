@@ -8,6 +8,8 @@
 
 Başlıkları, sütunları ve durum etiketlerini koru. Yer tutucuları kaldır. Uygulanmayan alanlara `—`, bilinmeyen alanlara açıklama ve `E-…` yaz. Her `A-…` için ana envanterdeki tek satıra atıf yap. Alt kapsam yoksa `Faaliyetin tamamı` yaz. Alt kapsam varsa adını bütün tablolarda tutarlı kullan. `Faaliyet`, `Faaliyet kapsamı` ve `Taraf` birlikte bir değerlendirmeyi tanımlar. Alt kapsamları ayrı faaliyet olarak numaralandırma. Hukuki kimlik ve organizasyonel konumu, alıcı ve ilgili kişi konumundan ayrı kaydet. Her bulguya `K-…`, kanıt henüz yoksa `E-…` bağla. Önceki raporları değişiklik geçmişi için erişilebilir tut.
 
+Phase 1.5 devrinde başlangıç gerekçesine faaliyet bazlı Aşama 3 kararı ile varsa kısıtı, ilgili `E-…` ve yeni `K-…` üzerinden yaz. Rol incelemesi girdilerini rol, yetki ve karşılaştırma tablolarında kullan. Tarihsel `A-…` kimliklerine revizyon bağı üzerinden atıf yap.
+
 ## Faaliyet Bazlı Hukuki Rol Matrisi
 
 Ana envanterdeki her faaliyeti ve her değerlendirilen kapsam/tarafı göster. `Ön değerlendirme` hücresinde varsa Aşama 1 `R-…` kimliğini kullan. `Nihai rol değerlendirmesi` bu rapordaki güncel taslak değerlendirmeyi ifade eder. Olgusal durum için `Doğrulandı`, `Kısmen doğrulandı`, `Doğrulanamadı` veya `Çelişkili` ile sınırı yaz. Hukuki durum için `Taslak değerlendirme`, `Hukuki yorum açık` veya `Değerlendirilemedi` yaz ve gerekçe kaydında açıkla. Son iki durumda olası rolü koşullu ifade et ve açık kaydı bağla.
