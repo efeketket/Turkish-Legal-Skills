@@ -52,13 +52,12 @@ class StageFourExamples(unittest.TestCase):
         self.assertNotEqual(contract[0], legitimate_interest[0])
         self.assertIn("m. 5/2-c", contract[4])
         self.assertIn("m. 5/2-f", legitimate_interest[4])
-        self.assertTrue(contract[7].startswith("Hukukçu değerlendirmesi gerekli ·"))
-        self.assertTrue(legitimate_interest[7].startswith("Ek kanıt gerekli ·"))
         source_ids = {item[0] for item in sources}
         evidence_ids = {item[0] for item in evidence}
         _, *gaps = table(sample, "Açık kayıtlar")
         gap_ids = {item[0] for item in gaps}
         for row in (contract, legitimate_interest):
+            self.assertTrue(row[7].startswith("Ek kanıt gerekli ·"))
             self.assertEqual(stage_3.ids(row[5], "K"), evidence_ids)
             self.assertLessEqual(stage_3.ids(row[6], "H"), source_ids)
             self.assertLessEqual(stage_3.ids(row[8], "E"), gap_ids)
@@ -66,6 +65,7 @@ class StageFourExamples(unittest.TestCase):
         self.assertEqual(stage_3.ids(legitimate_interest[6], "H"), {"H-001", "H-002"})
         self.assertEqual(stage_3.ids(contract[8], "E"), {"E-001"})
         self.assertEqual(stage_3.ids(legitimate_interest[8], "E"), {"E-001", "E-002"})
+        self.assertIn("E-001", stage_3.ids(contract[7], "E"))
 
         section = "Adayın kurucu unsurları"
         element_header, *elements = table(sample, section)
@@ -82,10 +82,23 @@ class StageFourExamples(unittest.TestCase):
             if "K-002" in stage_3.ids(row[3], "K"):
                 self.assertRegex(row[3].casefold(), r"sentetik|test")
 
+        section = "m. 5/2-f değerlendirme göstergeleri"
+        indicators_header, *indicators = table(sample, section)
+        self.assertEqual(indicators_header, table(TEMPLATE, section)[0])
+        self.assertEqual(len({row[2] for row in indicators}), 7)
+        interest_elements = {row[1] for row in elements if row[0] == legitimate_interest[0]}
+        self.assertEqual({row[1] for row in indicators}, interest_elements)
+        for row in indicators:
+            self.assertEqual(row[0], legitimate_interest[0])
+            self.assertIn("E-002", stage_3.ids(row[4], "E"))
+            self.assertLessEqual(stage_3.ids(row[4], "E"), gap_ids)
+            self.assertLessEqual(stage_3.ids(row[4], "H"), source_ids)
+
         principles_header, *principles = table(sample, "m. 4 genel ilkeler kontrolü")
         self.assertEqual(principles_header, table(TEMPLATE, "m. 4 genel ilkeler kontrolü")[0])
         self.assertEqual(len({row[2] for row in principles}), 5)
         self.assertTrue(all(row[0] == handoff[0] for row in principles))
         decision_header, decision = table(sample, "Adaylar ve hukukçu kararı")
         self.assertEqual(decision_header, table(TEMPLATE, "Adaylar ve hukukçu kararı")[0])
-        self.assertEqual(decision[3:], ["Hukukçu kararı bekleniyor", "—"])
+        self.assertEqual(decision[3], "Hukukçu kararı bekleniyor")
+        self.assertEqual(decision[4:], ["—"] * (len(decision_header) - 4))

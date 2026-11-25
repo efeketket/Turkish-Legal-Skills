@@ -1,0 +1,21 @@
+# Aşama 4 kapanış öncesi hukuk incelemesi
+
+Merhaba,
+
+26 Kasım 2026 tarihli kapanış görüşünüzde belirttiğiniz yedi düzeltmeyi `turkish-kvkk` becerisinin yayımlanmamış `0.5.0` çalışma sürümüne işledik. Kapanıştan önce, revizyonların her bulguyu giderip gidermediğini ve eşleşen Aşama 2 ile Aşama 3 devir kararları olan gerçek dosyalarda hukukçu incelemesine sunulacak aday taslaklarının hazırlanmasına metodolojinin elverişli olup olmadığını değerlendirmenizi rica ediyoruz. [26 Kasım kapanış görüşü](history/asama4-revizyon.md) · [Beceri yönergesi](../../skills/turkish-kvkk/SKILL.md)
+
+## Son kontrolde incelenecek maddeler
+
+1. **Gerçek dosyada değerlendirmeye başlama.** Güncel faaliyet için Aşama 2 ve Aşama 3 kararlarının aynı faaliyet, kapsam ve Aşama 4 hedefini karşılaması koşulunu inceleyin. KurguZiyaret’te altı kapsamın `Bekletilir` kalması, hazırlık ve devam koşullarının kaydedilmesi ve aday tablosunun boş kalması tutarlı mı? [Devir yönergesi](../../skills/turkish-kvkk/references/stage-4-intake.md) · [KurguZiyaret](../../tests/stage-4/samples/phase-1.5-stage-4-intake.md)
+2. **Şablonun çıktı sınırı.** Şablonun her kapsam için devir ve hazırlık notu, yalnız `Devredilebilir` kapsamlar için hukukçuya sunulacak aday taslağı üretmesini kontrol edin. Aday açmanın incelemeye başlama kararı olduğu ve nihai tercihin belgelenmiş hukukçu kararına dayandığı uygulamada yeterince açık mı? [Çıktı şablonu](../../skills/turkish-kvkk/assets/stage-4-outputs.md)
+3. **Sözleşme adayının durumu.** KurguAtölye’de m. 5/2-c adayı için taraf ve doğrudan bağlantıyı destekleyen `K-001` ile sentetik gönderimi gösteren `K-002` kayıtlarını inceleyin. `E-001` altındaki kanal seçimi, veri ve işlem gerekliliği ile üretim kanıtı açıkları için `Ek kanıt gerekli` durumunun doğru kullanılıp kullanılmadığını ve `Hukukçu değerlendirmesi gerekli` durumuna hangi koşulda geçileceğini değerlendirin. [KurguAtölye adayları](../../tests/stage-4/samples/booking-stage-4-draft.md#işleme-şartı-adayları)
+4. **Meşru menfaat göstergeleri.** m. 5/2-f adayının `E-002` kaydını ve ilgili gösterge tablosunu inceleyin. Menfaatin niteliği, haklarla karşılaştırma, etkilenen kişi ve süreçler, alternatifler, riskler, tedbirler ve m. 4 kontrolü somut olaya göre izlenebiliyor mu? Adayın menfaat, zorunluluk ve denge dayanakları kendi unsurlarına bağlı mı? [KurguAtölye gösterge tablosu](../../tests/stage-4/samples/booking-stage-4-draft.md#m-52-f-değerlendirme-göstergeleri) · [Metodoloji](../../skills/turkish-kvkk/references/stage-4-processing-conditions.md)
+5. **m. 6/4 önlem durumları.** Dört önlem durumunun ve özetlerinin kullanımını kontrol edin. m. 6/3 adayı desteklenirken uygulanabilir bir önlem kısmen doğrulanmışsa veya hiç doğrulanmamışsa genel taslak sonucun `Ek kanıt gerekli` kalması yeterli mi? [m. 6/4 alanları](../../skills/turkish-kvkk/assets/stage-4-outputs.md#m-64-yeterli-önlemler)
+6. **Hukukçu kararının kaydı.** Kararı veren kişinin kimliği ve rolü, kayıt kimliği, tarih, kapsam, seçilen veya elenen adaylar, gerekçe ve dayanaklar ile incelenen rapor ve kanıt sürümlerinin kararın sonradan doğrulanması için yeterli olup olmadığını değerlendirin. [Karar tablosu](../../skills/turkish-kvkk/assets/stage-4-outputs.md#adaylar-ve-hukukçu-kararı)
+7. **Saklama ve imha yönlendirmesi.** Saklama süresinin m. 4/2-d ön kontrolünde izlenmesini, imha bulgularının m. 7 ve ilgili sonraki aşamaya aktarılmasını ve m. 6/4 önlemlerinin kendi kanıtıyla kaydedilmesini değerlendirin. [Genel ilkeler](../../skills/turkish-kvkk/references/stage-4-processing-conditions.md#genel-ilkeler-ve-sonuç) · [6698 sayılı Kanun, PDF s. 2–3](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=2)
+
+## Beklenen kapanış görüşü
+
+- Her madde için `Karşılandı`, `Kısmen karşılandı` veya `Karşılanmadı` yazın. Gerekçeyi dosya, bölüm ya da kayıt kimliğine ve gerektiğinde hukuki dayanağa bağlayın.
+- Aşama 4 için `Kapanışa uygun`, `Düzeltme gerekli` veya `Ek kaynak veya kanıt gerekli` kararlarından birini verin. Onay kapsamını ve gerçek dosyalarda taslak kullanımına ilişkin varsa koşulları belirtin.
+- Kalan her engel için değişecek kuralı veya şablon alanını, önerdiğiniz düzeltmeyi ve kapanış için beklediğiniz kanıtı ya da örnek sonucunu yazın. İsteğe bağlı iyileştirmeleri ayrıca belirtin.

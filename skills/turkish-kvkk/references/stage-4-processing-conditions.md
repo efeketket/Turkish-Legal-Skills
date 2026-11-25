@@ -1,13 +1,13 @@
 # Aşama 4 İşleme şartları metodolojisi
 
-26 Kasım 2026 hukukçu görüşüyle revize edilen taslak. Kapanış incelemesi beklenirken sentetik değerlendirmede ve metodoloji incelemesinde kullan. Gerçek dosyalar için [devir ve hazırlık notunu](stage-4-intake.md) üret.
+26 Kasım 2026 hukukçu kapanış incelemesindeki düzeltmeler bu metodolojiye işlendi. Gerçek ve sentetik dosyalarda [devir ve hazırlık notunu](stage-4-intake.md) üret. Güncel faaliyet için Aşama 2 ve Aşama 3'ün aynı kapsamı ve Aşama 4 hedefini içeren devir kararları eşleştiğinde hukukçu incelemesine sunulacak aday taslağını hazırla. `Bekletilir` ve `Uygulanmaz` kapsamlar devir notunda kalır. Bir aday hakkındaki nihai tercihi yalnızca belgelenmiş hukukçu kararının kapsadığı işlem için aktar.
 
 ## İnceleme birimi ve kanıt sınırı
 
 1. [Devir kararını](stage-4-intake.md) faaliyet, kapsam ve hedef bazında kontrol et. Yalnızca `Devredilebilir` kapsamlar için [çıktı şablonunda](../assets/stage-4-outputs.md) aday aç. Devir, değerlendirmeye başlama yetkisidir. Veri kategorisi belirsizse önce ilgili sınıflandırma adımını uygula.
 2. Her adayı aynı faaliyet kapsamındaki belirli amaç, veri kategorisi, ilgili kişi grubu, işlem ve ilgili veri sorumlusu ile ilişkilendir. Kurucu unsurları ayrı satırlarda, destekleyen ve aksi yöndeki olgular, `K-…` dayanakları, kanıt sınırı ve eksik olguyla birlikte kaydet. Her adayın `H-…` kaydını hükmün değerlendirilen metnine bağla.
 3. Kanıtın tarihini, kaynağını, konumunu, güvenilirliğini ve ortamını yaz. Sözleşme beyanı tarafı ve kararlaştırılan süreci, tasarım belgesi öngörülen akışı, sentetik test gözlenen test davranışını destekleyebilir. Fiilî üretim uygulamasını, örneğin maskelenmiş işlem kaydı veya fiilî işleyişi ortaya koyan güvenilir süreç belgesiyle doğrula. Tasarım ile gözlem ayrışıyorsa uyuşmazlığı açık kayda bağla. Gerçek kişi verisi yerine maskelenmiş örnek, alan eşlemesi veya uygun sistem yapılandırması kullan.
-4. Her aday için bağımsız bir taslak sonuç ver. Bir adayın başarısızlığı diğer adayın koşullarına dayanak oluşturmaz. Birden fazla aday varsa her birinin değerlendirilme nedenini kaydet. Hukukçunun mevcut ve belgelenmiş kararından seçilen dayanağı, seçimin gerekçesini ve elenen adayları kapsamıyla aktar. Aday listesi taslak inceleme kaydı olarak kalır.
+4. Her aday için bağımsız bir taslak sonuç ver. Bir kurucu unsur için gerekli olgu veya kanıt eksikse `Ek kanıt gerekli` yaz. Unsurlar hukuki nitelendirme için yeterli olgusal dayanağa sahipse ve nitelendirme açıksa `Hukukçu değerlendirmesi gerekli` yaz. Bir adayın başarısızlığı diğer adayın koşullarına dayanak oluşturmaz. Birden fazla aday varsa her birinin değerlendirilme nedenini kaydet. Aday listesi taslak inceleme kaydı olarak kalır.
 
 ## Genel kişisel veriler · m. 5
 
@@ -31,11 +31,21 @@ Amaç, gereklilik ve denge için birbirinden bağımsız gerekçe ve kanıt yaz.
 
 | İnceleme | Aranacak olgu ve kanıt |
 | --- | --- |
-| Amaç ve menfaat | Veri sorumlusuna ait mevcut, belirli ve meşru menfaati, kimin yararına olduğunu ve işlemin bu yararı nasıl sağladığını belirt. |
+| Amaç ve menfaat | Veri sorumlusuna ait mevcut, belirli, açık ve meşru menfaati, kimin yararına olduğunu ve işlemin bu yararı nasıl sağladığını belirt. |
 | Gereklilik | Menfaat için her veri ve işlemin zorunluluğunu incele. Verisiz, daha az veri kullanan veya daha az müdahaleci makul seçenekleri, bunların yeterliliğini ve seçilen yöntemin gerekçesini kaydet. |
 | Denge | İlgili kişinin makul beklentilerini, etkileri ve bunları azaltan tedbirleri incele. Veri sorumlusunun menfaati karşısında ilgili kişinin temel hak ve özgürlüklerinin nasıl korunacağını gerekçelendir. |
 
-Bir işlemin işlevini gösteren kanıt varsa bu kanıtın veri sorumlusunun menfaati, zorunluluk ve denge hakkında hangi olguları desteklediğini ayrıca değerlendir. [Kurulun 2019/78 sayılı karar özeti](https://www.kvkk.gov.tr/Icerik/5434/2019-78)
+Kurulun 2019/78 sayılı kararındaki aşağıdaki göstergeleri somut olay ve menfaatin niteliğine göre değerlendir. İlgili her göstergeyi gerekçesi ve kanıtıyla kaydet. Uygulanabilirliği belirsizse açık kayıt oluştur. Kanuni koşulları menfaat, zorunluluk ve denge değerlendirmesiyle gerekçelendir.
+
+- Menfaat ile ilgili kişinin temel hak ve özgürlüklerinin karşılaştırılabilir düzeyde olup olmadığı.
+- Menfaatin yalnızca kâr veya ekonomik yarara dayanıp dayanmadığı ve varsa başka yararın niteliği.
+- Yararın kaç kişiyi, hangi grupları ve hangi iş süreçlerini etkilediği.
+- Aynı yarara kişisel veri işlemeden, daha az veriyle veya daha az müdahaleci bir yöntemle ulaşılıp ulaşılamadığı.
+- İlgili kişi için öngörülebilir, açık ve yakın zarar riskleri.
+- Riskleri azaltan teknik ve idari tedbirler ve bunların fiilî uygulaması.
+- İşlemenin m. 4 genel ilkelerine uygunluğunu gösteren kontrol ve dayanaklar.
+
+Göstergelerin ağırlığını somut olaya göre açıkla. Bir işlemin işlevini gösteren kanıtın menfaat, zorunluluk ve denge hakkında hangi olguları desteklediğini ayrı değerlendir. [Kurulun 2019/78 sayılı karar özeti](https://www.kvkk.gov.tr/Icerik/5434/2019-78) · [Kurum rehberindeki aktarım, s. 43](https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/MTY5MjNmNmIwZWY3YTE.pdf)
 
 ### Açık rıza · m. 5/1 ve m. 6/3-a
 
@@ -52,7 +62,7 @@ Aynı işlem için bağımsız bir işleme şartı karşılanıyorsa ayrıca aç
 
 ### Sınıflandırma
 
-- **Şüphe var — doğrulanmadı.** İçerik, kişi bağlantısı, çıkarım veya teknik yöntem belirsizken olası m. 6/1 kategorisini, şüphenin nedenini ve istenecek maskelenmiş kanıtı yaz. Etkilenen kapsamda m. 5 veya m. 6/3 sonucu açık kalır. Devir bekletiliyorsa bu bulguyu aday açmadan hazırlık işine yaz.
+- **Şüphe var — doğrulanmadı.** İçerik, kişi bağlantısı, çıkarım veya teknik yöntem belirsizken olası m. 6/1 kategorisini, şüphenin nedenini ve istenecek maskelenmiş kanıtı yaz. Etkilenen kapsamın taslak sonucu `Ek kanıt gerekli` kalır. m. 5 değerlendirmesi sınıflandırma çözülene kadar açık kalır. m. 6/3 adayını sınıflandırma doğrulandığında aç. Devir bekletiliyorsa bu bulguyu hazırlık işine yaz.
 - **Doğrulandı.** Somut içerik veya işleme biçimi m. 6/1 kategorisini gösteriyorsa ilgili kişiyi, elde etme kaynağını, işlemi, amacı, varsa teknik yöntemi ve kanıtın ortam sınırını kaydet. Doğrulamayı kanıtın kapsadığı ortamla sınırla.
 - **Özel nitelikli veri olmadığı değerlendirildi.** İncelenen içeriğin ve yöntemin hangi kapsamda bu bulguyu desteklediğini yaz. Sınıflandırma durumu belirsiz kaldığında `Şüphe var — doğrulanmadı`, kanıt ihtiyacı için taslak sonuç alanında `Ek kanıt gerekli` kullan.
 
@@ -77,12 +87,19 @@ Aday hüküm veya kurucu unsuru belirsizse m. 6/3 bulgusunu açık bırak. Eksik
 
 ### Yeterli önlemler · m. 6/4
 
-Faaliyet, kapsam, veri kategorisi ve işleme ortamı için yeterli önlemleri ayrı kaydet. Hem m. 6/3 şartını hem m. 6/4 önlemlerini kendi dayanaklarıyla değerlendir. m. 6/3 adayı destekleniyorsa bunu yaz. Yeterli önlemlerin uygulandığı henüz doğrulanmadığında özel nitelikli işleme için olumlu sonuç bekletilir.
+Faaliyet, kapsam, veri kategorisi ve işleme ortamı için yeterli önlemleri ayrı kaydet. Hem m. 6/3 şartını hem m. 6/4 önlemlerini kendi dayanaklarıyla değerlendir. Her önlem ve sınıflandırma tablosundaki önlem özeti için şu durumları kullan.
 
-Kurulun 2018/10 sayılı kararının ilgili başlıkları için fiilî uygulama kanıtı ara. Özel politika ve prosedür, eğitim ve gizlilik, yetki kapsamı ve periyodik kontrol, görev değişikliği veya ayrılışta yetki kaldırma, elektronik güvenlik ve şifreleme, işlem kayıtları, fiziksel güvenlik ve güvenli aktarımı değerlendir. Saklama ve imha süreçlerini de ilgili yükümlülükler bakımından ön kontrolde kaydet. Politika beyanı varsa uygulamayı gösteren maskelenmiş dayanağı ayrıca iste. [Kurulun 2018/10 sayılı kararı, Sağlık Bakanlığı kopyası](https://kisiselveri.saglik.gov.tr/EN,56124/31012018-tarihli-ve-201810-sayili-karar-ozel-nitelikli-kisisel-verilere-yonelik-yeterli-onlemler.html) · [Kurum rehberi, s. 73–75](https://www.kvkk.gov.tr/Icerik/8183/Ozel-Nitelikli-Kisisel-Verilerin-Islenmesine-Iliskin-Rehber)
+- `Doğrulandı` · Uygulanabilir önlemin fiilî uygulaması kanıtlandı. Özette tüm uygulanabilir önlemler doğrulandı.
+- `Kısmen doğrulandı` · Önlemin bir bölümü veya özette bazı uygulanabilir önlemler doğrulandı. Eksik kalan bölümü ve kanıtı yaz.
+- `Doğrulanmadı — ek kanıt gerekli` · Fiilî uygulama gösterilemedi. Eksikliği ve istenecek kanıtı kaydet.
+- `Kapsam dışı — gerekçeli` · Önlem veya özet, belirli işlem ya da ortam için kapsam dışı. Gerekçeyi ve dayanağı yaz.
+
+m. 6/3 adayı destekleniyorsa aday sonucunu kendi kanıtıyla kaydet. Uygulanabilir bir m. 6/4 önlemi kısmen doğrulanmışsa veya doğrulanmamışsa sınıflandırma tablosundaki genel taslak sonuç `Ek kanıt gerekli` olur ve olumlu nihai sonuç bekletilir.
+
+Kurulun 2018/10 sayılı kararının ilgili başlıkları için fiilî uygulama kanıtı ara. Özel politika ve prosedür, eğitim ve gizlilik, yetki kapsamı ve periyodik kontrol, görev değişikliği veya ayrılışta yetki kaldırma, elektronik güvenlik ve şifreleme, işlem kayıtları, fiziksel güvenlik ve güvenli aktarımı değerlendir. Politika beyanı varsa uygulamayı gösteren maskelenmiş dayanağı ayrıca iste. [Kurulun 2018/10 sayılı kararı, Sağlık Bakanlığı kopyası](https://kisiselveri.saglik.gov.tr/EN,56124/31012018-tarihli-ve-201810-sayili-karar-ozel-nitelikli-kisisel-verilere-yonelik-yeterli-onlemler.html) · [Kurum rehberi, s. 73–75](https://www.kvkk.gov.tr/Icerik/8183/Ozel-Nitelikli-Kisisel-Verilerin-Islenmesine-Iliskin-Rehber)
 
 ## Genel ilkeler ve sonuç
 
-Her değerlendirilen amaç ve işlem için m. 4 kontrolünde usul, hukuka ve dürüstlük kurallarına uygunluk, doğruluk ve güncellik, belirli, açık ve meşru amaç, amaçla bağlantı, sınırlılık ve ölçülülük ile saklama süresinin mevzuata veya amaç için gereken süreye uygunluğunu ele al. Eksik olgu ve dayanağı kaydet. Saklama, güvenlik, aktarım ve aydınlatmaya ilişkin ayrıntılı incelemeyi ilgili aşamaya bırak. [6698 sayılı Kanun, m. 4](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=2)
+Her değerlendirilen amaç ve işlem için m. 4 kontrolünde usul, hukuka ve dürüstlük kurallarına uygunluk, doğruluk ve güncellik, belirli, açık ve meşru amaç, amaçla bağlantı, sınırlılık ve ölçülülük ile saklama süresinin mevzuata veya amaç için gereken süreye uygunluğunu ele al. Saklama süresini m. 4/2-d ön kontrolünde kaydet. İşleme sebebinin ortadan kalkmasına ilişkin bulguyu m. 7 kapsamındaki silme, yok etme veya anonim hâle getirme incelemesine aktar. Saklama ve imha, güvenlik, aktarım ve aydınlatmaya ilişkin ayrıntılı incelemeyi ilgili aşamaya bırak. [6698 sayılı Kanun, m. 4](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=2) · [6698 sayılı Kanun, m. 7](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=3)
 
-Taslak sonucu şablondaki durumlarla ve eksik unsurlarıyla kaydet. Belirli bir aday hakkında hukukçu kararı aktarılırken kapsamını, tarihini, dayanağını ve gerekçesini yaz. Aşama 4 raporunun kapsamı işleme şartı adayları ve bunların dayanaklarıyla sınırlıdır.
+Taslak sonucu şablondaki durumlarla ve eksik unsurlarıyla kaydet. Belgelenmiş hukukçu kararını aktarırken kararı veren hukukçunun veya yetkili inceleyenin kimliğini ve rolünü, kayıt kimliğini, tarihi, karar kapsamını, incelenen rapor ve kanıt sürümlerini, seçilen ve elenen adayları, gerekçe ve dayanaklarını yaz. Uygun bulma gerekçesini adayın kurucu unsurlarına ve m. 4 kontrolüne bağla. Özel nitelikli veride m. 6/3 ve doğrulanmış m. 6/4 kayıtlarını da bağla. Aşama 4 raporunun kapsamı işleme şartı adayları ve bunların dayanaklarıyla sınırlıdır.

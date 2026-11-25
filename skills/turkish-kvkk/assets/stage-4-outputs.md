@@ -1,8 +1,8 @@
 # Aşama 4 İşleme şartları değerlendirme taslağı
 
-Bu şablon, kapanış incelemesi bekleyen [işleme şartı metodolojisiyle](../references/stage-4-processing-conditions.md) birlikte sentetik değerlendirme ve metodoloji incelemesinde kullanılır. Gerçek dosya çıktısı [devir ve hazırlık notudur](../references/stage-4-intake.md).
+Bu şablon gerçek ve sentetik dosyalarda [işleme şartı metodolojisiyle](../references/stage-4-processing-conditions.md) birlikte kullanılır. Her kapsam için [devir ve hazırlık notunu](../references/stage-4-intake.md) üret. Aşama 2 ve Aşama 3'ün eşleşen devir kararlarıyla `Devredilebilir` bulunan kapsamlar için hukukçu incelemesine sunulacak aday taslağını ekle.
 
-Rapor başında inceleme tarihini, ortamı ve kullanılan Aşama 2 ile Aşama 3 sürümlerini yaz. `A-…`, `K-…` ve `E-…` kayıtlarını kaynak zincirinden taşı. Yeni kanıt ve açık kayıtları kendi kimlikleriyle tanımla. Bu taslakta kullanılan `H-…` kimliklerini kaynak tablosuna bağla.
+Rapor başında inceleme tarihini, ortamı, rapor sürümünü ve kullanılan Aşama 2 ile Aşama 3 raporlarının sürümlerini veya tarihlerini yaz. `A-…`, `K-…` ve `E-…` kayıtlarını kaynak zincirinden taşı. Yeni kanıt ve açık kayıtları kendi kimlikleriyle tanımla. Bu taslakta kullanılan `H-…` kimliklerini kaynak tablosuna bağla.
 
 ## Devir ve hazırlık
 
@@ -17,19 +17,26 @@ Her adayı `Devredilebilir` faaliyet kapsamına, somut amaca, ilgili veriye, ki�
 
 ### Taslak durum ve hukukçu kararı
 
-- `Hukukçu değerlendirmesi gerekli` · Adayın incelenmesini destekleyen olgular var ve hukuki nitelendirme açık. Kısmi destek varsa eksik unsur ve gerekli kanıtı da yaz.
-- `Ek kanıt gerekli` · Aday hakkında taslak nitelendirme yapabilmek için kurucu unsura ilişkin olgu veya kanıt gerekli. Eksik unsuru, istenecek kanıtı ve `E-…` kaydını bağla.
+- `Ek kanıt gerekli` · Bir kurucu unsur hakkında taslak nitelendirme için gerekli olgu veya kanıt eksik. Desteklenen unsurları, eksik unsuru, istenecek kanıtı ve `E-…` kaydını bağla.
+- `Hukukçu değerlendirmesi gerekli` · Kurucu unsurlar hukuki nitelendirme için yeterli olgusal dayanağa sahip ve hukuki nitelendirme açık. Hukukçuya sunulacak yorum veya nitelendirme sorusunu yaz.
 - `Aday desteklenmedi` · Mevcut olgular bir veya daha fazla kurucu unsurun karşılanmadığını gösteriyor. Dayanağı belirt.
-- `Hukukçu tarafından elendi` ve `Hukukçu tarafından uygun bulundu` · Yalnızca tarihli, gerekçeli hukukçu kararından ve kararın kapsadığı işlem için aktar. Uygun bulma kaydında kurucu unsurlar ve m. 4 kontrolüne ilişkin gerekçeyi, özel nitelikli veri için m. 6/4 kayıtlarını bağla.
+- `Hukukçu tarafından elendi` ve `Hukukçu tarafından uygun bulundu` · Yalnızca tarihli, gerekçeli hukukçu kararından ve kararın kapsadığı işlem için aktar. Uygun bulma kaydında kurucu unsurlar ve m. 4 kontrolüne ilişkin gerekçeyi, özel nitelikli veride m. 6/3 adayını ve doğrulanmış m. 6/4 önlemlerini bağla.
 
 Herhangi bir kurucu unsur açıkken bunu durum gerekçesinde ve unsur kaydında göster. Nihai tercih alanı hukukçunun belgelenmiş kararına ayrılır. Karar yoksa `Hukukçu kararı bekleniyor` yaz.
 
 ## Adayın kurucu unsurları
 
-Her adayın her unsurunu ayrı satıra yaz. Olgunun dayanağını, kanıtın türünü ve sınırını belirt. Sözleşme adayında ilgili kişinin hangi taraf olduğunu, doğrudan bağlantıyı ve veri alanı ile işlem gerekliliğini ayrı işle. Meşru menfaat adayında menfaat, zorunluluk ve dengeyi ayrı işle. Yöntem seçimini, alternatiflerin yeterliliğini ve daha az müdahaleci seçenekleri ilgili unsurda kaydet.
+Her adayın her unsurunu ayrı satıra yaz. Destekleyen ve aksi yöndeki olguların dayanağını, kanıtın türünü ve sınırını belirt. Sözleşme adayında ilgili kişinin hangi taraf olduğunu, doğrudan bağlantıyı ve veri alanı ile işlem gerekliliğini ayrı işle. Meşru menfaat adayında menfaat, zorunluluk ve dengeyi ayrı işle. Yöntem seçimini, alternatiflerin yeterliliğini ve daha az müdahaleci seçenekleri ilgili unsurda kaydet.
 
-| Aday no. | Kurucu unsur | Destekleyen olgu | Kanıt, tür ve ortam sınırı | Eksik olgu ve açık kayıt | İlgili kişinin hukuki konumu | Veri ve işlem gerekliliği | Yöntemi seçen ve makul alternatifler |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Aday no. | Kurucu unsur | Destekleyen olgu | Kanıt, tür ve ortam sınırı | Eksik olgu ve açık kayıt | İlgili kişinin hukuki konumu | Veri ve işlem gerekliliği | Yöntemi seçen ve makul alternatifler | Aksi yöndeki olgu ve dayanağı |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+## m. 5/2-f değerlendirme göstergeleri
+
+Kurulun 2019/78 sayılı kararındaki göstergelerden somut olayı etkileyenleri kaydet. Menfaatin haklarla karşılaştırılabilirliğini, menfaatin niteliğini, etkilenen kişi ve iş süreçlerini, alternatifleri, zarar risklerini, teknik ve idari tedbirleri ve m. 4 kontrolünü ilgili ayrı satırlarda gerekçelendir. Her satırı adayın kurucu unsuruna ve dayanaklarına bağla. Eksik olgu için `E-…` kaydını ve istenen kanıtı yaz.
+
+| Aday no. | Kurucu unsur | Gösterge | Somut değerlendirme | Kanıt ve açık kayıt |
+| --- | --- | --- | --- | --- |
 
 ## Açık rıza kontrolü
 
@@ -40,31 +47,31 @@ Bu bölümü açık rıza adayı için doldur. Her alanı kanıt veya açık kay
 
 ## Özel nitelikli veri sınıflandırması
 
-Her veri kategorisi ve işlem için `Şüphe var — doğrulanmadı`, `Doğrulandı` veya `Özel nitelikli veri olmadığı değerlendirildi` durumunu kanıt sınırıyla kaydet. `Doğrulandı` kapsamındaki aday m. 6/3 hükmü ve unsurları için aday numarasını kullan. Şüphe varsa sınıflandırmayı çözecek maskelenmiş kanıtı yaz. Bekletilen devirde şüpheye ilişkin hazırlığı devir tablosuna kaydet.
+Her veri kategorisi ve işlem için `Şüphe var — doğrulanmadı`, `Doğrulandı` veya `Özel nitelikli veri olmadığı değerlendirildi` durumunu kanıt sınırıyla kaydet. `Doğrulandı` kapsamındaki aday m. 6/3 hükmü ve unsurları için aday numarasını kullan. `Şüphe var — doğrulanmadı` ise m. 6/3 aday alanını boş bırak, taslak sonucu `Ek kanıt gerekli` olarak yaz ve sınıflandırmayı çözecek maskelenmiş kanıtı iste. Bekletilen devirde şüpheye ilişkin hazırlığı devir tablosuna kaydet.
 
 | Faaliyet ve kapsam | Veri ve olası m. 6/1 kategorisi | Sınıflandırma durumu | İçerik, kişi bağlantısı, kaynak, işlem, amaç ve teknik yöntem | Kanıt ve ortam sınırı | Aday no. ve m. 6/3 hükmü | m. 6/4 önlem kaydının durumu | Taslak sonuç | Açık kayıt ve istenecek kanıt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## m. 6/4 yeterli önlemler
 
-İlgili önlemleri veri kategorisi, işlem, kapsam ve ortamla ilişkilendir. Her önlem için fiilî uygulama kanıtını, eksikliği veya kapsam dışı kalmasının gerekçesini yaz. Yeterli önlemlerin durumu, m. 6/3 işleme şartından bağımsız bir kayıttır.
+İlgili önlemleri veri kategorisi, işlem, kapsam ve ortamla ilişkilendir. Her önlem için fiilî uygulama kanıtını, eksikliği veya kapsam dışı kalmasının gerekçesini yaz. Önlem satırında ve sınıflandırma tablosundaki önlem özetinde `Doğrulandı`, `Kısmen doğrulandı`, `Doğrulanmadı — ek kanıt gerekli` veya `Kapsam dışı — gerekçeli` kullan. Yeterli önlemleri m. 6/3 adayından bağımsız değerlendir. Uygulanabilir önlemler kısmen doğrulandıysa veya doğrulanmadıysa, m. 6/3 adayı desteklense bile genel taslak sonuç `Ek kanıt gerekli` olur ve olumlu nihai sonuç bekletilir.
 
-| Faaliyet ve kapsam | Veri kategorisi ve ortam | Yeterli önlem | Uygulama kanıtı ve sınırı | Durum ve gerekçe | Hukuki dayanak | Açık kayıt ve istenecek kanıt |
+| Faaliyet ve kapsam | Veri kategorisi, işlem ve ortam | Yeterli önlem | Uygulama kanıtı ve sınırı | Durum ve gerekçe | Hukuki dayanak | Açık kayıt ve istenecek kanıt |
 | --- | --- | --- | --- | --- | --- | --- |
 
 ## m. 4 genel ilkeler kontrolü
 
-Amaç ve işlem başına m. 4/1 ile m. 4/2'deki ilkelerin her birine ilişkin olguyu ve açıkları kaydet. Daha sonraki aşamalarda incelenecek ayrıntıyı ilgili açık kayda bağla.
+Amaç ve işlem başına m. 4/1 ile m. 4/2'deki ilkelerin her birine ilişkin olguyu ve açıkları kaydet. Saklama süresini m. 4/2-d kapsamında kontrol et. İmha incelemesi gerektiren bulguları m. 7 ve sonraki aşamayla ilişkilendir. Daha sonraki aşamalarda incelenecek ayrıntıyı ilgili açık kayda bağla.
 
 | Faaliyet ve kapsam | Amaç ve işlem | Genel ilke | Olgusal değerlendirme | Kanıt ve açık kayıt |
 | --- | --- | --- | --- | --- |
 
 ## Adaylar ve hukukçu kararı
 
-Adayın neden incelendiğini ve aynı amaç ile işlemdeki diğer adaylarla ilişkisini açıkla. Belgelenmiş hukukçu kararı varsa seçilen ve elenen adayları, gerekçeyi, karar kapsamını, tarihini ve kaynağını yaz.
+Adayın neden incelendiğini ve aynı amaç ile işlemdeki diğer adaylarla ilişkisini açıkla. Belgelenmiş hukukçu kararından kararı veren veya onaylayan kişinin izlenebilir kimliğini ve rolünü, kararın tarihini, kayıt kimliğini ve kaynağını, kapsadığı faaliyet, kapsam, amaç ve işlemi, seçilen ve elenen adayları, gerekçe ve dayanak kayıtlarını ve incelenen rapor ile kanıt sürümlerini aktar. Karar bekleniyorsa karar sütununa `Hukukçu kararı bekleniyor` yaz ve kararın diğer alanlarını boş bırak.
 
-| Faaliyet, kapsam, amaç ve işlem | Aday no. ve incelenme gerekçesi | Diğer adaylarla ilişkisi | Hukukçunun nihai tercihi ve gerekçesi | Karar tarihi, kapsamı ve kaynağı |
-| --- | --- | --- | --- | --- |
+| Faaliyet, kapsam, amaç ve işlem | Aday no. ve incelenme gerekçesi | Diğer adaylarla ilişkisi | Hukukçu kararı ve seçilen ya da elenen adaylar | Gerekçe ve dayanak kayıtları | Kararı veren hukukçu veya yetkili inceleyenin kimliği ve rolü | Karar kayıt kimliği ve kaynağı | Karar tarihi | Kararın kapsadığı faaliyet, kapsam, amaç ve işlem | İncelenen rapor ve kanıt sürümleri |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Hukuki kaynak kaydı
 
