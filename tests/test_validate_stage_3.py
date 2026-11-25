@@ -281,23 +281,25 @@ class StageThreeReports(unittest.TestCase):
 
     def test_stage_four_preparation_matches_both_upstream_decisions(self):
         sample = CASES.parent / "stage-4/samples/phase-1.5-stage-4-intake.md"
-        body, = stage_1.sections(sample.read_text(encoding="utf-8"))["Devir ve hazırlık"]
-        _, *rows = stage_1.table_rows(body)
+        rows = stage_3.named_upstream_rows(sample.read_text(encoding="utf-8"), "Devir ve hazırlık")
         stage_2_decisions = {row["Faaliyet"]: row["Devir durumu"]
                             for row in stage_3.named_upstream_rows(CURRENT_SECOND, stage_2.HANDOFF)
                             if row["Hedef inceleme"] == "Aşama 4"}
         tables, _, _ = stage_3.read_tables(CURRENT_REPORT, [])
         stage_3_decisions = {(row["Faaliyet"], row["Faaliyet kapsamı"]): row
                              for row in tables[stage_3.HANDOFF] if row["Hedef aşama"] == "Aşama 4"}
-        keys = [tuple(row[0].split(" · ", 1)) for row in rows]
+        keys = [tuple(row["Faaliyet ve kapsam"].split(" · ", 1)) for row in rows]
         self.assertCountEqual(keys, stage_3_decisions)
         for key, row in zip(keys, rows):
             previous = stage_3_decisions[key]
-            self.assertEqual(row[1].split(" · ", 1)[0], stage_2_decisions.get(key[0], "Aşama 4 için karar yok"))
-            self.assertEqual(row[2].split(" / "), [previous["Geçiş durumu"], previous["Esaslı değerlendirmeye devir"]])
-            self.assertEqual(row[3], "Bekletilir")
-            self.assertNotEqual(row[5], "—")
-            self.assertEqual(stage_3.ids(row[6]), stage_3.ids(previous["Kanıt"] + " " + previous["Açık kayıt"]))
+            self.assertEqual(row["Aşama 2 kararı ve dayanağı"].split(" · ", 1)[0],
+                             stage_2_decisions.get(key[0], "Aşama 4 için karar yok"))
+            self.assertEqual(row["Aşama 3 devir durumu"].split(" / "),
+                             [previous["Geçiş durumu"], previous["Esaslı değerlendirmeye devir"]])
+            self.assertEqual(row["Esaslı incelemeye devir"], "Bekletilir")
+            self.assertNotEqual(row["Hazırlık işi"], "—")
+            self.assertEqual(stage_3.ids(row["Kanıt ve açık kayıt"]),
+                             stage_3.ids(previous["Kanıt"] + " " + previous["Açık kayıt"]))
 
     def test_current_phase_15_reports_validate_as_one_chain(self):
         self.assertEqual(stage_1.validate_report(CURRENT_FIRST, CURRENT_FIXTURE), [])

@@ -1,6 +1,6 @@
 # Aşama 4 KurguAtölye işleme şartları taslağı
 
-26 Kasım 2026 tarihli sentetik örnek. Kimlikler bu bağımsız zincire aittir. Aşama 2 ve Aşama 3 girdileri örneğe özgü kısaltılmış kayıtlardır. Tüm faaliyet olguları kurgusaldır.
+26 Kasım 2026 tarihli sentetik örnek. Aynı tarihli Aşama 2 ve Aşama 3 girdileri örneğe özgü kısaltılmış kayıtlardır. Kimlikler bu bağımsız zincire aittir. Tüm faaliyet olguları kurgusaldır.
 
 ## Sentetik devir girdileri
 
@@ -18,21 +18,57 @@
 
 ## Devir ve hazırlık
 
-| Faaliyet ve kapsam | Aşama 2 kararı ve dayanağı | Aşama 3 devir durumu | Esaslı incelemeye devir | Amaç, veri ve rol bağlantısı | Hazırlık ve devam koşulu | Kanıt ve açık kayıt |
-| --- | --- | --- | --- | --- | --- | --- |
-| A-001 · Randevu teyidi | Devredilebilir · Randevu teyidi · K-001, K-002 | Devredilebilir / Devredilebilir | Devredilebilir | Randevuyu teyit etmek. Müşterinin e-posta adresi ve randevu bilgisi. KurguAtölye’nin taslak veri sorumlusu rolü. | Sözleşme bağı ve seçilen teyit kanalının gerekliliği aday bazında incelenir. | K-001, K-002 |
+| Faaliyet ve kapsam | Aşama 2 kararı ve dayanağı | Aşama 3 devir durumu | Esaslı incelemeye devir | Amaç, veri ve rol bağlantısı | Hazırlık işi | Yeni kanıtın faaliyet sınırına etkisi | Aşama 2'ye dönüş | Aşama 3 rol güncellemesi | Engelleyen açık ve devam koşulu | Kanıt ve açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-001 · Randevu teyidi | Devredilebilir · Randevu teyidi · K-001, K-002 | Devredilebilir / Devredilebilir | Devredilebilir | Randevuyu teyit etmek. Müşterinin e-posta adresi ve randevu bilgisi. KurguAtölye’nin taslak veri sorumlusu rolü. | Sözleşme bağını ve kanal gerekliliğini aday bazında incele. | Yeni kanıt yok | Gerekmiyor. Karar aynı faaliyet ve hedefi kapsıyor. | Gerekmiyor. Rol bağlantısı sentetik kapsam için geçerli. | Devri engelleyen açık yok. İnceleme randevu teyidi ve sentetik ortamla sınırlı. | K-001, K-002 |
 
 ## İşleme şartı adayları
 
-| Faaliyet ve kapsam | Amaç | Veri, ilgili kişi ve işlem | Aday işleme şartı | Destekleyen olgular ve kanıt sınırı | Hukuki dayanak | Taslak durum | Açık kayıt ve istenecek kanıt |
+| Aday no. | Faaliyet ve kapsam | Amaç | Veri, ilgili kişi ve işlem | Aday işleme şartı | Destekleyen olgular ve kanıt sınırı | Hukuki dayanak | Taslak durum ve bağımsız gerekçe | Açık kayıt ve istenecek kanıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | A-001 · Randevu teyidi | Kararlaştırılan hizmet randevusunun tarih ve saatini teyit etmek | Müşterinin e-posta adresi, tarih ve saat. Teyit mesajını müşteriye göndermek. | Sözleşmenin kurulması veya ifasıyla doğrudan bağlantılı gerekli işleme · m. 5/2-c | K-001 kurgusal sözleşme tarafını ve teyidin sözleşmedeki işlevini destekliyor. K-002 yalnızca test gönderimini gösteriyor. | H-001 | Hukukçu değerlendirmesi gerekli · Taraf ve doğrudan bağlantı destekleniyor. E-posta gerekliliği, kanal tercihi ve üretim akışı açık. | E-001 · Rezervasyon formu, kanal seçimi, alan işlevleri ve fiilî teyit akışı için maskelenmiş dayanak. |
+| 2 | A-001 · Randevu teyidi | Kararlaştırılan hizmet randevusunun tarih ve saatini teyit etmek | Müşterinin e-posta adresi, tarih ve saat. Teyit mesajını müşteriye göndermek. | Veri sorumlusunun meşru menfaati · m. 5/2-f | K-001 sözleşme koşullarındaki teyidi, K-002 sentetik gönderimi gösteriyor. | H-001, H-002 | Ek kanıt gerekli · Veri sorumlusuna ait menfaat, o menfaat için zorunluluk ve temel hak ve özgürlükler üzerindeki etki açık. | E-001 · Kanal ve veri gerekliliği. E-002 · Menfaat açıklaması, gereklilik ve denge kanıtı. |
+
+## Adayın kurucu unsurları
+
+| Aday no. | Kurucu unsur | Destekleyen olgu | Kanıt, tür ve ortam sınırı | Eksik olgu ve açık kayıt | İlgili kişinin hukuki konumu | Veri ve işlem gerekliliği | Yöntemi seçen ve makul alternatifler |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A-001 · Randevu teyidi | Kararlaştırılan hizmet randevusunun tarih ve saatini teyit etmek | Müşterinin e-posta adresi, tarih ve saat. Teyit mesajını müşteriye göndermek. | Sözleşmenin kurulması veya ifasıyla doğrudan bağlantılı gerekli işleme · m. 5/2-c | K-001 müşteriyi sözleşme tarafı ve mesajı teyit adımı olarak gösteriyor. K-002 sentetik gönderimi destekliyor. E-posta kanalının gerekliliğini ve varsa daha az veri kullanan karşılaştırılabilir seçeneği incele. | H-001 | Hukukçu değerlendirmesi gerekli | E-001 · E-posta ve alternatif teyit kanallarının nasıl kullanıldığını, alınan alanları ve bu alanların işlevini gösteren maskelenmiş süreç bilgisi. |
-| A-001 · Randevu teyidi | Kararlaştırılan hizmet randevusunun tarih ve saatini teyit etmek | Müşterinin e-posta adresi, tarih ve saat. Teyit mesajını müşteriye göndermek. | Veri sorumlusunun meşru menfaati · m. 5/2-f | K-001 ve K-002 teyit işlevini gösteriyor. Ayrı menfaat gerekçesi, gereklilik ve ilgili kişi üzerindeki etkilerin tartımı dosyada açık. | H-001 | Ek kanıt gerekli | E-001 · Kanal ve veri gerekliliği. E-002 · İleri sürülen menfaati ve ilgili kişinin hak ve özgürlükleri üzerindeki etkiyi açıklayan dayanak. |
+| 1 | Sözleşmeyle doğrudan bağlantı | Kararlaştırılan randevuyu teyit etmek sözleşme sürecinde öngörülüyor. | K-001 · Kurgusal rezervasyon koşulları, kararlaştırılan akış. | E-001 · Teyidin fiilî rezervasyon ve ifa sürecindeki yeri. | Gerçek kişi müşteri, kurgusal sözleşmenin tarafı. | Teyit adımının işlevi destekleniyor. Alan gerekliliği ayrı inceleniyor. | — |
+| 1 | Sözleşme tarafının verisi | Rezervasyon koşulları müşteriyi sözleşme tarafı ve adresi bildiren kişi olarak tanımlıyor. | K-001 · Kurgusal sözleşme beyanı. K-002 · Sentetik test adresi. | E-001 · Üretim sürecindeki rezervasyon, ilgili kişi ve adres bağlantısı. | Gerçek kişi müşteri, kurgusal sözleşmenin tarafı. | — | — |
+| 1 | Veri ve işlem gerekliliği | Tarih ve saat teyit edilecek randevuyu gösteriyor. E-posta adresi test gönderimini yönlendiriyor. | K-001 · Beyan edilen kanal. K-002 · Sentetik gönderim ve test alanları. | E-001 · Alanların fiilî işlevi, zorunluluğu ve üretim süreci. | — | Tarih ve saat için teyit işlevi destekleniyor. E-posta adresinin ve bu kanaldan gönderimin gerekliliği açık. | Müşterinin kanalı seçip seçmediği ve varsa diğer kanallarla işleyiş E-001 kapsamında açık. |
+| 2 | Amaç ve meşru menfaat | Teyit işlevi incelenebiliyor. | K-001 · Sözleşme beyanı. K-002 · Sentetik gönderim. | E-002 · KurguAtölye'ye ait mevcut menfaat ve teyidin işletme ile müşteri bakımından yararı. | KurguAtölye ilgili kapsamda taslak veri sorumlusu. | — | — |
+| 2 | Zorunluluk | Test, kullanılan alanları ve gönderimi gösteriyor. | K-002 · Sentetik gönderim. | E-001, E-002 · Her alanın ve e-posta gönderiminin ileri sürülen menfaat için zorunluluğu. | — | Menfaat ve veri alanı ilişkisi açık. | SMS, telefon ve daha az veri kullanan seçeneklerin uygunluğu incelenecek. |
+| 2 | Denge | Kurgusal koşullar müşteriye teyit yapılacağını belirtiyor. | K-001 · Sözleşme beyanı, kurgusal ortam. | E-002 · Makul beklenti, etkiler ve işlem kapsamını daraltan tedbirler. | Teyit mesajını alacak müşteri. | — | — |
+
+## Açık kayıtlar
+
+| Açık kayıt | İstenecek kanıt |
+| --- | --- |
+| E-001 | Rezervasyon formunda e-posta adresinin zorunlu veya isteğe bağlı oluşu, müşterinin kanal seçimi, SMS ve telefon dahil alternatifler ve başka kanal seçildiğindeki iş akışı. Adresin diğer kullanım amaçları, mesajdaki her alan ve işlevi, sözleşme tarafı eşlemesi ve sentetik test ile üretim arasındaki fark için maskelenmiş kayıt veya güvenilir süreç belgesi. |
+| E-002 | Veri sorumlusunun menfaat açıklaması, teyidin işletme ve müşteri bakımından işlevi, alternatiflerin yeterliliği, veri ve işlemin zorunluluğu, müşterinin makul beklentileri, temel hak ve özgürlüklere olası etkiler ve kapsamı daraltan tedbirler. |
+| E-003 | Teyit kapsamına ilişkin usul ve dürüstlük, doğruluk ve güncelleme ile saklama süresini destekleyen maskelenmiş süreç bilgisi. |
+
+## m. 4 genel ilkeler kontrolü
+
+| Faaliyet ve kapsam | Amaç ve işlem | Genel ilke | Olgusal değerlendirme | Kanıt ve açık kayıt |
+| --- | --- | --- | --- | --- |
+| A-001 · Randevu teyidi | Randevuyu teyit etmek için e-posta göndermek | Hukuka ve dürüstlük kurallarına uygunluk | İşleme şartları aday aşamasında. Fiilî uygulamaya ilişkin inceleme açık. | H-001, E-001, E-002, E-003 |
+| A-001 · Randevu teyidi | Randevuyu teyit etmek için e-posta göndermek | Doğruluk ve güncellik | Test, rezervasyondaki tarih ve saatin kullanıldığını gösteriyor. Değişikliklerin adrese ve mesaja nasıl yansıdığı açık. | H-001, K-002, E-003 |
+| A-001 · Randevu teyidi | Randevuyu teyit etmek için e-posta göndermek | Belirli, açık ve meşru amaç | Teyit amacı sözleşme koşullarında belirli. Adresin başka kullanım amaçları açık. | H-001, K-001, E-001 |
+| A-001 · Randevu teyidi | Randevuyu teyit etmek için e-posta göndermek | Amaçla bağlantı, sınırlılık ve ölçülülük | Tarih ve saat ile teyit arasındaki bağlantı destekleniyor. Kanal ve alanların kapsamı inceleniyor. | H-001, K-001, K-002, E-001 |
+| A-001 · Randevu teyidi | Randevuyu teyit etmek için e-posta göndermek | Gerekli saklama süresi | Teyit adresinin ve mesaj kaydının saklama süresi açık. | H-001, E-003 |
+
+## Adaylar ve hukukçu kararı
+
+| Faaliyet, kapsam, amaç ve işlem | Aday no. ve incelenme gerekçesi | Diğer adaylarla ilişkisi | Hukukçunun nihai tercihi ve gerekçesi | Karar tarihi, kapsamı ve kaynağı |
+| --- | --- | --- | --- | --- |
+| A-001 · Randevu teyidi · Teyit e-postası gönderimi | 1 · Sözleşme tarafı ve teyit işlevi destekleniyor. 2 · Teyit işlevi, ayrı bir menfaat incelemesi için olgusal başlangıç sağlıyor. | Aday 2 kendi menfaat, zorunluluk ve denge kanıtına bağlı. Aday 1'in açık gereklilik unsuru aday 2'yi desteklemiyor. | Hukukçu kararı bekleniyor | — |
+
+İncelenen sentetik olgular açık rıza adayı veya m. 6 sınıflandırma şüphesi doğurmadı.
 
 ## Hukuki kaynak kaydı
 
-| Kaynak kimliği | Kaynak ve nitelik | Erişilen bölüm | Desteklenen önerme | Erişim tarihi ve durumu |
-| --- | --- | --- | --- | --- |
-| H-001 | 6698 sayılı Kanun, kamu kurumu sitesindeki metin | m. 5/2-c ve f, PDF s. 2 | Sözleşme adayında doğrudan bağlantı, sözleşme tarafının verisi ve gereklilik. Meşru menfaat adayında gereklilik ile temel hak ve özgürlüklere zarar vermeme koşulu. | 26.11.2026 · Belirtilen bentler okundu. |
-
-[Kanun metni, PDF s. 2](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=2)
+| Kaynak kimliği | Kaynak ve nitelik | Erişilen bölüm | Sürüm veya yürürlük tarihi | Desteklenen önerme | Erişim tarihi ve durumu |
+| --- | --- | --- | --- | --- | --- |
+| H-001 | 6698 sayılı Kanun, kamu kurumu sitesindeki konsolide metin | m. 4 ve m. 5/2-c, f, PDF s. 2 | İlgili hükümler 7.04.2016'da yürürlüğe girdi. | Genel ilkeler. Sözleşmede doğrudan bağlantı, sözleşme tarafı ve gereklilik. Meşru menfaatte zorunluluk ile temel hak ve özgürlüklere zarar vermeme. | 26.11.2026 · Belirtilen hükümler okundu. [Kanun metni, PDF s. 2](https://ceyhansolsahil.gov.tr/wp-content/uploads/2025/08/1.5.6698.pdf#page=2) |
+| H-002 | Kurulun 2019/78 sayılı karar özeti ve Kurumun bankacılık rehberi | Karar özetindeki menfaat ölçütleri ve rehberde m. 5/2-f değerlendirmesi | Karar 25.03.2019 tarihli. | Meşru menfaat iddiası için koşullar ve ilgili kişinin haklarıyla denge incelemesi. Kanuni koşullar H-001'de. | 26.11.2026 · Özetin indekslenen bölümü ve Kurum rehberindeki açıklama kontrol edildi. Özet sayfası doğrudan açılamadı. [Karar özeti](https://www.kvkk.gov.tr/Icerik/5434/2019-78) · [Kurum rehberi](https://kvkk.gov.tr/SharedFolderServer/CMSFiles/12236bad-8de1-4c94-aad6-bb93f53271fb.pdf) |

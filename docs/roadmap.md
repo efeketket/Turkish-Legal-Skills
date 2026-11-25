@@ -18,7 +18,7 @@ Phase 1.5 prepares `turkish-kvkk` `0.4.0` for legal review. It applies the nine 
 
 Phase 1.6 closes Stage 3 legal review on 26 November 2026. Counsel approved the role methodology, report template and activity-level handoff and confirmed the existing Stage 2 approval. Live Codex CLI validation remains open for technical release and live-use acceptance. [Counsel decision](küb-docs/history/asama3-kapanıs.md) · [Verification record](../tests/stage-3/README.md)
 
-Stage 4 development starts with intake from the Stage 2 inventory and Stage 3 handoff. Substantive review requires matching decisions for the activity, scope and Stage 4 target. The draft template and two synthetic scenarios are ready for counsel feedback on evidence thresholds, candidate conditions and special-category data. [Stage 4 intake](../skills/turkish-kvkk/references/stage-4-intake.md) · [Counsel questions and scenarios](küb-docs/asama-4-hukuk-inceleme-promptu.md)
+Stage 4 applies the 26 November 2026 counsel feedback to the intake, draft processing-condition methodology, output template and two synthetic scenarios. Substantive review requires matching decisions for the current activity, scope and Stage 4 target. The revised methodology covers element-level evidence, independent candidates, explicit consent, general principles and current special-category rules. Real cases use the preparation note pending counsel's closure review. [Initial opinion](küb-docs/asama4.md) · [Revised methodology](../skills/turkish-kvkk/references/stage-4-processing-conditions.md) · [Closure review brief](küb-docs/asama-4-hukuk-inceleme-promptu.md)
 
 Further Phase 1 work includes the following.
 
