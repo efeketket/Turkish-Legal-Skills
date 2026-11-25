@@ -78,7 +78,7 @@ Devralınan her `E-…` için aynı kimlikle güncel durumu kaydet. Kapanan kayd
 
 ### Gerekçeli Revizyon Geçmişi
 
-Her değişikliği ayrı satırda sakla. `İşlem` için `Düzeltme`, `Bölme` veya `Birleştirme` yaz. Faaliyet kimliği değiştiyse eski ve yeni kimliklerin tamamını göster. `Açık kayıt ve revizyon sonrasındaki durum` hücresine `E-…` ile birlikte o tarihteki durumu yaz. Açığın güncel durumu ana açık listesinde izlenir. Geçmiş bir satırın durumunu yeni gelişmeye göre değiştirme. Revizyon yoksa tabloyu boş bırak.
+Her değişikliği ayrı satırda sakla. `İşlem` için `Düzeltme`, `Bölme`, `Birleştirme` veya `Yeni faaliyet` yaz. `Yeni faaliyet` yalnızca mevcut faaliyet sınırı korunurken ilişkili bağımsız bir işleme tespit edildiğinde kullanılır. İlişkinin tespit edildiği faaliyeti `Önceki faaliyetler`, yeni kimliği `Sonraki faaliyetler` alanına yaz ve ayrı amacı veya operasyonel işlevi yeni kanıtla gerekçelendir. Faaliyet kimliği değiştiyse eski ve yeni kimliklerin tamamını göster. `Açık kayıt ve revizyon sonrasındaki durum` hücresine `E-…` ile birlikte o tarihteki durumu yaz. Açığın güncel durumu ana açık listesinde izlenir. Geçmiş bir satırın durumunu yeni gelişmeye göre değiştirme. Revizyon yoksa tabloyu boş bırak.
 
 | Revizyon tarihi | İşlem | Önceki faaliyetler | Sonraki faaliyetler | Önceki tespit | Önceki tespit tarihi | Önceki kapsam | Önceki kanıt | Yeni bilgi veya kanıt | Yeni tespit | Gerekçe | Etkilenen faaliyet ve çıktı | Açık kayıt ve revizyon sonrasındaki durum |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

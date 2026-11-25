@@ -5,6 +5,8 @@ Sentetik sahte hukuk kaynağı: 2099/999999
 
 Bu alıntılardaki işletmeler, dokümanlar ve operasyon kayıtları kurgusaldır. Kaynak dosya başlıkları, dosyaların paylaşılan kısımlarını gösterir.
 
+Güncel Phase 1.5 zincirinde yalnız kiracı sözleşmesi, sentetik gözlemler ve ek beyan yeni girdidir. Abonelik alıntısı ayrı sentetik senaryoya aittir. Her rapor kendi Aşama 2 envanterinden ve kayıt dizisinden devam eder.
+
 ## README.md
 
 KurguZiyaret A.Ş. Türkiye'deki ofislere abonelikle ziyaret yönetimi sunar. Ofis resepsiyon ekipleri ziyaretçi girişini yönetir. KurguZiyaret'in destek ekibi uygulama sorunlarını takip eder.
@@ -38,7 +40,7 @@ KurguZiyaret, yalnız kiracı tarafından onaylanan Barınak Bulut A.Ş.'yi bar�
 
 MaviOfis resepsiyonu giriş kaydını başlatır. Kiracı oturumu alanları ve erişimi yönetir; Barınak sentetik ortamda veriyi KurguZiyaret talimatıyla saklar. Kayıt teknisyenlerine maskelenmiş çıktı gösterildi.
 KurguZiyaret aynı giriş olaylarını kiracının talimatı olmadan, ziyaretçiye bağlanabilir biçimde ürün metriklerine kopyaladı. Metrik amacı, seçilen alanlar ve saklama süresi KurguZiyaret yönetimince belirleniyor.
-Kurgusal demo toplantısında MaviOfis A.Ş. ve YeşilOfis A.Ş. ortak tekrar-ziyaret listesi için kitleyi, alanları ve alıcıları birlikte onayladı. KurguZiyaret bu listenin ayrı teknik akışını sundu.
+Kurgusal demo toplantısında MaviOfis A.Ş. ve YeşilOfis A.Ş. ortak tekrar-ziyaret listesi için kitleyi, alanları ve alıcıları birlikte onayladı. KurguZiyaret bu listenin ayrı teknik akışını sundu. Gerçek kişisel veri işlenmesine ilişkin gözlem yoktu.
 Maskelenmiş bir olay yönlendirme izi, başka bir alıcıya gönderim gösteriyor. Alıcının tüzel kişiliği, kimin talimat verdiği ve hangi amaçla alındığı belirsiz.
 
 ## İşletmenin ek beyanı

@@ -4,7 +4,9 @@
 
 - Skill: turkish-kvkk
 
-- Dayanak sürüm: 0.3.0
+- İlk taslağın dayanak sürümü: 0.3.0
+
+- Güncel inceleme sürümü: 0.4.0 · `draft-preview`
 
 - Taslak durumu: Hukukçu incelemesine açık
 
@@ -13,6 +15,7 @@
 - Ön koşul: Aşama 1 ve Aşama 2 çıktıları
 
 > Bu metodoloji taslaktır. Hukukçu değerlendirmesi ve proje onayı tamamlanmadan kesinleşmiş kabul edilmemelidir.
+> Phase 1.6 çalışma metni, 26.11.2026 tarihli hukuk incelemesindeki zorunlu düzeltmeleri yansıtır ve yeniden hukukçu incelemesine açıktır.
 
 # 1. Amaç
 
@@ -64,9 +67,9 @@ Aşama 3'ün tamamlanması, ilgili veri işleme faaliyetlerinin KVKK'ya uygun bu
 
 9. Önceki rol tahminleriyle çelişen yeni değerlendirmelerin gerekçesini açıkça göster.
 
-Aşama 2'deki faaliyet sınırlarını gereksiz yere değiştirme. Ancak bir faaliyet içinde farklı amaç veya operasyonel işlevlere sahip ayrı işleme bölümleri bulunuyorsa rol değerlendirmesini bu bölümler bakımından ayrıca yap.
+Aynı Aşama 2 faaliyeti içinde taraflar veya operasyonlar farklı rollere sahipse mevcut faaliyet kimliği altında kapsam ve taraf bazında ayrı rol kayıtları aç.
 
-Bu ayrıştırma, Aşama 2 faaliyet kimliğini sessizce değiştirmemelidir. Gerekli görülürse faaliyet sınırına ilişkin düzeltme gerekçesi ayrıca kaydedilmelidir.
+Bağımsız amaç veya Aşama 2'nin sınır ölçütlerine göre ayrı faaliyet gerektiren operasyonel işlev tespit edilirse gerekçeyi ve kanıtı kaydedip Aşama 2'ye dön. Ayrı kimliği Aşama 2 ana envanterinde oluştur, önceki kaydı ve revizyon ilişkisini koru. Yeni faaliyet için rol incelemesine Aşama 2'den uygun devir sağlandığında başla. Plan veya demo ile belgelenen kararları tasarım verisi olarak kaydet. Fiilî kişisel veri işleme doğrulanırsa faaliyet sınırının tespiti için Aşama 2'ye dön.
 
 ## 2.2. Faaliyetlere katılan tarafların belirlenmesi
 
@@ -140,7 +143,7 @@ Veri aktarımının alıcısı olmak, tek başına veri sorumlusu veya veri işl
 
 6698 sayılı Kanun'un 3. maddesindeki veri sorumlusu tanımını esas al.
 
-Bir gerçek veya tüzel kişinin veri sorumlusu olup olmadığını belirlemek için ilgili faaliyetin işleme amaçlarını ve temel vasıtalarını kimin belirlediğini araştır.
+Bir gerçek veya tüzel kişinin veri sorumlusu olup olmadığını belirlemek için işleme amaçlarını ve temel vasıtalarını kimin belirlediğini ve veri kayıt sisteminin kurulmasından ve yönetilmesinden kimin sorumlu olduğunu araştır.
 
 İlk olarak aşağıdaki sorulara cevap ara:
 
@@ -168,9 +171,19 @@ Bir gerçek veya tüzel kişinin veri sorumlusu olup olmadığını belirlemek i
 
 12. Bir başka taraf adına işlem yapılması söz konusuysa talimat verme yetkisi kimdedir?
 
+13. Veri kayıt sisteminin kurulmasına kim karar vermiştir?
+
+14. Sistemin organizasyonunu ve yönetim kurallarını kim belirlemektedir?
+
+15. Kayıt düzenini, kayıtların bulunma ölçütlerini ve erişim kurallarını kim belirlemekte ve kim uygulamaktadır?
+
+16. Sistem kararları hangi amaç ve temel vasıtayı belirlemektedir? Hangi tercihler verilen talimatların teknik uygulamasıdır?
+
 ### Ölçütlerin hukuki ağırlığı
 
 Yukarıdaki sorular eşit ağırlıkta mekanik bir kontrol listesi olarak kullanılmamalıdır.
+
+Sistemin kurulması veya yönetilmesiyle ilgili yetkiyi, amaç, temel vasıta ve talimat olgularıyla birlikte değerlendir. Teknik işletim veya erişim yetkisi tek başına bir rol tayin etmeye yetmez.
 
 Öncelikle şu unsurları değerlendir:
 
@@ -448,7 +461,7 @@ Bir yazılım şirketinin işletmelere müşteri yönetimi uygulaması sunduğu 
 
 Bu tablo yalnızca başlangıç değerlendirmesidir. Gerçek sözleşmeler, teknik yapı ve fiilî uygulama araştırılmadan kesin rol ataması yapılmamalıdır.
 
-Özellikle Kurulun 2021/1303 sayılı kararı dikkate alınmalıdır. Kararda yazılım şirketlerinin standart SaaS hizmetleri ile müşteriler arasında kara liste verilerinin paylaşılmasını sağlayan ayrı işleme faaliyetleri birbirinden ayrılmıştır.
+Kurulun 2021/1303 sayılı karar özeti ile 2021/1304 sayılı ilke kararını ayrı kaynaklar olarak incele. Araç kiralama örneğinde standart SaaS hizmeti ile müşteriler arasında kara liste verilerini açan işleme ayrılır.
 
 Bu karar, yazılım şirketinin teknik altyapıyı yönetmesinin veya verilerin içeriğine doğrudan erişememesinin her durumda veri işleyen olduğu anlamına gelmediğini göstermektedir.
 
@@ -670,11 +683,11 @@ Her faaliyet ve taraf için hukuki rol değerlendirmesini gösteren ana tablo.
 
 Önerilen sütunlar:
 
-| Faaliyet | Faaliyet kapsamı | Taraf | Hukuki kimlik | İlgili kişi grubu | İşleme amacı | Ön değerlendirme | Nihai rol değerlendirmesi | Olgusal doğrulama | Hukuki değerlendirme durumu | Kanıt | Açık kayıt |
+| Faaliyet | Faaliyet kapsamı | Taraf | Hukuki kimlik | İlgili kişi grubu | İşleme amacı | Ön değerlendirme | Güncel taslak rol değerlendirmesi | Olgusal doğrulama | Hukuki değerlendirme durumu | Kanıt | Açık kayıt |
 
 |---|---|---|---|---|---|---|---|---|---|---|---|
 
-Bir faaliyet kapsamında farklı işleme amaçları veya operasyonel bölümler varsa tarafın rolü bu bölümler bakımından ayrı gösterilmelidir.
+Aynı faaliyet sınırındaki rol farklılıklarını kapsam bazında göster. Bağımsız faaliyet bulgusunu Aşama 2'ye geri gönder. Olgusu veya hukuki dayanağı doğrulanamayan rolü koşullu ifade et ya da açık bırak.
 
 ## 4.2. Karar Alma Yetkileri ve Talimat Matrisi
 
@@ -703,6 +716,8 @@ Karar alanları en azından şunları içermelidir:
 - Saklama ve imha kararları.
 
 - Erişim yetkileri.
+
+- Veri kayıt sistemini kurma, organize etme, yönetme, kayıt düzenini ve erişim kurallarını belirleme yetkisi.
 
 - Veri paylaşımı ve alıcılar.
 
@@ -777,6 +792,8 @@ Yeni bir açık kayıt oluşturulması gerekiyorsa mevcut son `E-…` numarasın
 ## 4.6. Sonraki Aşamalara Devir Notları
 
 Aşama 4, 5, 6 ve 7 için tarafların hukuki konumlarından kaynaklanan önemli hususlar aktarılmalıdır.
+
+Faaliyet bazında hazırlık ve bilgi toplamayı esaslı uygunluk değerlendirmesine devirden ayır. Aşama 2'den devralınan hedefe özgü kısıtları ve yeni kanıtın açık bıraktığı alt soruları göster. Bir fiziksel kaydın KVKK m. 2 kapsamındaki veri kayıt sistemi niteliği belirsizse Aşama 4–7 için hazırlıkla sınırlı ilerle. Planlanan işlemler için fiilî kullanım doğrulanana kadar hazırlık kaydı tut.
 
 Her devir notu ilgili `A-…`, `K-…` ve `E-…` kimliklerini içermelidir.
 
@@ -876,11 +893,17 @@ Veri sorumlusu ve veri işleyen ayrımında amaç, temel araçlar, karar yetkile
 
 Hizmet sağlayıcı ve uygulama sağlayıcı arasındaki veri sorumlusu/veri işleyen ayrımını incelemek bakımından önemlidir.
 
-### 23.12.2021 tarihli ve 2021/1303 sayılı Kurul Kararı
+### 23.12.2021 tarihli ve 2021/1303 sayılı Kurul Karar Özeti
 
 Yazılım şirketlerinin SaaS hizmetleri ve ortak veri tabanlarında veri sorumluluğu bakımından özellikle önemlidir.
 
 Standart SaaS hizmeti ile yazılım şirketinin kendi amaçları doğrultusunda yürüttüğü ek işleme faaliyetleri birbirinden ayrılmalıdır.
+
+### 23.12.2021 tarihli ve 2021/1304 sayılı Kurul İlke Kararı
+
+20.01.2022 tarihli, 31725 sayılı Resmî Gazete'de yayımlanan ilke kararı araç kiralama sektöründeki kara liste uygulamalarını ele alır. Kararın gerekçe ve sonuç bölümünde, firmaların kendi işletmesiyle sınırlı kayıtlar ile yazılım üzerinden diğer firmalara açılan kayıtlar ayrılır. Kanunun 4, 5 ve 8. maddelerine aykırı kara liste işleme bağlamında Kurul, veriler üzerinde hâkimiyeti bulunan kiralama şirketleriyle yazılım şirketlerinin ortak veri sorumluluğu değerlendirmesini açıklar.
+
+Bu yaklaşım, ilgili faaliyet için tarafların ortak amaca, paylaşım mimarisine, erişime ve diğer temel vasıtalara fiilî katkısının araştırılmasını destekler. Her ortak liste veya veri paylaşımı için aynı sonucu çıkarmadan önce sektör ve işleme olgularını karşılaştır. Demo tasarım kararını fiilî işleme ve ortak rolün kanıtı sayma. Türk hukuku değerlendirmesini KVKK ve Kurul uygulaması üzerinden kur. [Kurum kararı](https://www.kvkk.gov.tr/Icerik/7414/2021-1304) · [Resmî Gazete](https://www.resmigazete.gov.tr/eskiler/2022/01/20220120-10.pdf)
 
 ## 6.3. Kurum rehberleri
 

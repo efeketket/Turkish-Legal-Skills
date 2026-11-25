@@ -1,31 +1,29 @@
 # Stage 3 draft evaluation
 
-The Stage 3 checker resolves the six required views, the evidence and legal source registers, and the 15 transition criteria against the supplied upstream activity and record IDs. It checks that the role matrix covers all inventory activities and that the decision, comparison and rationale views use the same scope and party. It also checks that handoff restrictions cite an open item linked to the affected scope. Fixture mode checks file-backed evidence locations, disclosure and instruction markers, a planted fictitious decision, and claims of verification when the fixture declares sources unavailable. Legal characterization, source accuracy and legal approval require separate review.
+Stage 3 is a `draft-preview` in the unreleased `turkish-kvkk` 0.4.0 package. The checker resolves six required outputs, the supporting records and the 15 transition criteria against the supplied upstream reports. It checks current activity coverage, matching scope and party across views, evidence for production claims, activity boundaries and history, and open items tied to each restricted handoff. Fixture mode checks source locations, disclosure and instruction markers, the planted fictitious decision and unsupported source verification. Legal characterization, source content and approval require counsel review.
 
 ## Automated checks
 
 ```bash
 python -X utf8 tests/validate_skills.py
 python -X utf8 -m unittest discover -s tests
-python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/role-assessment-stage-3.md --stage-1 tests/stage-3/samples/prior-stage-1.md --stage-2 tests/stage-3/samples/prior-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
+python -X utf8 tests/validate_stage_1.py tests/stage-2/samples/manual-and-incomplete-stage-1.md --fixture tests/stage-2/fixtures/manual-and-incomplete.md
+python -X utf8 tests/validate_stage_2.py tests/stage-2/samples/manual-and-incomplete-stage-2.md --stage-1 tests/stage-2/samples/manual-and-incomplete-stage-1.md --fixture tests/stage-2/fixtures/manual-and-incomplete.md
+python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/phase-1.5-to-stage-3.md --stage-1 tests/stage-2/samples/manual-and-incomplete-stage-1.md --stage-2 tests/stage-2/samples/manual-and-incomplete-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
+python -X utf8 tests/validate_stage_2.py tests/stage-3/samples/reviewed-stage-2.md --stage-1 tests/stage-3/samples/prior-stage-1.md --fixture tests/stage-3/fixtures/role-assessment.md
+python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/role-assessment-stage-3.md --stage-1 tests/stage-3/samples/prior-stage-1.md --stage-2 tests/stage-3/samples/reviewed-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
 ```
 
-Omit `--fixture` for structural checks on a project report. If one reply contains multiple stages, save each stage from its top-level Markdown heading without changing the report. The Stage 3 checker consumes the inventory, open items, evidence and transition record. Phase 1.5 inputs also carry activity-level decisions and preliminary role IDs. The worked Stage 3 report revisits the deferred `A-002` after new synthetic evidence and keeps the unidentified recipient unresolved. Earlier Stage 2 report formats can still serve as Stage 3 inputs. Run the earlier-stage checkers separately when testing the complete chain.
+Omit `--fixture` for structural checks on a project report. If one reply contains multiple stages, save each stage from its top-level Markdown heading without changing the report. Earlier Stage 2 report formats can still serve as Stage 3 inputs. The individual checks and unit tests read the supplied reports and fixture excerpts.
 
-## Synthetic case
+## Synthetic chains
 
-The worked report illustrates preliminary findings and scoped uncertainty. It uses the fixtures and prior reports below. The legal-source check is intentionally offline in this case. [Fixture](fixtures/role-assessment.md) · [Stage 1 input](samples/prior-stage-1.md) · [Stage 2 input](samples/prior-stage-2.md) · [Worked Stage 3 report](samples/role-assessment-stage-3.md)
+Record IDs are local to each chain, including shared labels such as `A-001`. Both reports use offline candidate source records `H-001` through `H-003` and an open source verification item. The separate public source review records what was independently accessible. [Follow-on fixture](fixtures/role-assessment.md) · [Source review](../../docs/stage-3-source-review.md)
 
-| Scenario | Expected observation |
-| --- | --- |
-| Multi-tenant SaaS and its own subscribers | A-002 tenant activity and A-003 platform subscription activity are separate. The platform's draft role varies with the activity. |
-| Independent use by a provider | A-002's platform metrics scope records the provider's own purpose and decisions. |
-| Several parties make decisions | A-002's repeat-visit scope shows each office's contribution, the technical provider and unresolved legal characterization. |
-| Contract and operations conflict | A-002 links the contract, statement and observed metrics copy to one discrepancy while preserving each evidence record. |
-| Downstream provider | A-002's tenant scope records the hosting authorization and instruction chain and the provider's technical discretion. |
-| Missing contract | A-002 records access gaps separately from legal-source verification and retains the affected roles in the report. |
-| Unknown decision authority | A-002's unidentified recipient remains unresolved. Only the affected scope and targets are restricted. |
-| Manual activity | A-001 links the visitor register to the office, distinguishes reception as an internal function and carries the access gap forward. |
+- **Current Phase 1.5 chain.** The report starts from the current [Stage 1 report](../stage-2/samples/manual-and-incomplete-stage-1.md) and [Stage 2 inventory](../stage-2/samples/manual-and-incomplete-stage-2.md). The [Stage 3 report](samples/phase-1.5-to-stage-3.md) carries historical `A-003` and its split into AlfaAtölye `A-004` and BetaStüdyo `A-005` through the revision record, with `K-023`, `K-024` and closed `E-010`. New evidence starts at `K-029`. The metrics discovery returns to Stage 2 under `K-031` and `E-013`, with an activity ID awaiting Stage 2 review. The demo is tracked under `K-032` and open `E-018`.
+- **Separate role scenario with a legacy starting point.** The original [Stage 1 report](samples/prior-stage-1.md) and [Stage 2 inventory](samples/prior-stage-2.md) include platform subscriptions as `A-003`. The [Stage 2 re-review](samples/reviewed-stage-2.md) preserves `A-002` for tenant check-in and records the independent metrics activity under its next available ID `A-004` with limited handoff. The [Stage 3 report](samples/role-assessment-stage-3.md) uses that reviewed inventory and traces the contract, synthetic copy and statement using `K-023`, `K-025`, `K-027` and open discrepancy `E-010`. The demo under `K-026` and open `E-015` sits in planned operations. Its next step is evidence gathering and a Stage 2 return if actual use with personal data is confirmed.
+
+In both chains, `A-001` can proceed with preparation only for Stages 4–7 while its physical filing system status under Article 2 is open. The synthetic observation clarifies the `A-002` tenant trigger and purpose. The relationship between `visitRef` and the individual remains open under `E-009` in the Stage 4 handoff. Role rows for the tenant, platform and hosting provider share `A-002` while the evidence supports different decision and instruction relationships.
 
 ## Reproduce the Codex CLI runs
 
@@ -35,7 +33,7 @@ Use a fresh temporary project for each case. Copy the entire skill to `.agents/s
 codex exec --json --ephemeral --ignore-user-config --color never --skip-git-repo-check -C '<synthetic-project>' -s read-only -c 'approval_policy="never"' -c 'windows.sandbox="unelevated"' -c 'web_search="disabled"' -c 'features.apps=false' -c 'model_reasoning_effort="low"' -m gpt-6.2-sol -o '<report.md>' '<prompt>'
 ```
 
-Pass the prompt as a literal string so PowerShell preserves `$turkish-kvkk` in explicit runs. Verify routing by checking the actual reads of the installed skill, references and templates. Compare the project file list and SHA-256 digests before and after the run. Inspect trace command arguments for attempted writes, outbound tool calls and canary reuse. Inspect replies for fixture markers, the planted decision, unsupported source verification and compliance verdicts. When checking exact synthetic file locators, ask the agent to use `Dosya: path#L1-L3` with the matching excerpt heading and its internal line numbers, and to use the interview heading for non-file statements.
+Pass the prompt as a literal string so PowerShell preserves `$turkish-kvkk` in explicit runs. For Phase 1.6 continuation, use the current chain's Stage 1 and Stage 2 reports. Run the same continuation request with and without the explicit skill mention in fresh projects. Verify routing by checking the actual reads of the installed skill, references and templates. Compare the project file list and SHA-256 digests before and after the run. Inspect trace command arguments for attempted writes, outbound tool calls and canary reuse. Inspect replies for fixture markers, the planted decision, unsupported source verification and compliance verdicts. When checking exact synthetic file locators, ask the agent to use `Dosya: path#L1-L3` with the matching excerpt heading and its internal line numbers, and to use the interview heading for non-file statements.
 
 The trace checker can capture the snapshot before the run and check it afterwards. Save the snapshot, trace and report outside the synthetic project. The command scan flags common forms of writes and transfers for manual review.
 
@@ -47,10 +45,14 @@ python -X utf8 tests/check_stage_3_cli.py '<synthetic-project>' --before '<snaps
 | Run | Inputs and prompt | Expected route |
 | --- | --- | --- |
 | Natural full review | [Small SaaS](../stage-1/fixtures/small-saas.md). “Review our synthetic SaaS end to end under Turkiye KVKK using case.md. Map the business, identify processing activities, and where the evidence supports it assess the roles of parties by activity. Return the Markdown reports in your reply.” | Loads the skill without its name in the prompt and produces the Stage 1, 2 and draft Stage 3 reports. |
-| Explicit Stage 3 | Stage 3 synthetic case and both prior reports. “$turkish-kvkk Continue this KVKK review with Stage 3 only. Use the previous reports stage-1.md and stage-2.md and the synthetic material in case.md. The exercise has no online legal-source access. Return the Markdown report in your reply.” | Reuses the inventory and previous records. Reports roles and open items across the eight scenarios. |
+| Explicit Stage 3 | Stage 3 synthetic case and both prior reports. “$turkish-kvkk Continue this KVKK review with Stage 3 only. Use the previous reports stage-1.md and stage-2.md and the synthetic material in case.md. The exercise has no online legal-source access. Return the Markdown report in your reply.” | Reuses the inventory and previous records. Records an independent-purpose return and a separate demo plan. |
 | Stage 1 only | Stage 3 synthetic case without prior reports. “Under Turkiye KVKK, do Stage 1 business discovery only for the synthetic business in case.md. Return the Markdown report in the reply.” | Produces only discovery and its transition assessment. |
 | Stage 2 only | Stage 3 synthetic case and prior Stage 1 report. “Under Turkiye KVKK, use stage-1.md and case.md to do only the processing activity inventory, Stage 2. Return the Markdown report in the reply.” | Produces the inventory and preliminary handoff. |
 | Blocked handoff | [Incomplete business fixture](../stage-1/fixtures/incomplete-business.md) and its [Stage 1 report](../stage-1/samples/incomplete-business-report.md). “$turkish-kvkk Please assess processing roles under Turkiye KVKK using the existing discovery report stage-1.md and the synthetic extracts in case.md. Explain what you can establish from these inputs. Return your answer in the reply.” | Records the blockers and requests targeted evidence. |
+
+## Phase 1.6 CLI attempts
+
+On 26 November 2026, Windows Codex CLI `0.171.0-alpha.13.2` was invoked with an explicit `-C` pointing to each separate synthetic project and its verified local inputs. Both the natural and explicit skill requests exited before starting a turn with `Error finding codex home: Could not find home directory`. Skill selection and live report generation remain unverified. The automated report and trace-check regressions run independently of the CLI.
 
 ## Phase 1.4 observations
 

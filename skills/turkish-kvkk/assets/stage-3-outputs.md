@@ -8,19 +8,19 @@
 
 Başlıkları, sütunları ve durum etiketlerini koru. Yer tutucuları kaldır. Uygulanmayan alanlara `—`, bilinmeyen alanlara açıklama ve `E-…` yaz. Her `A-…` için ana envanterdeki tek satıra atıf yap. Alt kapsam yoksa `Faaliyetin tamamı` yaz. Alt kapsam varsa adını bütün tablolarda tutarlı kullan. `Faaliyet`, `Faaliyet kapsamı` ve `Taraf` birlikte bir değerlendirmeyi tanımlar. Alt kapsamları ayrı faaliyet olarak numaralandırma. Hukuki kimlik ve organizasyonel konumu, alıcı ve ilgili kişi konumundan ayrı kaydet. Her bulguya `K-…`, kanıt henüz yoksa `E-…` bağla. Önceki raporları değişiklik geçmişi için erişilebilir tut.
 
-Phase 1.5 devrinde başlangıç gerekçesine faaliyet bazlı Aşama 3 kararı ile varsa kısıtı, ilgili `E-…` ve yeni `K-…` üzerinden yaz. Rol incelemesi girdilerini rol, yetki ve karşılaştırma tablolarında kullan. Tarihsel `A-…` kimliklerine revizyon bağı üzerinden atıf yap.
+Başlangıç gerekçesine faaliyet bazlı Aşama 3 kararı ile varsa kısıtı, ilgili `E-…` ve yeni `K-…` üzerinden yaz. Rol incelemesi girdilerini rol, yetki ve karşılaştırma tablolarında kullan. Tarihsel `A-…` kimliklerine revizyon bağı üzerinden atıf yap. Bağımsız amaç veya ayrı operasyonel işlev bulgusunu Aşama 2'ye dönmeden rol matrisine alma.
 
 ## Faaliyet Bazlı Hukuki Rol Matrisi
 
-Ana envanterdeki her faaliyeti ve her değerlendirilen kapsam/tarafı göster. `Ön değerlendirme` hücresinde varsa Aşama 1 `R-…` kimliğini kullan. `Nihai rol değerlendirmesi` bu rapordaki güncel taslak değerlendirmeyi ifade eder. Olgusal durum için `Doğrulandı`, `Kısmen doğrulandı`, `Doğrulanamadı` veya `Çelişkili` ile sınırı yaz. Hukuki durum için `Taslak değerlendirme`, `Hukuki yorum açık` veya `Değerlendirilemedi` yaz ve gerekçe kaydında açıkla. Son iki durumda olası rolü koşullu ifade et ve açık kaydı bağla.
+Ana envanterdeki her güncel faaliyeti ve her değerlendirilen kapsam/tarafı göster. `Ön değerlendirme` hücresinde varsa Aşama 1 `R-…` kimliğini kullan. Olgusal durum için `Doğrulandı`, `Kısmen doğrulandı`, `Doğrulanamadı` veya `Çelişkili` ile sınırı yaz. Hukuki durum için `Taslak değerlendirme`, `Hukuki yorum açık` veya `Değerlendirilemedi` yaz ve gerekçe kaydında açıkla. Olgusu veya hukuki dayanağı doğrulanamayan rolü koşullu ifade et ya da açık bırak. Her rol sonucu hukukçu incelemesine açıktır.
 
-| Faaliyet | Faaliyet kapsamı | Taraf | Hukuki kimlik ve organizasyonel konum | İlgili kişi grubu | İşleme amacı | Ön değerlendirme | Nihai rol değerlendirmesi | Olgusal doğrulama | Hukuki değerlendirme durumu | Hukuki kaynak | Kanıt | Açık kayıt |
+| Faaliyet | Faaliyet kapsamı | Taraf | Hukuki kimlik ve organizasyonel konum | İlgili kişi grubu | İşleme amacı | Ön değerlendirme | Güncel taslak rol değerlendirmesi | Olgusal doğrulama | Hukuki değerlendirme durumu | Hukuki kaynak | Kanıt | Açık kayıt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | A-… | … | … | … | … | … | R-… | … | … | … | H-… | K-… | E-… |
 
 ## Karar Alma Yetkileri ve Talimat Matrisi
 
-Her kapsam ve taraf için amacı, ilgili kişi gruplarını, kategorileri, toplama yöntemini, temel ve teknik araçları, saklama ve imhayı, erişimi, paylaşımı, sağlayıcı seçimini ve işleme sonuçlarını incele. Ortak karar varsa tarafların katkılarını göster. Karar yetkisi bilinmiyorsa açık kaydı yaz.
+Her kapsam ve taraf için amacı, ilgili kişi gruplarını, kategorileri, toplama yöntemini, temel ve teknik araçları, saklama ve imhayı, erişimi, paylaşımı, sağlayıcı seçimini ve işleme sonuçlarını incele. Veri kayıt sistemi için `Sistemin kurulması`, `Sistemin organizasyonu ve yönetimi`, `Kayıt düzeni` ve `Erişim kuralları` kararlarını ayrı sorgula. Yetkinin amaç ve temel vasıtaya mı, talimatın teknik uygulanmasına mı ilişkin olduğunu gerekçelendir. Bu yetkiyi diğer olgularla birlikte tart. Ortak karar varsa tarafların katkılarını göster. Karar yetkisi bilinmiyorsa açık kaydı yaz.
 
 | Faaliyet | Faaliyet kapsamı | Taraf | Karar alanı | Kararı alan taraf | Kararın niteliği | Talimat ilişkisi | Dayanak kanıt | Açık kayıt | Açıklama |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -28,11 +28,13 @@ Her kapsam ve taraf için amacı, ilgili kişi gruplarını, kategorileri, topla
 
 ## Sözleşme ve Fiilî Uygulama Karşılaştırması
 
-Karşılaştırmayı her kapsam ve taraf için göster. Sözleşme, işletme beyanı, teknik gözlem ve fiilî operasyon ayrı kanıtlarla desteklenir. Erişilemeyen belgeye ayrı açık kayıt bağla. Belgenin uygulanmadığı yönündeki çıkarımı, gözlemlenen olgular ve sınırlarıyla gerekçelendir.
+Karşılaştırmayı her kapsam ve taraf için göster. Sözleşme, işletme beyanı, teknik gözlem ve fiilî operasyon ayrı kanıtlarla desteklenir. İşlemin durumunu `Beyan veya belge`, `Teknik iz`, `Sentetik ortamda gözlendi`, `Üretimde gözlendi` veya `Doğrulanamadı` olarak yaz. Bir kapsamda birkaç tür kanıt varsa fiilî uygulamayı destekleyen kapsamı ve ortamı esas al. Plan ve demoları planlanan işlemler tablosuna yaz. Erişilemeyen belgeye ayrı açık kayıt bağla.
 
-| Faaliyet | Faaliyet kapsamı | Taraf | Sözleşmedeki düzenleme | İşletme beyanı | Teknik gözlem | Fiilî uygulama | Farklılık | Hukuki etkisi | Kanıt | Açık kayıt |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A-… | … | … | … | … | … | … | … | … | K-… | E-… |
+Fiziksel kapsamda `Fiziksel kayıt m. 2 eşiği` için `Doğrulandı` veya `Doğrulanamadı` yaz. Fiziksel kayıt incelemesi uygulanmıyorsa `—` kullan. Dijital ve fiziksel adımların devir koşulları farklıysa ilgili rol kapsamlarını ayrı göster.
+
+| Faaliyet | Faaliyet kapsamı | Taraf | Sözleşmedeki düzenleme | İşletme beyanı | Teknik gözlem | Fiilî uygulama | İşlemin durumu | Fiziksel kayıt m. 2 eşiği | Farklılık | Hukuki etkisi | Kanıt | Açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-… | … | … | … | … | … | … | … | … | … | … | K-… | E-… |
 
 ## Hukuki Rol Değerlendirme ve Gerekçe Kayıtları
 
@@ -52,15 +54,31 @@ Her devralınan `E-…` kimliğini bir kez göster. Önceki iki rapordaki `A-…
 
 ## Sonraki Aşamalara Devir Notları
 
-Her kapsam için Aşama 4–7'yi ele al. İlgili `Aşama 4`, `Aşama 5`, `Aşama 6` ve `Aşama 7` satırlarını ayrı yaz. Geçiş için `Devredilebilir`, `Kısıtlı` veya `Uygulanmaz` kullan. `Kısıtlı` satırında yalnız o kapsamı ve hedefi etkileyen `E-…` kaydını göster. Kanıt veya açık bağlantısı yoksa ilgili hücreye `—` yaz ve kanıt yoksa açık kaydı göster. Aşama 4 için işleme şartıyla ilişkili tarafı, 5 için aktarım ilişkisini, 6 için güvenlik, saklama ve imha kararlarını, 7 için aydınlatma, başvurular ve sözleşme bağlantılarını aktar. Uygunluk değerlendirmesini ilgili aşamada yap.
+Her kapsam için `Aşama 4`, `Aşama 5`, `Aşama 6` ve `Aşama 7` satırlarını ayrı yaz. Geçiş için `Devredilebilir`, `Kısıtlı` veya `Uygulanmaz` kullan. `Hazırlık ve bilgi toplama` alanında yapılabilecek işi yaz. `Esaslı değerlendirmeye devir` için sırasıyla `Devredilebilir`, `Bekletilir` veya `Uygulanmaz` yaz. `Kısıtlı` satırında o kapsamı ve hedefi etkileyen önceki veya yeni `E-…` kaydını göster. Devralınan kısıt değişirse yeni kanıtın çözdüğü ve açık bıraktığı soruları ve ortamı yaz. Fiziksel kaydın m. 2 kapsamı doğrulanmadıysa esaslı devri Aşama 4–7 boyunca beklet. Veriyle ilgili kişi arasındaki bağ belirsizse ilgili açığı Aşama 4'e taşı. Aşama 4'e işleme şartıyla ilişkili tarafı, 5'e aktarım ilişkisini, 6'ya güvenlik, saklama ve imha kararlarını, 7'ye aydınlatma, başvurular ve sözleşme bağlantılarını aktar.
 
-| Faaliyet | Faaliyet kapsamı | Hedef aşama | Geçiş durumu | Rol bağlantısı, gerekçe ve sonraki adım | Kanıt | Açık kayıt |
-| --- | --- | --- | --- | --- | --- | --- |
-| A-… | … | Aşama 4 | … | … | K-… | E-… |
+| Faaliyet | Faaliyet kapsamı | Hedef aşama | Geçiş durumu | Hazırlık ve bilgi toplama | Esaslı değerlendirmeye devir | Rol bağlantısı, gerekçe ve sonraki adım | Kanıt | Açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-… | … | Aşama 4 | … | … | … | … | K-… | E-… |
+
+## Aşama 2 Faaliyet Sınırı ve Dönüş Kayıtları
+
+Aşama 2 revizyonlarını ve gerekçeli dönüşleri burada belgeleyerek altı çıktıyı koru. Durum için `Devralınan revizyon`, `Aşama 2 incelemesi bekleniyor` veya `Aşama 2 incelemesi tamamlandı` kullan. Bekleyen bulgu için `Sonraki faaliyetler` alanına `—` yaz. Aşama 2 incelemesinde atanmış kimliği, raporu ve faaliyet bazlı devir kararını tamamlanan satırda göster. Aşama 2 kaynak raporundaki eski-yeni kimlik, kanıt ve açık kayıt bağlarını koru. İlgili bulgu yoksa tabloyu boş bırak.
+
+| Önceki faaliyetler | İşlem veya bulgu | Durum | Sonraki faaliyetler | Aşama 2 raporu ve devir dayanağı | Gerekçe | Kanıt | Açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| A-… | … | … | A-… | … | … | K-… | E-… |
+
+## Planlanan İşlemler
+
+Tasarım ve demoları `Planlandı` veya `Demo veya tasarım` durumuyla kaydet. `İlgili kayıtlar` mevcut faaliyetle bağlam bağını gösterebilir. Plan için aktif faaliyet kimliği, rol sonucu veya esaslı devir açma. Fiilî kişisel veri işleme doğrulanırsa Aşama 2'ye dönüş koşulunu yaz. Plan yoksa tabloyu boş bırak.
+
+| Planlanan işlem | İlgili kayıtlar | İşlemin durumu | Tasarım kararı ve kanıt sınırı | Aşama 2'ye dönüş koşulu | Hazırlık ve bilgi toplama | Hukuki kaynak | Kanıt | Açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| … | A-… | … | … | … | … | H-… | K-… | E-… |
 
 ## Ortak Kanıt Kaydı
 
-Önceki `K-…` kimliklerine doğrudan atıf yap. Yalnızca yeni kanıtı tanımla. Aşama 2 kanıt türleriyle birlikte `Sözleşme` ve `Fiilî operasyon gözlemi` kullanabilirsin. Dosya konumunu `Dosya: yol#L1-L2` biçiminde, alıntıysa paylaşılan dosya başlığı ve alıntı içindeki satırlarla yaz. Satır numarası yoksa belge bölümü veya sembolü belirt. Tarih ve ortamı ekle. Doğrulama durumu ile sınırı `Doğrulandı — yalnızca paylaşılan sözleşme hükmü` örneğindeki biçimde yaz. Yeni kanıt yoksa boş tabloyu koru.
+Önceki `K-…` kimliklerine doğrudan atıf yap. Yalnızca yeni kanıtı tanımla. Aşama 2 kanıt türleriyle birlikte `Sözleşme` ve `Fiilî operasyon gözlemi` kullanabilirsin. Sentetik çalışmayı `Test ortamı gözlemi` ile işaretle. Karşılaştırmada `Üretimde gözlendi` sonucunu yalnız aynı faaliyet ve kapsama ait doğrulanmış `Üretimde fiilî çalışma kaydı` ile kullan. Dosya konumunu `Dosya: yol#L1-L2` biçiminde, alıntıysa paylaşılan dosya başlığı ve alıntı içindeki satırlarla yaz. Satır numarası yoksa belge bölümü veya sembolü belirt. Tarih ve ortamı ekle. Doğrulama durumu ile sınırı `Doğrulandı — yalnızca paylaşılan sözleşme hükmü` örneğindeki biçimde yaz. Yeni kanıt yoksa boş tabloyu koru.
 
 | Kanıt kaydı | İlgili kayıtlar | Tespit veya iddia | Kaynak türü | Kaynak ve konum | Ortam ve tarih | Doğrulama durumu ve sınırı | Açık kayıt | Sonraki inceleme |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -68,11 +86,11 @@ Her kapsam için Aşama 4–7'yi ele al. İlgili `Aşama 4`, `Aşama 5`, `Aşama
 
 ## Hukuki Kaynak Kaydı
 
-Bu raporda kaynaklar için `H-…` kullan. Tür için `Kanun`, `İkincil mevzuat`, `Kurul kararı`, `Kurum rehberi`, `Yargı kararı`, `Doktrin` veya `Karşılaştırmalı hukuk` kullan. Durumu `Doğrulandı`, `Kısmen doğrulandı` veya `Doğrulanamadı` ile göster. Yalnızca taslakta bir atıf varsa ve resmî içeriğe erişilemediyse `Doğrulanamadı` yaz. Son iki durumda `Hukuki kaynak doğrulaması` türünde `E-…` bağla. Somut olay bağlamını, erişim sınırını ve faaliyetle ilişkisini kaydet. Resmî bağlantıyı açık HTTPS adresi veya Markdown bağlantısı olarak yaz. Adres bilinmiyorsa `—` kullan. Yayımlanmış resmî karar özeti ile karar tam metnini ayrı tanımla.
+Bu raporda kaynaklar için `H-…` kullan. Tür için `Kanun`, `İkincil mevzuat`, `Kurul kararı`, `Kurul karar özeti`, `Kurul ilke kararı`, `Kurum rehberi`, `Yargı kararı`, `Doktrin` veya `Karşılaştırmalı hukuk` kullan. Durumu `Doğrulandı`, `Kısmen doğrulandı` veya `Doğrulanamadı` ile göster. Gerçekte erişilen bölümü ve erişimin sınırını yaz. İçeriğe erişilmediyse bölüm alanına `—` yaz ve kaynağı `Doğrulanamadı` işaretle. Son iki durumda `Hukuki kaynak doğrulaması` türünde `E-…` bağla. Hukuki önermeyi, kaynağın niteliği ve bağlayıcılığını, somut olayla bağını ve ilgili `A-…`, `K-…` veya `E-…` kayıtlarını göster. Resmî bağlantıyı açık HTTPS adresi veya Markdown bağlantısı olarak yaz. Adres bilinmiyorsa `—` kullan.
 
-| Hukuki kaynak | Kaynak türü | Adı ve yayımlayan makam | Madde veya karar no | Karar veya yayım tarihi | Yürürlük durumu | Resmî bağlantı | İnceleme tarihi | Doğrulama durumu | Bağlam ve rol değerlendirmesiyle ilişki | Açık kayıt |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| H-… | … | … | … | … | … | … | … | … | … | E-… |
+| Hukuki kaynak | Kaynak türü | Adı ve yayımlayan makam | Madde veya karar no | Karar veya yayım tarihi | Erişilen bölüm / madde / sayfa | Hukuki nitelik ve bağlayıcılık | Resmî bağlantı | İnceleme tarihi | Doğrulama durumu | Desteklenen hukuki önerme | Somut bağlam ve rol bağlantısı | İlgili kayıtlar | Açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H-… | … | … | … | … | … | … | … | … | … | … | … | A-… / K-… / E-… | E-… |
 
 ## Aşama Geçiş Değerlendirmesi
 

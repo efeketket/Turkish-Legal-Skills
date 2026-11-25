@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | `0.4.0` is the unreleased Phase 1.5 review version. The revised [Stage 2 preliminary inventory](tests/stage-2/README.md) records activity-level handoffs, evidence boundaries and revision history. The [Stage 3 role assessment preview](tests/stage-3/README.md) remains a draft for legal review. |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.4.0`. Counsel approved the Phase 1.5 [Stage 2 methodology](tests/stage-2/README.md). The Phase 1.6 [Stage 3 role assessment](tests/stage-3/README.md) is a `draft-preview` awaiting counsel review. |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install

@@ -18,9 +18,12 @@ COMPARISON = "Sözleşme ve Fiilî Uygulama Karşılaştırması"
 REASONS = "Hukuki Rol Değerlendirme ve Gerekçe Kayıtları"
 GAPS = "Belirsiz Roller ve Eksik Bilgiler Listesi"
 HANDOFF = "Sonraki Aşamalara Devir Notları"
+RETURNS = "Aşama 2 Faaliyet Sınırı ve Dönüş Kayıtları"
+PLANS = "Planlanan İşlemler"
 SOURCES = "Hukuki Kaynak Kaydı"
+ROLE_RESULT = "Güncel taslak rol değerlendirmesi"
 ROLE_VIEWS = (ROLES, AUTHORITY, COMPARISON, REASONS)
-SECTIONS = (*ROLE_VIEWS, GAPS, HANDOFF, stage_1.EVIDENCE, SOURCES, stage_1.TRANSITION)
+SECTIONS = (*ROLE_VIEWS, GAPS, HANDOFF, RETURNS, PLANS, stage_1.EVIDENCE, SOURCES, stage_1.TRANSITION)
 RECORD_ID = re.compile(r"\b[ABSVREKH]-[0-9]+\b")
 RECORD_RANGE = re.compile(r"\b([ABSVREKH]-)([0-9]+)\s*[–—-]\s*\1([0-9]+)\b")
 METADATA_SEPARATOR = r"\s*(?::|[—–-])\s*"
@@ -32,11 +35,18 @@ FACT_STATUS = stage_1.VERIFICATION
 LEGAL_STATUS = {"Taslak değerlendirme", "Hukuki yorum açık", "Değerlendirilemedi"}
 SOURCE_STATUS = {"Doğrulandı", "Kısmen doğrulandı", "Doğrulanamadı"}
 SOURCE_TYPES = {
-    "Kanun", "İkincil mevzuat", "Kurul kararı", "Kurum rehberi", "Yargı kararı",
+    "Kanun", "İkincil mevzuat", "Kurul kararı", "Kurul karar özeti", "Kurul ilke kararı", "Kurum rehberi", "Yargı kararı",
     "Doktrin", "Karşılaştırmalı hukuk",
 }
 OFFICIAL_TYPES = SOURCE_TYPES - {"Doktrin", "Karşılaştırmalı hukuk"}
-HANDOFF_STATUS = {"Devredilebilir", "Kısıtlı", "Uygulanmaz"}
+HANDOFF_STATUS = {"Devredilebilir": "Devredilebilir", "Kısıtlı": "Bekletilir", "Uygulanmaz": "Uygulanmaz"}
+PROCESSING_STATUS = {"Beyan veya belge", "Teknik iz", "Sentetik ortamda gözlendi", "Üretimde gözlendi", "Doğrulanamadı"}
+PRODUCTION_EVIDENCE = "Üretimde fiilî çalışma kaydı"
+PLAN_STATUS = {"Planlandı", "Demo veya tasarım"}
+PENDING = "Aşama 2 incelemesi bekleniyor"
+REVIEWED = "Aşama 2 incelemesi tamamlandı"
+INHERITED = "Devralınan revizyon"
+BOARD_SOURCE_TYPES = {"2021/1303": "Kurul karar özeti", "2021/1304": "Kurul ilke kararı"}
 TARGETS = {f"Aşama {number}" for number in range(4, 8)}
 SOURCE_GAP = "Hukuki kaynak doğrulaması"
 OFFLINE_FIXTURE = "Hukuki kaynak erişimi: Kapalı (sentetik test)"
@@ -53,6 +63,11 @@ def upstream_table(report, title):
 
 def upstream_rows(report, title):
     return upstream_table(report, title)[1:]
+
+
+def named_upstream_rows(report, title):
+    header, *rows = upstream_table(report, title) or [[]]
+    return [dict(zip(header, row)) for row in rows]
 
 
 def stage_2_intake(report, errors):
@@ -176,6 +191,10 @@ def check_role_views(tables, activities, preliminary, source_gaps, errors):
         addressed_preliminary[activity].update(ids(row["Ön değerlendirme"], "R"))
         if scope in stage_2.NOT_APPLICABLE or ids(scope, "A"):
             errors.append(f"{activity}: faaliyet kapsamı için sabit bir ad gerekli.")
+        plain_role = stage_1.normalized_label(row[ROLE_RESULT])
+        if plain_role in {"veri sorumlusu", "veri isleyen", "alt veri isleyen",
+                          "bagimsiz veri sorumlusu", "ortak veri sorumlusu", "musterek veri sorumlusu"}:
+            errors.append(f"{activity}: rol sonucu taslak veya koşullu ifade edilmeli.")
     for activity, earlier_roles in preliminary.items():
         if earlier_roles - addressed_preliminary[activity]:
             errors.append(f"{activity}: envantere bağlı ön rol kaydı eksik.")
@@ -192,6 +211,8 @@ def check_role_views(tables, activities, preliminary, source_gaps, errors):
             label = f"{title} / {' / '.join(key)}"
             gaps = ids(row["Açık kayıt"], "E")
             scopes_to_gaps[key[:2]].update(gaps)
+            if title == COMPARISON and row["İşlemin durumu"] not in PROCESSING_STATUS:
+                errors.append(f"{label}: aktif faaliyet veya plan için işlem durumu geçersiz.")
             if title not in {ROLES, REASONS}:
                 continue
             fact, fact_detail = stage_1.status_and_detail(row["Olgusal doğrulama"], FACT_STATUS)
@@ -211,21 +232,112 @@ def check_role_views(tables, activities, preliminary, source_gaps, errors):
     return {(activity, scope) for activity, labels in scopes.items() for scope in labels}, scopes_to_gaps
 
 
-def check_handoff(rows, scopes, scopes_to_gaps, open_gaps, errors):
+def check_handoff(tables, scopes, scopes_to_gaps, open_gaps, second, errors):
+    rows = tables[HANDOFF]
     handoff = unique_rows(rows, (*SCOPE_COLUMNS, "Hedef aşama"), HANDOFF, errors)
     expected = {(activity, scope, target) for activity, scope in scopes for target in TARGETS}
     if handoff.keys() != expected:
         errors.append(f"{HANDOFF}: her kapsam için Aşama 4–7 satırları gerekli.")
+    inherited = {
+        (row["Faaliyet"], row["Hedef inceleme"]): ids(row["Açık kayıt"], "E")
+        for row in named_upstream_rows(second, stage_2.HANDOFF)
+        if row.get("Devir durumu") in {"Sınırlı devredilebilir", "Bekletilir"}
+    }
+    manual = {
+        row["Faaliyet"]: ids(row.get("Açık kayıt", ""), "E")
+        for row in named_upstream_rows(second, stage_2.MANUAL)
+        if "Faaliyet" in row and row.get("Sonuç") not in {None, "Veri kayıt sistemi niteliği doğrulandı"}
+    }
+    physical_scopes = defaultdict(set)
+    for row in tables[COMPARISON]:
+        threshold = row["Fiziksel kayıt m. 2 eşiği"]
+        if threshold == "Doğrulanamadı":
+            physical_scopes[row["Faaliyet"]].add(row["Faaliyet kapsamı"])
+        elif threshold not in {"Doğrulandı", "—"}:
+            errors.append(f"{COMPARISON}: fiziksel kayıt eşiği geçersiz.")
+    for activity, gaps in manual.items():
+        if gaps & open_gaps and not physical_scopes[activity]:
+            errors.append(f"{activity}: devralınan fiziksel kayıt eşiği gösterilmeli.")
+    for (activity, target), gaps in inherited.items():
+        if target in TARGETS:
+            carried = set().union(*(ids(row["Açık kayıt"], "E") for row in rows
+                                    if row["Faaliyet"] == activity and row["Hedef aşama"] == target
+                                    and row["Geçiş durumu"] == "Kısıtlı"))
+            if (gaps & open_gaps) - carried:
+                errors.append(f"{activity} / {target}: devralınan kapsam ve hedef kısıtı korunmalı.")
     for key, row in handoff.items():
+        activity, scope, target = key
         status = row["Geçiş durumu"]
-        if status not in HANDOFF_STATUS:
-            errors.append(f"{HANDOFF} / {key}: geçiş durumu geçersiz.")
         gaps = ids(row["Açık kayıt"], "E")
-        if status == "Kısıtlı" and (not gaps or gaps - (open_gaps & scopes_to_gaps[key[:2]])):
+        if HANDOFF_STATUS.get(status) != row["Esaslı değerlendirmeye devir"]:
+            errors.append(f"{HANDOFF} / {key}: geçiş durumu ve esaslı değerlendirmeye devir uyuşmuyor.")
+        if status == "Kısıtlı" and (not gaps or gaps - (open_gaps & scopes_to_gaps[activity, scope])):
             errors.append(f"{HANDOFF} / {key}: kısıt için bu kapsama bağlı açık kayıt gerekli.")
+        expected_gaps = inherited.get((activity, target), set()) & open_gaps & scopes_to_gaps[activity, scope]
+        # The Article 2 threshold applies to the physical operation, even when Stage 2 named fewer targets.
+        if scope in physical_scopes[activity]:
+            expected_gaps |= manual.get(activity, set()) & open_gaps
+            if status != "Kısıtlı":
+                errors.append(f"{HANDOFF} / {key}: fiziksel kayıt eşiği açıkken esaslı devir bekletilmeli.")
+        if expected_gaps and (status != "Kısıtlı" or expected_gaps - gaps):
+            errors.append(f"{HANDOFF} / {key}: devralınan kapsam ve hedef kısıtı korunmalı.")
 
 
-def check_sources(sources, source_gaps, offline, errors):
+def check_activity_history(tables, second, activities, open_gaps, errors):
+    def revision_key(before, after, gaps):
+        return frozenset(ids(before, "A")), frozenset(ids(after, "A")), frozenset(ids(gaps, "E"))
+
+    revisions = {
+        revision_key(row["Önceki faaliyetler"], row["Sonraki faaliyetler"],
+                     row["Açık kayıt ve revizyon sonrasındaki durum"]):
+        ids(row["Önceki kanıt"] + " " + row["Yeni bilgi veya kanıt"], "K")
+        for row in named_upstream_rows(second, stage_2.REVISIONS)
+    }
+    recorded = set()
+    roles = {(row["Faaliyet"], stage_1.normalized_label(row["Faaliyet kapsamı"])) for row in tables[ROLES]}
+    for row in tables[RETURNS]:
+        before, after, gaps = key = revision_key(row["Önceki faaliyetler"], row["Sonraki faaliyetler"], row["Açık kayıt"])
+        status = row["Durum"]
+        if status == PENDING:
+            if row["Sonraki faaliyetler"] != "—" or not gaps or gaps - open_gaps:
+                errors.append(f"{RETURNS}: bekleyen dönüş için açık kayıt ve atanmamış faaliyet gerekir.")
+        elif status in {REVIEWED, INHERITED}:
+            if key not in revisions or revisions[key] - ids(row["Kanıt"], "K"):
+                errors.append(f"{RETURNS}: Aşama 2 revizyonunun kimlik ve kanıt bağlantıları gerekli.")
+            recorded.add(key)
+            if status == REVIEWED and (not after or before & after or after - activities):
+                errors.append(f"{RETURNS}: yeni faaliyet kimliği güncel Aşama 2 envanterinde ayrı olmalı.")
+        else:
+            errors.append(f"{RETURNS}: inceleme durumu geçersiz.")
+        finding = stage_1.normalized_label(row["İşlem veya bulgu"])
+        if status in {PENDING, REVIEWED} and any((activity, finding) in roles for activity in before):
+            errors.append(f"{RETURNS}: bağımsız işlem önceki faaliyette rol alt kapsamı olamaz.")
+    if revisions.keys() - recorded:
+        errors.append(f"{RETURNS}: Aşama 2 revizyon geçmişi eksik.")
+
+    for row in tables[PLANS]:
+        gaps = ids(row["Açık kayıt"], "E")
+        if row["İşlemin durumu"] not in PLAN_STATUS or not gaps or gaps - open_gaps:
+            errors.append(f"{PLANS}: hazırlık durumu ve açık kayıt gerekli.")
+        if any(scope == stage_1.normalized_label(row["Planlanan işlem"]) for _, scope in roles):
+            errors.append(f"{PLANS}: planlanan işlem için aktif rol kapsamı açılamaz.")
+
+
+def check_production_claims(rows, second, evidence, offline, errors):
+    production = {
+        row["Kanıt kaydı"]: ids(row["İlgili kayıtlar"], "A")
+        for row in (*named_upstream_rows(second, stage_1.EVIDENCE), *evidence.values())
+        if row.get("Kaynak türü") == PRODUCTION_EVIDENCE
+        and stage_1.status_and_detail(row["Doğrulama durumu ve sınırı"], FACT_STATUS)[0] == "Doğrulandı"
+    }
+    for row in rows:
+        if row["İşlemin durumu"] != "Üretimde gözlendi":
+            continue
+        if offline or not any(row["Faaliyet"] in production.get(record, set()) for record in ids(row["Kanıt"], "K")):
+            errors.append(f"{row['Faaliyet']}: üretimde gözlenen işleme aynı faaliyete ait üretim kanıtı gerekli.")
+
+
+def check_sources(sources, tables, source_gaps, offline, errors):
     for record, row in sources.items():
         kind = row["Kaynak türü"]
         status, _ = stage_1.status_and_detail(row["Doğrulama durumu"], SOURCE_STATUS)
@@ -235,6 +347,18 @@ def check_sources(sources, source_gaps, offline, errors):
             errors.append(f"{record}: ayrı hukuk kaynağı doğrulama açığı gerekli.")
         if offline and status != "Doğrulanamadı":
             errors.append(f"{record}: çevrim dışı fixture için hukuk kaynağı doğrulama iddiası.")
+        expected_type = BOARD_SOURCE_TYPES.get(row["Madde veya karar no"])
+        if expected_type and kind != expected_type:
+            errors.append(f"{record}: karar özeti ve ilke kararı farklı kaynak türleridir.")
+        section = row["Erişilen bölüm / madde / sayfa"]
+        if (section in stage_2.NOT_APPLICABLE) != (status == "Doğrulanamadı"):
+            errors.append(f"{record}: erişilen bölüm doğrulama durumuyla uyumlu olmalı.")
+        if not ids(row["İlgili kayıtlar"], "AKE") or any(
+            row[column] in stage_2.NOT_APPLICABLE
+            for column in ("Adı ve yayımlayan makam", "İnceleme tarihi", "Desteklenen hukuki önerme",
+                           "Hukuki nitelik ve bağlayıcılık", "Somut bağlam ve rol bağlantısı")
+        ):
+            errors.append(f"{record}: hukuki önerme, kaynak niteliği, tarih ve somut kayıt bağlantısı gerekli.")
         link = row["Resmî bağlantı"]
         if link not in stage_2.NOT_APPLICABLE or (kind in OFFICIAL_TYPES and status == "Doğrulandı"):
             try:
@@ -244,6 +368,12 @@ def check_sources(sources, source_gaps, offline, errors):
                 valid = False
             if not valid:
                 errors.append(f"{record}: açık HTTPS kaynak adresi gerekli.")
+    for title in (ROLES, REASONS, PLANS):
+        for row in tables[title]:
+            related = ids(" ".join(value for label, value in row.items() if label != "Hukuki kaynak"), "AKE")
+            for source in ids(row["Hukuki kaynak"], "H") & sources.keys():
+                if not related & ids(sources[source]["İlgili kayıtlar"], "AKE"):
+                    errors.append(f"{source}: kullanıldığı değerlendirmeyle somut kayıt bağlantısı gerekli.")
 
 
 def criterion_label(value):
@@ -285,7 +415,9 @@ def validate_report(report, first, second, fixture=None):
                   if ids(cells[0], "E") == {cells[0]} and len(cells) > 2}
     for cells in upstream_rows(second, stage_2.GAPS):
         if ids(cells[0], "E") == {cells[0]} and len(cells) > 1:
-            prior_gaps[cells[0]] = prior_gaps.get(cells[0], set()) | ids(cells[1], "ABSVR")
+            prior_gaps[cells[0]] = prior_gaps.get(cells[0], set()) | ids(cells[1], "ABSVRK")
+    prior_status = {row["Açık kayıt"]: stage_1.normalized_label(row["Durum"])
+                    for row in named_upstream_rows(second, stage_2.GAPS) if "Açık kayıt" in row and "Durum" in row}
     prior.update(prior_gaps)
     prior.update(cells[0] for cells in upstream_rows(second, stage_1.EVIDENCE) if ids(cells[0], "K") == {cells[0]})
 
@@ -309,24 +441,37 @@ def validate_report(report, first, second, fixture=None):
             errors.append(f"{record}: açık kayıt durumu geçersiz.")
         if status != "kapatildi":
             open_gaps.add(record)
-        elif not ids(row["Kanıt"], "K"):
-            errors.append(f"{record}: kapanış dayanağı gerekli.")
+        else:
+            support = ids(row["Kanıt"], "K")
+            if not support or (record in prior_status and prior_status[record] != "kapatildi"
+                               and not any(record in ids(evidence[item]["Açık kayıt"], "E")
+                                           for item in support & evidence.keys())):
+                errors.append(f"{record}: kapanış için ilgili yeni kanıt dayanağı gerekli.")
         if row["İlgili kayıtlar"] != "Kapsam" and not ids(row["İlgili kayıtlar"], "ABSVRKH"):
             errors.append(f"{record}: ilgili faaliyet, önceki kayıt veya hukuk kaynağı gerekli.")
-        if prior_gaps.get(record, set()) - ids(row["İlgili kayıtlar"], "ABSVR"):
+        if prior_gaps.get(record, set()) - (ids(row["İlgili kayıtlar"], "ABSVRK") | ids(row["Kanıt"], "K")):
             errors.append(f"{record}: devralınan açık kaydın önceki bağlantıları eksik.")
     source_gaps = {record for record in open_gaps if gaps[record]["Açık türü"] == SOURCE_GAP}
-    check_sources(sources, source_gaps, fixture is not None and OFFLINE_FIXTURE in fixture, errors)
+    offline = fixture is not None and OFFLINE_FIXTURE in fixture
+    check_sources(sources, tables, source_gaps, offline, errors)
+    check_production_claims(tables[COMPARISON], second, evidence, offline, errors)
     scopes, scopes_to_gaps = check_role_views(tables, activities, preliminary, source_gaps, errors)
-    check_handoff(tables[HANDOFF], scopes, scopes_to_gaps, open_gaps, errors)
+    check_handoff(tables, scopes, scopes_to_gaps, open_gaps, second, errors)
+    check_activity_history(tables, second, activities, open_gaps, errors)
     check_intake_restrictions(restricted, tables[ROLES], start, evidence, errors)
 
     fixture_files = stage_1.fixture_line_counts(fixture) if fixture is not None else None
     for record, row in evidence.items():
         # Stage 3 distinguishes contracts and operational observations from other documents.
-        kind = {"Sözleşme": "Belge", "Fiilî operasyon gözlemi": "Doğrudan teknik gözlem"}
+        kind = {
+            "Sözleşme": "Belge",
+            "Fiilî operasyon gözlemi": "Doğrudan teknik gözlem",
+            PRODUCTION_EVIDENCE: "Doğrudan teknik gözlem",
+            "Test ortamı gözlemi": "Doğrudan teknik gözlem",
+        }
         adapted = {**row, "Kaynak türü": kind.get(row["Kaynak türü"], row["Kaynak türü"])}
-        stage_1.validate_evidence(record, adapted, ids(row["Açık kayıt"], "E"), fixture_files, errors)
+        stage_1.validate_evidence(record, adapted, ids(row["Açık kayıt"], "E"), fixture_files, errors,
+                                  source_types=stage_1.SOURCE_TYPES | stage_2.SOURCE_TYPES)
         if stage_1.normalized_label(row["Kaynak türü"]) == "teknik cikarim":
             supports = ids(row["Kaynak ve konum"], "K")
             if not supports or record in supports:

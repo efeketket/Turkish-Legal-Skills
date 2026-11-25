@@ -310,6 +310,10 @@ def check_revisions(rows, activities, historical, gaps, errors):
             errors.append(f"{REVISIONS}: önceki ve sonraki faaliyetler ana envanterde korunmalı.")
         if operation == "Düzeltme" and before == after:
             continue
+        if operation == "Yeni faaliyet":
+            if not before or len(after) != 1 or before & after or not ids(row["Yeni bilgi veya kanıt"], "K"):
+                errors.append(f"{REVISIONS}: yeni faaliyet eski kapsamdan ayrı kimlik ve yeni kanıt gerektirir.")
+            continue
         split = operation == "Bölme" and len(before) == 1 and len(after) >= 2
         merge = operation == "Birleştirme" and len(before) >= 2 and len(after) == 1
         if not (split or merge) or before & after or before - historical:
