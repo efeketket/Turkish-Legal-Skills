@@ -24,5 +24,7 @@ Aşama 2 bir faaliyeti beklettiyse veya sınırlı devrettiyse önceki karar ve 
 
 ## Çıktı ve geçiş
 
+- Aşama 4–7'ye esaslı devir için Aşama 2'nin aynı faaliyet ve hedefe ilişkin açık `Devredilebilir` kararını kullan. Hedef belirtilmemişse veya devir sınırlıysa hazırlık, belge incelemesi ve bilgi toplama kapsamını yaz. Esaslı değerlendirmeyi beklet ve ilgili açık kayda bağla. Yeni kanıt esaslı devri mümkün kılıyorsa bunu gerekçeli Aşama 2 devir kararına işlettikten sonra kullan.
+
 - Altı çıktıyı tek Markdown raporunda hazırla. Gerekçe kaydındaki olgusal doğrulama ile hukuki değerlendirme durumlarını rol matrisiyle eşleştir. Doldurulamayan bir başlık veya bilinmeyen bir karar alanı için ilgili açık kaydı göster. Olgular yeterliyken yorum tartışmalıysa alternatif yorumları ve uzman incelemesini kaydet.
 - Şablondaki 15 geçiş ölçütünü ayrı ayrı dayanaklarıyla değerlendir. Aşama 4–7 için her faaliyet, kapsam ve hedef bazında hazırlık/bilgi toplama ile esaslı uygunluk değerlendirmesine devri ayır. Aşama 2'nin hedefe özgü kısıtını ve açık kaydını taşı. Kısıt değişirse hangi koşulun yeni kanıtla, hangi kapsam ve ortamda karşılandığını yaz. KVKK m. 2 bakımından veri kayıt sistemi niteliği doğrulanmamış fiziksel kayıtlarda Aşama 4–7 esaslı devir kısıtlıdır. Kişiyle ilişkilendirilebilirlik açığını Aşama 4'e taşı. Yalnız testte gözlenen bir işleme için üretim incelemesine esaslı devir yapma. Diğer faaliyetleri ayrı değerlendir. İşleme şartı, aktarım, güvenlik, saklama, imha ve belge uygunluğu değerlendirmesini ilgili aşamaya bırak.

@@ -67,7 +67,7 @@ class StageThreeReports(unittest.TestCase):
         states = {(row["Faaliyet kapsamı"], row["Hedef aşama"]): row["Geçiş durumu"] for row in tables[stage_3.HANDOFF]}
         self.assertEqual(states["Belirsiz alıcıya yönlendirme", "Aşama 5"], "Kısıtlı")
         self.assertEqual(states["Kiracı giriş kaydı", "Aşama 5"], "Kısıtlı")
-        self.assertEqual(states["Kiracı giriş kaydı", "Aşama 7"], "Devredilebilir")
+        self.assertEqual(states["Kiracı giriş kaydı", "Aşama 7"], "Kısıtlı")
 
     def test_missing_report_section(self):
         self.assert_rejected(REPORT.replace("## " + stage_3.COMPARISON, "## Başka bölüm"), stage_3.COMPARISON)
@@ -247,10 +247,37 @@ class StageThreeReports(unittest.TestCase):
         digital = handoff["A-002", "Kiracı giriş kaydı", "Aşama 4"]
         self.assertIn("visitRef ile ilgili kişi", digital["Hazırlık ve bilgi toplama"])
         self.assertEqual((digital["Geçiş durumu"], digital["Açık kayıt"]), ("Kısıtlı", "E-009"))
-        self.assertEqual(handoff["A-003", "Faaliyetin tamamı", "Aşama 4"]["Geçiş durumu"], "Devredilebilir")
+        self.assertEqual(handoff["A-003", "Faaliyetin tamamı", "Aşama 4"]["Geçiş durumu"], "Kısıtlı")
         physical_row = next(line for line in REPORT.splitlines() if line.startswith("| A-001 | Faaliyetin tamamı | Aşama 5 |"))
         self.assert_rejected(REPORT.replace(physical_row, physical_row.replace("Kısıtlı", "Devredilebilir")
                              .replace("| Bekletilir |", "| Devredilebilir |")), "fiziksel kayıt eşiği açıkken")
+
+    def test_pilot_handoff_requires_an_explicit_stage_two_decision_for_each_target(self):
+        tables, _, _ = stage_3.read_tables(CURRENT_REPORT, [])
+        pilot_rows = [row for row in tables[stage_3.HANDOFF]
+                      if row["Faaliyet"] in {"A-004", "A-005"} and row["Hedef aşama"] in {"Aşama 4", "Aşama 5", "Aşama 7"}]
+        self.assertEqual(len(pilot_rows), 9)
+        for row in pilot_rows:
+            activity, scope, target = (row[column] for column in ("Faaliyet", "Faaliyet kapsamı", "Hedef aşama"))
+            with self.subTest(activity=activity, scope=scope, target=target):
+                self.assertEqual((row["Geçiş durumu"], row["Esaslı değerlendirmeye devir"]), ("Kısıtlı", "Bekletilir"))
+                self.assertNotEqual(row["Hazırlık ve bilgi toplama"], "—")
+                prefix = f"| {activity} | {scope} | {target} |"
+                original = next(line for line in CURRENT_REPORT.splitlines() if line.startswith(prefix))
+                promoted = original.replace("| Kısıtlı |", "| Devredilebilir |").replace("| Bekletilir |", "| Devredilebilir |")
+                report = CURRENT_REPORT.replace(original, promoted)
+                errors = stage_3.validate_report(report, CURRENT_FIRST, CURRENT_SECOND, FIXTURE)
+                self.assertTrue(any("aynı faaliyet ve hedefe açık kararı gerekli" in error for error in errors), errors)
+
+        anchor = next(line for line in CURRENT_SECOND.splitlines() if line.startswith("| A-004 | Aşama 6 |"))
+        decision = "| A-004 | Aşama 4 | Devredilebilir | İncelenen faaliyet için işleme şartı araştırılabilir. | — | K-024 | — |"
+        revised = CURRENT_SECOND.replace(anchor, f"{decision}\n{anchor}")
+        original = next(line for line in CURRENT_REPORT.splitlines() if line.startswith("| A-004 | Faaliyetin tamamı | Aşama 4 |"))
+        promoted = original.replace("| Kısıtlı |", "| Devredilebilir |").replace("| Bekletilir |", "| Devredilebilir |")
+        report = CURRENT_REPORT.replace(original, promoted.replace(
+            "Bu hedef için Aşama 2 kararı yok. Esaslı devir gerekçeli yeni Aşama 2 kararını bekliyor.",
+            "Aşama 2'nin yeni kararı işleme şartı incelemesini açtı."))
+        self.assertEqual(stage_3.validate_report(report, CURRENT_FIRST, revised, FIXTURE), [])
 
     def test_current_phase_15_reports_validate_as_one_chain(self):
         self.assertEqual(stage_1.validate_report(CURRENT_FIRST, CURRENT_FIXTURE), [])

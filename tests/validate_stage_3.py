@@ -238,9 +238,15 @@ def check_handoff(tables, scopes, scopes_to_gaps, open_gaps, second, errors):
     expected = {(activity, scope, target) for activity, scope in scopes for target in TARGETS}
     if handoff.keys() != expected:
         errors.append(f"{HANDOFF}: her kapsam için Aşama 4–7 satırları gerekli.")
+    upstream_handoffs = named_upstream_rows(second, stage_2.HANDOFF)
+    authorized = {
+        (row["Faaliyet"], row["Hedef inceleme"])
+        for row in upstream_handoffs
+        if row.get("Devir durumu") == "Devredilebilir"
+    }
     inherited = {
         (row["Faaliyet"], row["Hedef inceleme"]): ids(row["Açık kayıt"], "E")
-        for row in named_upstream_rows(second, stage_2.HANDOFF)
+        for row in upstream_handoffs
         if row.get("Devir durumu") in {"Sınırlı devredilebilir", "Bekletilir"}
     }
     manual = {
@@ -271,6 +277,8 @@ def check_handoff(tables, scopes, scopes_to_gaps, open_gaps, second, errors):
         gaps = ids(row["Açık kayıt"], "E")
         if HANDOFF_STATUS.get(status) != row["Esaslı değerlendirmeye devir"]:
             errors.append(f"{HANDOFF} / {key}: geçiş durumu ve esaslı değerlendirmeye devir uyuşmuyor.")
+        if status == "Devredilebilir" and (activity, target) not in authorized:
+            errors.append(f"{HANDOFF} / {key}: esaslı devir için Aşama 2'nin aynı faaliyet ve hedefe açık kararı gerekli.")
         if status == "Kısıtlı" and (not gaps or gaps - (open_gaps & scopes_to_gaps[activity, scope])):
             errors.append(f"{HANDOFF} / {key}: kısıt için bu kapsama bağlı açık kayıt gerekli.")
         expected_gaps = inherited.get((activity, target), set()) & open_gaps & scopes_to_gaps[activity, scope]

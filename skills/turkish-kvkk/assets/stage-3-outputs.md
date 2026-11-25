@@ -60,6 +60,8 @@ Her kapsam için `Aşama 4`, `Aşama 5`, `Aşama 6` ve `Aşama 7` satırlarını
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | A-… | … | Aşama 4 | … | … | … | … | K-… | E-… |
 
+Esaslı devir için Aşama 2'nin aynı faaliyet ve hedefi açıkça `Devredilebilir` olarak kaydetmiş olması gerekir. Hedef için karar yoksa veya verilen karar kısıtlıysa, uygulanabilir satırda `Kısıtlı` ve `Bekletilir` yaz. Hazırlık, belge incelemesi ve bilgi toplama kapsamını belirt. Esaslı devir için Aşama 2'de gerekçeli yeni karar iste ve eksikliği ilgili `E-…` kaydına bağla.
+
 ## Aşama 2 Faaliyet Sınırı ve Dönüş Kayıtları
 
 Aşama 2 revizyonlarını ve gerekçeli dönüşleri burada belgeleyerek altı çıktıyı koru. Durum için `Devralınan revizyon`, `Aşama 2 incelemesi bekleniyor` veya `Aşama 2 incelemesi tamamlandı` kullan. Bekleyen bulgu için `Sonraki faaliyetler` alanına `—` yaz. Aşama 2 incelemesinde atanmış kimliği, raporu ve faaliyet bazlı devir kararını tamamlanan satırda göster. Aşama 2 kaynak raporundaki eski-yeni kimlik, kanıt ve açık kayıt bağlarını koru. İlgili bulgu yoksa tabloyu boş bırak.

@@ -10,11 +10,31 @@ python -X utf8 -m unittest discover -s tests
 python -X utf8 tests/validate_stage_1.py tests/stage-2/samples/manual-and-incomplete-stage-1.md --fixture tests/stage-2/fixtures/manual-and-incomplete.md
 python -X utf8 tests/validate_stage_2.py tests/stage-2/samples/manual-and-incomplete-stage-2.md --stage-1 tests/stage-2/samples/manual-and-incomplete-stage-1.md --fixture tests/stage-2/fixtures/manual-and-incomplete.md
 python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/phase-1.5-to-stage-3.md --stage-1 tests/stage-2/samples/manual-and-incomplete-stage-1.md --stage-2 tests/stage-2/samples/manual-and-incomplete-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
+python -X utf8 tests/validate_stage_1.py tests/stage-3/samples/prior-stage-1.md --fixture tests/stage-3/fixtures/role-assessment.md
+python -X utf8 tests/validate_stage_2.py tests/stage-3/samples/prior-stage-2.md --stage-1 tests/stage-3/samples/prior-stage-1.md --fixture tests/stage-3/fixtures/role-assessment.md
 python -X utf8 tests/validate_stage_2.py tests/stage-3/samples/reviewed-stage-2.md --stage-1 tests/stage-3/samples/prior-stage-1.md --fixture tests/stage-3/fixtures/role-assessment.md
 python -X utf8 tests/validate_stage_3.py tests/stage-3/samples/role-assessment-stage-3.md --stage-1 tests/stage-3/samples/prior-stage-1.md --stage-2 tests/stage-3/samples/reviewed-stage-2.md --fixture tests/stage-3/fixtures/role-assessment.md
 ```
 
 Omit `--fixture` for structural checks on a project report. If one reply contains multiple stages, save each stage from its top-level Markdown heading without changing the report. Earlier Stage 2 report formats can still serve as Stage 3 inputs. The individual checks and unit tests read the supplied reports and fixture excerpts.
+
+### Phase 1.6 regression results
+
+The checks above ran on 26 November 2026 with `.venv/Scripts/python.exe -X utf8` on the follow-up working tree based on `cd92eff`. The report validators ran with the fixture arguments shown above.
+
+| Command after `-X utf8` | Input | Exit code | Observed result |
+| --- | --- | --- | --- |
+| `tests/validate_skills.py` | Skill package | 0 | 1/1 skills passed validation |
+| `-m unittest discover -s tests` | Repository regression suite | 0 | 70 tests ran in 49.607 s, OK |
+| `tests/validate_stage_1.py` | Current Phase 1.5 chain | 0 | Report passed |
+| `tests/validate_stage_2.py` | Current Phase 1.5 chain | 0 | Report passed |
+| `tests/validate_stage_3.py` | Current Phase 1.5 chain | 0 | Report passed |
+| `tests/validate_stage_1.py` | Separate role scenario | 0 | Upstream report passed |
+| `tests/validate_stage_2.py` | Separate role scenario, original inventory | 0 | Report passed |
+| `tests/validate_stage_2.py` | Separate role scenario, reviewed inventory | 0 | Report passed |
+| `tests/validate_stage_3.py` | Separate role scenario, reviewed inventory as input | 0 | Report passed |
+
+The handoff regression rejects an attempt to promote any Stage 4, 5 or 7 row for the current chain's `A-004` or `A-005` without an explicit Stage 2 decision for that activity and target. It accepts the same promotion when a synthetic Stage 2 decision expressly opens that target.
 
 ## Synthetic chains
 
@@ -24,6 +44,8 @@ Record IDs are local to each chain, including shared labels such as `A-001`. Bot
 - **Separate role scenario with a legacy starting point.** The original [Stage 1 report](samples/prior-stage-1.md) and [Stage 2 inventory](samples/prior-stage-2.md) include platform subscriptions as `A-003`. The [Stage 2 re-review](samples/reviewed-stage-2.md) preserves `A-002` for tenant check-in and records the independent metrics activity under its next available ID `A-004` with limited handoff. The [Stage 3 report](samples/role-assessment-stage-3.md) uses that reviewed inventory and traces the contract, synthetic copy and statement using `K-023`, `K-025`, `K-027` and open discrepancy `E-010`. The demo under `K-026` and open `E-015` sits in planned operations. Its next step is evidence gathering and a Stage 2 return if actual use with personal data is confirmed.
 
 In both chains, `A-001` can proceed with preparation only for Stages 4–7 while its physical filing system status under Article 2 is open. The synthetic observation clarifies the `A-002` tenant trigger and purpose. The relationship between `visitRef` and the individual remains open under `E-009` in the Stage 4 handoff. Role rows for the tenant, platform and hosting provider share `A-002` while the evidence supports different decision and instruction relationships.
+
+Substantive handoff requires a Stage 2 `Devredilebilir` decision for the same activity and target. In the current chain, `A-004` and `A-005` retain their limited Stage 2 decisions for Stages 3, 6 and 8. Their Stage 4, 5 and 7 rows allow preparation and information gathering while awaiting a reasoned Stage 2 decision.
 
 ## Reproduce the Codex CLI runs
 
@@ -52,7 +74,7 @@ python -X utf8 tests/check_stage_3_cli.py '<synthetic-project>' --before '<snaps
 
 ## Phase 1.6 CLI attempts
 
-On 26 November 2026, Windows Codex CLI `0.171.0-alpha.13.2` was invoked with an explicit `-C` pointing to each separate synthetic project and its verified local inputs. Both the natural and explicit skill requests exited before starting a turn with `Error finding codex home: Could not find home directory`. Skill selection and live report generation remain unverified. The automated report and trace-check regressions run independently of the CLI.
+On 26 November 2026, Windows Codex CLI `0.171.0-alpha.13.2` was invoked with an explicit `-C` pointing to each separate synthetic project and its verified local inputs. The natural and explicit requests each exited with code 1 before starting a turn. Both returned `Error finding codex home: Could not find home directory`. Skill selection and live report generation remain unverified. The automated report and trace-check regressions run independently of the CLI.
 
 ## Phase 1.4 observations
 
