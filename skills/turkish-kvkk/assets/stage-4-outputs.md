@@ -18,7 +18,7 @@ Her adayı `Devredilebilir` faaliyet kapsamına, somut amaca, ilgili veriye, ki�
 ### Taslak durum ve hukukçu kararı
 
 - `Ek kanıt gerekli` · Bir kurucu unsur hakkında taslak nitelendirme için gerekli olgu veya kanıt eksik. Desteklenen unsurları, eksik unsuru, istenecek kanıtı ve `E-…` kaydını bağla.
-- `Hukukçu değerlendirmesi gerekli` · Kurucu unsurlar hukuki nitelendirme için yeterli olgusal dayanağa sahip ve hukuki nitelendirme açık. Hukukçuya sunulacak yorum veya nitelendirme sorusunu yaz.
+- `Hukukçu değerlendirmesi gerekli` · Kurucu unsurların değerlendirilmesi için yeterli olgusal dayanak var ve kalan yorum veya nitelendirme sorusu hukukçu kararı gerektiriyor. Bu soruyu kaydet.
 - `Aday desteklenmedi` · Mevcut olgular bir veya daha fazla kurucu unsurun karşılanmadığını gösteriyor. Dayanağı belirt.
 - `Hukukçu tarafından elendi` ve `Hukukçu tarafından uygun bulundu` · Yalnızca tarihli, gerekçeli hukukçu kararından ve kararın kapsadığı işlem için aktar. Uygun bulma kaydında kurucu unsurlar ve m. 4 kontrolüne ilişkin gerekçeyi, özel nitelikli veride m. 6/3 adayını ve doğrulanmış m. 6/4 önlemlerini bağla.
 
