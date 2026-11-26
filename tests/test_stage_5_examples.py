@@ -78,8 +78,8 @@ class StageFiveExamples(unittest.TestCase):
                               [row["Faaliyet ve aktarım kapsamı"] for row in handoffs])
         self.assertNotEqual(domestic["Akış no."], foreign["Akış no."])
         self.assertNotEqual(domestic["Alıcı ve rol"], foreign["Alıcı ve rol"])
-        self.assertTrue(domestic["Yön ve sonraki aktarım"].startswith("Yurt içi"))
-        self.assertTrue(foreign["Yön ve sonraki aktarım"].startswith("Yurt dışı"))
+        self.assertIn("Yurt içi", domestic["Aktarım hedefi ve yön"])
+        self.assertIn("Yurt dışı", foreign["Aktarım hedefi ve yön"])
         for flow in (domestic, foreign):
             self.assertIn("sentetik", flow["İletim veya erişim, ortam ve sıklık"])
 
@@ -93,10 +93,11 @@ class StageFiveExamples(unittest.TestCase):
         self.assertIn("m. 9/4-c", foreign_candidate["Aday hüküm ve mekanizma"])
         self.assertIn("Koşullu", foreign_candidate["Aday hüküm ve mekanizma"])
         self.assertIn("m. 9/1", foreign_candidate["Mekanizma koşulları ve kanıt sınırı"])
-        self.assertIn("m. 9/5", foreign_candidate["Güvence, izin, bildirim ve önlemler"])
-        self.assertCountEqual(stage_3.ids(domestic_candidate["Açık kayıt ve istenecek kanıt"], "E"), {"E-001"})
-        self.assertCountEqual(stage_3.ids(foreign_candidate["Açık kayıt ve istenecek kanıt"], "E"),
-                              {"E-002", "E-003", "E-004"})
+        self.assertIn("Aşama 4 aday 1", domestic_candidate["Aşama 4 kayıt kimliği ve kapsam eşleşmesi"])
+        self.assertIn("Aşama 4 aday 2", foreign_candidate["Aşama 4 kayıt kimliği ve kapsam eşleşmesi"])
+        self.assertEqual(stage_3.ids(domestic_candidate["Açık kayıt ve istenecek kanıt"], "E"), {"E-001", "E-011"})
+        self.assertEqual(stage_3.ids(foreign_candidate["Açık kayıt ve istenecek kanıt"], "E"),
+                         {"E-002", "E-003", "E-004", "E-011"})
         sources = {row["Kaynak kimliği"] for row in self.report_table(sample, "Hukuki kaynak kaydı")}
         open_records = set().union(*(stage_3.ids(row["Açık kayıt ve kaynak"], "E")
                                      for row in self.report_table(sample, "Açık kayıtlar")))
@@ -106,3 +107,53 @@ class StageFiveExamples(unittest.TestCase):
             self.assertTrue(references)
             self.assertLessEqual(references, sources)
             self.assertLessEqual(stage_3.ids(row["Açık kayıt ve istenecek kanıt"], "E"), open_records)
+
+    def test_hosting_keeps_country_law_contract_signature_notification_and_use_open(self):
+        sample = SAMPLES / "hosting-stage-5-draft.md"
+        domestic, = self.report_table(sample, "Yurt içi aktarım kontrolleri")
+        self.assertIn("E-001", domestic["m. 8/2-a bendin kurucu unsurları"])
+        foreign, = self.report_table(sample, "Yurt dışı aktarım yolları")
+        rights, = self.report_table(sample, "m. 9/4 hak ve başvuru yolları")
+        occasional, = self.report_table(sample, "m. 9/6 arızilik ve bent incelemesi")
+        self.assertEqual({foreign["Akış no."], rights["Akış no."], occasional["Akış no."]}, {"2"})
+        self.assertTrue(foreign["m. 9/1 yeterlilik durumu ve kapsamı"].startswith("Araştırılıyor"))
+        self.assertTrue(rights["Durum, kaynak ve açık kayıt"].startswith("Ek kanıt gerekli"))
+        self.assertEqual(occasional["m. 9/6 bendi ve kurucu koşulları"], "—")
+        self.assertIn("K-003", occasional["Sıklık ve süreklilik"])
+
+        contract_records = {
+            row["İncelenen kayıt"]: row for row in self.report_table(sample, "Standart sözleşme ve bildirim kayıtları")
+        }
+        expected_open_records = {
+            "Taraf, rol ve Kurul metni": "E-005", "Temsil ve imzalar": "E-006",
+            "Nihai metin ve ekler": "E-007", "m. 9/5 bildirimi": "E-008", "Fiilî uygulama": "E-009",
+        }
+        self.assertEqual(set(contract_records), set(expected_open_records))
+        for name, gap in expected_open_records.items():
+            row = contract_records[name]
+            self.assertEqual(row["Akış no."], "2")
+            self.assertEqual(stage_3.ids(row["Açık kayıt ve istenecek kanıt"], "E"), {gap})
+            self.assertTrue(row["Durum ve gerekçe"].startswith("Ek kanıt gerekli"))
+        self.assertEqual(self.report_table(sample, "Hukukçu karar ve onay kaydı"), [])
+
+    def test_remote_access_and_onward_transfer_are_mapped_while_stage_four_linkage_is_open(self):
+        sample = SAMPLES / "remote-support-stage-5-intake.md"
+        domestic, remote_access, onward = self.report_table(sample, FLOWS)
+        self.assertEqual(domestic["Barındırma ülkesi"], remote_access["Barındırma ülkesi"])
+        self.assertEqual(remote_access["Barındırma ülkesi"], "Türkiye")
+        self.assertEqual(remote_access["Erişim yetkisi ülkeleri"], "Almanya")
+        self.assertEqual(remote_access["Fiilî erişim ülkeleri"], "Almanya")
+        self.assertIn("İndirme belirsiz", remote_access["Fiilî erişim ve indirme"])
+        self.assertEqual(onward["Önceki akış no."], remote_access["Akış no."])
+        chain, = self.report_table(sample, "Sonraki aktarım ve güvence bağlantısı")
+        self.assertEqual(chain["İlk akış no."], remote_access["Akış no."])
+        self.assertEqual(chain["Önceki akış no."], remote_access["Akış no."])
+        self.assertEqual(chain["Sonraki akış no."], onward["Akış no."])
+        self.assertIn("E-004", stage_3.ids(chain["Kanıt ve açık kayıt"], "E"))
+
+        handoffs = self.report_table(sample, HANDOFF)
+        self.assertTrue(all(row["Esaslı incelemeye devir"] == "Devredilebilir" for row in handoffs))
+        self.assertIn("Kapsam uyuşmuyor", handoffs[0]["Aşama 4 işleme şartı bağlantısı"])
+        for flow in (domestic, remote_access, onward):
+            self.assertTrue(flow["Mekanizma inceleme durumu"].startswith("Ek kanıt gerekli"))
+        self.assertEqual(self.report_table(sample, MECHANISMS), [])

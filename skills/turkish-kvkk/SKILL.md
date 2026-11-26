@@ -14,7 +14,7 @@ metadata:
   version: "0.6.0"
   stage-3: "methodology-approved"
   stage-4: "methodology-approved"
-  stage-5: "draft-preview"
+  stage-5: "revised-draft"
 ---
 
 # Turkish KVKK

@@ -8,7 +8,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | A-001 · Faaliyetin tamamı | Aşama 5 için karar yok | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-002 | Fiziksel ziyaretçi defteri. Dış alıcı ve kopya adımı belirsiz. | Defterin kayıt sistemi niteliğini, kopya adımını ve alıcıyı araştır. Eşleşen devir kararları gerekir. | K-011, K-033, E-002 |
 | A-002 · Kiracı giriş kaydı | Bekletilir · E-009 | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-009 | Kiracı, KurguZiyaret ve Barınak ilişkisi sentetik kapsamda izleniyor. Kişi bağlantısı ve üretim yolu açık. | `visitRef` eşlemesini, talimat kapsamını ve üretimdeki alıcı veya erişim konumlarını maskelenmiş kanıtla doğrula. Eşleşen kararları güncelle. | K-029, K-030, E-009 |
-| A-002 · Belirsiz alıcıya yönlendirme | Bekletilir · E-009 | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-009, E-016 | Sentetik yönlendirme izi var. Alıcının tüzel kişiliği, ülkesi, yetkisi ve fiilî işlemi belirsiz. | Alıcı kimliği, amaç, talimat, hedef ülke, fiilî işleyiş ve kişi bağlantısını araştır. Bağımsız amaç veya operasyon belirlenirse Aşama 2, rol değişirse Aşama 3 güncellemesi gerekir. | K-034, E-009, E-016 |
+| A-002 · Belirsiz alıcıya yönlendirme | Bekletilir · E-009 | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-009, E-016 | Sentetik yönlendirme izi var. Alıcı ve hedef ülke `Belirsiz`. Yetki ve fiilî işlem açık. | Alıcı kimliği, amaç, talimat, hedef ülke, fiilî işleyiş ve kişi bağlantısını araştır. Bağımsız amaç veya operasyon belirlenirse Aşama 2, rol değişirse Aşama 3 güncellemesi gerekir. | K-034, E-009, E-016 |
 | A-004 · Faaliyetin tamamı | Aşama 5 için karar yok | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-011 | AlfaAtölye ve KurguPlatform ilişkisi pilot protokolüyle sınırlı. Fiilî alıcı ve akış açık. | Platformun fiilî erişimini, veri kapsamını ve alt sağlayıcıyı doğrula. Aşama 5 için gerekçeli hedef kararı ve eşleşen devir gerekir. | K-024, K-025, K-026, K-028, E-011 |
 | A-005 · Stüdyo ziyaret formu | Aşama 5 için karar yok | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-012 | BetaStüdyo formu ve profil görseli. Fiilî erişim ve varsa sonraki alıcı açık. | Görüntüye erişen tüzel kişiyi, yöntemini ve konumunu incele. Aşama 5 hedef kararını ve eşleşen devri al. | K-024, K-027, E-012 |
 | A-005 · Olası kâğıt not | Aşama 5 için karar yok | Kısıtlı / Bekletilir | Bekletilir | Aşama 4 beklemede · E-012 | Politika kâğıt not ihtimalini gösteriyor. Fiilî kullanım ve gönderim açık. | Fiziksel kayıt düzenini, kopyalama ve olası dış alıcıyı araştır. m. 2 eşiği ve iki devir kararı açık. | K-027, E-012 |
@@ -17,12 +17,12 @@
 
 ## Aktarım akışları
 
-| Akış no. | Faaliyet ve aktarım kapsamı | Amaç, ilgili kişi ve veri | Aktaran ve rol | Alıcı ve rol | İletim veya erişim, ortam ve sıklık | Barındırma, erişim veya hedef ülke | Yön ve sonraki aktarım | Kanıt, ortam sınırı ve açık kayıt |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Akış no. | Faaliyet ve aktarım kapsamı | Amaç, ilgili kişi, veri ve kişi bağlantısı | Aktaran ve rol | Alıcı ve rol | İletim veya erişim, ortam ve sıklık | Barındırma ülkesi | Erişim yetkisi ülkeleri | Erişim yetkisi | Fiilî erişim ülkeleri | Fiilî erişim ve indirme | Aktarım hedefi ve yön | Önceki akış no. | Mekanizma inceleme durumu | Kanıt, ortam sınırı ve açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Aktarım şartı ve mekanizma adayları
 
-| Akış no. | Aday hüküm ve mekanizma | İşleme şartı ve kanıt kapsamı | Mekanizma koşulları ve kanıt sınırı | Güvence, izin, bildirim ve önlemler | Hukuki kaynak | Taslak durum ve gerekçe | Açık kayıt ve istenecek kanıt |
+| Akış no. | Aday hüküm ve mekanizma | Aktarım için ileri sürülen işleme şartı | Aşama 4 kayıt kimliği ve kapsam eşleşmesi | Mekanizma koşulları ve kanıt sınırı | Hukuki kaynak | Taslak durum ve gerekçe | Açık kayıt ve istenecek kanıt |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Açık kayıtlar
@@ -37,5 +37,5 @@
 
 ## Hukuki kaynak kaydı
 
-| Kaynak kimliği | Kaynak ve nitelik | Erişilen bölüm | Sürüm veya yürürlük tarihi | Desteklenen önerme | Erişim tarihi ve durumu |
-| --- | --- | --- | --- | --- | --- |
+| Kaynak kimliği | Kaynak ve nitelik | Erişilen bölüm | Sürüm veya yürürlük tarihi | Desteklenen önerme | Erişim tarihi ve durumu | Güncellik kontrolü ve açık kayıt |
+| --- | --- | --- | --- | --- | --- | --- |
