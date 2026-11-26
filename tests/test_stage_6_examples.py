@@ -11,9 +11,12 @@ SAMPLES = TESTS / "stage-6/samples"
 TEMPLATE = stage_1.SKILL / "assets/stage-6-outputs.md"
 HANDOFF = "Devir ve hazırlık"
 STORAGE = "Saklama ve kopyalar"
+PROVIDERS = "Sağlayıcı ve dış kopya"
 POLICY = "Sicil ve saklama-imha politikası"
 SCHEDULE = "Resen imha ve ilgili kişi talebi"
+METHODS = "İmha yöntemi seçimi ve gerekçesi"
 DISPOSAL = "İmha ve doğrulama"
+ACCESS = "İlgili kullanıcı ve erişim"
 CONTROLS = "Teknik ve idari tedbirler"
 FINDINGS = "Taslak değerlendirme"
 GAPS = "Açık kayıtlar ve sonraki aşamaya devir"
@@ -58,7 +61,7 @@ class StageSixExamples(unittest.TestCase):
                 self.assertEqual(stage_3.ids(row["Kanıt ve açık kayıt"]),
                                  stage_3.ids(upstream["Kanıt"] + " " + upstream["Açık kayıt"]))
                 self.assertLessEqual(stage_3.ids(row["Kanıt ve açık kayıt"], "E"), open_ids)
-        for section in (STORAGE, DISPOSAL, CONTROLS, FINDINGS, DECISIONS):
+        for section in (STORAGE, METHODS, DISPOSAL, CONTROLS, FINDINGS, DECISIONS):
             self.assertEqual(stage_3.upstream_rows(sample, section), [])
 
     def test_backup_expiry_and_restored_copy_access_keep_separate_evidence_gaps(self):
@@ -98,6 +101,9 @@ class StageSixExamples(unittest.TestCase):
         self.assertEqual(internal["Aşama 5 bağlantısı"].split(" · ")[0], "Uygulanmaz")
         self.assertEqual(stage_3.ids(internal["Aşama 5 bağlantısı"], "K"), {"K-002"})
         self.assertEqual(stage_3.ids(provider["Aşama 5 bağlantısı"], "E"), {"E-006"})
+        proposed_copy, = self.report_table(sample, PROVIDERS)
+        self.assertEqual(stage_3.ids(proposed_copy["Kopya durumu, veri kategorileri ve kanıt sınırı"], "K"), {"K-005"})
+        self.assertEqual(stage_3.ids(proposed_copy["Aşama 5, kanıt ve açık kayıt"], "E"), {"E-006"})
         for section in (STORAGE, DISPOSAL, CONTROLS, FINDINGS):
             for row in self.report_table(sample, section):
                 self.assertNotIn("E-006", stage_3.ids(" ".join(row.values()), "E"))
@@ -105,9 +111,10 @@ class StageSixExamples(unittest.TestCase):
     def test_retention_settings_and_disposal_routes_keep_distinct_evidence(self):
         sample = (SAMPLES / "backup-stage-6-draft.md").read_text(encoding="utf-8")
         primary, backup, _ = self.report_table(sample, STORAGE)
-        self.assertIn("30 gün", primary["Politika beyanı"])
-        self.assertIn("90 gün", primary["Yapılandırılan süre"])
-        self.assertIn("14 gün", backup["Yapılandırılan süre"])
+        self.assertIn("30 gün", primary["Politika veya sözleşme beyanı"])
+        self.assertIn("90 gün", primary["Yapılandırılan süre ve işlem"])
+        self.assertIn("14 gün", backup["Yapılandırılan süre ve işlem"])
+        self.assertEqual(stage_3.ids(primary["Gözlenen arayüz görünürlüğü ve ortam"], "K"), {"K-003"})
         for row in (primary, backup):
             self.assertNotRegex(row["Fiilî saklama ve ortam"], r"\b(?:30|90|14) gün\b")
         policy, = self.report_table(sample, POLICY)
@@ -123,6 +130,37 @@ class StageSixExamples(unittest.TestCase):
         sources = {row["Kaynak kimliği"]: row for row in self.report_table(sample, SOURCES)}
         self.assertIn("Zaman aşımı", sources["H-007"]["Erişim tarihi ve durumu"])
         self.assertEqual(stage_3.ids(sources["H-007"]["Güncellik ve açık kayıt"], "E"), {"E-004"})
+        gazette = sources["H-008"]
+        self.assertIn("32487", gazette["Sürüm veya yürürlük"])
+        self.assertIn("26.11.2026", gazette["İşlem tarihi karşılaştırması"])
+        self.assertIn("H-005", stage_3.ids(gazette["İşlem tarihi karşılaştırması"], "H"))
         findings = self.report_table(sample, FINDINGS)
         self.assertTrue(any("E-004" in stage_3.ids(row["Durum, gerekçe ve açık kayıt"], "E") for row in findings))
         self.assertTrue(all("H-007" not in stage_3.ids(row["Hukuki kaynak"], "H") for row in findings))
+
+    def test_policy_and_observed_visibility_leave_method_selection_and_roles_open(self):
+        sample = (SAMPLES / "backup-stage-6-draft.md").read_text(encoding="utf-8")
+        methods = self.report_table(sample, METHODS)
+        self.assertEqual(len(methods), 3)
+        for row in methods:
+            self.assertTrue(row["Seçim, seçen taraf ve tarih"].startswith("Belirlenemedi"))
+            self.assertIn("E-009", stage_3.ids(row["Durum ve K/E/H kayıtları"], "E"))
+        management, support = self.report_table(sample, ACCESS)
+        self.assertEqual(management["Ortam no."], "1")
+        self.assertEqual(support["Ortam no."], "3")
+        self.assertEqual(stage_3.ids(management["İlgili kullanıcı kapsamı, kanıt ve açık kayıt"]), {"K-003", "E-002"})
+        self.assertEqual(stage_3.ids(support["İlgili kullanıcı kapsamı, kanıt ve açık kayıt"]), {"K-004", "E-005"})
+
+    def test_method_reason_delivery_and_recipient_disposal_are_independent(self):
+        sample = (SAMPLES / "disposal-method-stage-6-draft.md").read_text(encoding="utf-8")
+        automatic, requested = self.report_table(sample, METHODS)
+        explanation = "İlgili kişiye yöntem açıklaması ve kanıtı"
+        self.assertIn("Yok etme", automatic["Seçim, seçen taraf ve tarih"])
+        self.assertEqual(stage_3.ids(automatic[explanation], "K"), set())
+        self.assertIn("Yok etme", requested["Talep edilen yöntem"])
+        self.assertIn("Silme", requested["Seçim, seçen taraf ve tarih"])
+        self.assertEqual(stage_3.ids(requested[explanation], "K"), {"K-013"})
+        request, = self.report_table(sample, SCHEDULE)
+        self.assertEqual(stage_3.ids(request["Üçüncü kişiye bildirim"], "K"), {"K-014"})
+        self.assertEqual(stage_3.ids(request["Üçüncü kişi işlemi ve takip"]), {"E-011"})
+        self.assertIn("30 gün", request["Uygulanacak süre ve son tarih"])

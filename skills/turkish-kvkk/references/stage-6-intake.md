@@ -1,6 +1,6 @@
 # Aşama 6 · Saklama, imha ve veri güvenliği için devir
 
-`0.8.0` hazırlık önizlemesi. Gerçek dosyalarda devir, olgusal inceleme ve kanıt talebi üret. Hukuki değerlendirme yöntemini sentetik dosyalarda ve metodoloji incelemesinde göster. Gerçek dosyada esaslı değerlendirme kullanımı için belgelenmiş hukukçu onayı gerekir. [İnceleme metodolojisi](stage-6-retention-security.md) · [Çıktı şablonu](../assets/stage-6-outputs.md)
+`0.8.1` hazırlık önizlemesi. Gerçek dosyalarda devir, olgusal inceleme ve kanıt talebi üret. Hukuki değerlendirme yöntemini sentetik metodoloji incelemesinde göster. Gerçek dosya kullanımının genişletilmesi, sürüme ve izin verilen kapsama ilişkin ayrı bir hukukçu onayı gerektirir. [İnceleme metodolojisi](stage-6-retention-security.md) · [Çıktı şablonu](../assets/stage-6-outputs.md)
 
 ## Önceki aşamalardan alınacak kayıtlar
 
@@ -20,12 +20,21 @@ Otomatik olmayan işlemede kâğıt kaydın fiilen tutulması, kişi, tarih veya
 ## Esaslı incelemeye devir
 
 1. Aşama 2 ve 3’ün aynı güncel faaliyet, Aşama 6 hedefi, amaç, kişi grubu, veri, operasyon, ortam veya kopya ve taraf için verdiği açık ve gerekçeli kararları eşleştir. Kaynak kararın izin verdiği alt kapsamı göster. İki kapsam kesişiyorsa yalnız kesişen kısmı değerlendir.
-2. İki karar esaslı incelemeye açıkça izin veriyorsa eşleşen alt kapsamı `Devredilebilir` kaydet. `Sınırlı devredilebilir` kararı yalnız açıkça izin verdiği işi taşır. Yalnız hazırlığa izin veriliyorsa esaslı devir `Bekletilir` kalır. Karar eksik veya kapsam dışıysa ya da m. 2, kişi bağlantısı veya taraf belirsizliği esaslı incelemeyi engelliyorsa `Bekletilir` yaz. Yeni kanıt ve gerekçeli Aşama 2–3 yeniden değerlendirmesiyle kararı güncelle.
-3. Somut bulguya ait Aşama 4 ve 5 bağlantılarını aşağıdaki eşiklerle kontrol et. Esaslı devir kaydı, inceleme kapsamına ilişkin bir karardır. `0.8.0` gerçek dosya çıktısı hazırlık ve olgusal kayıtlarla sınırlıdır. Sentetik değerlendirmede de eksik sonuç koşullarını açık kayda ve istenecek kanıta bağla.
+2. Aşama 2’nin aynı kapsama ait `Devredilebilir` kararı ile Aşama 3’ün tarafların rol ve sorumluluklarını ele alan açık esaslı devir kararı eşleşiyorsa alt kapsamı `Devredilebilir` kaydet. `Sınırlı devredilebilir` ve `Kısıtlı` kararları, belirtilen hazırlık ve olgusal incelemeye izin verir. Esaslı devir kararı eksik veya kapsam dışıysa ya da m. 2, kişi bağlantısı veya taraf belirsizliği incelemeyi engelliyorsa `Bekletilir` yaz. Bekletme kararını ancak gerekçeli Aşama 2–3 yeniden değerlendirmesiyle güncelle.
+3. Somut bulguya ait Aşama 4 ve 5 bağlantılarını aşağıdaki eşiklerle kontrol et. `Devredilebilir` kararı eşleşen kapsamı gösterir. Bu sürümde gerçek dosya çıktısı hazırlık ve olgusal kayıtlarla sınırlıdır. Sentetik değerlendirmede de eksik sonuç koşullarını açık kayda ve istenecek kanıta bağla.
 
 ## Aşama 4 ve 5 bağlantıları
 
 - **Aşama 4.** Saklama dayanağı, işleme şartının devamı ve imha yükümlülüğünün doğduğu tarih için aynı amaç, veri, kişi, saklama işlemi ve tarafı kapsayan Aşama 4 kaydını ara. Yalnız toplamayı kapsayan kaydı ve açıklarını olduğu gibi taşı. Eşleşme veya devam koşulu belirsizse hukuki gerekçeyi ve imha yükümlülüğü tarihini açık bırak. Fiilî saklama, erişim, yedek, geri yükleme ve tedbir olgularını Aşama 2–3 kapsamı ve mevcut kanıtla kaydet.
-- **Aşama 5.** Sağlayıcı kopyası, uzaktan erişim, yurt dışında barındırma veya yedek, alt sağlayıcı, dış alıcı, sonraki aktarım ve alıcı nezdinde imha adımlarını ayrı ele al. Gerekli akış, taraf, ülke veya erişim kanıtı açıksa yalnız etkilenen adımın hukuki değerlendirmesini beklet. Diğer kapsamların olgularını kendi kanıtıyla kaydet. `Uygulanmaz` için ilgili ortamın dış sağlayıcı, alıcı ve aktarım adımı içermediğini destekleyen dayanağı göster. Sentetik gözlemi kaynak ortamıyla sınırla ve üretim durumunu ayrı kaydet.
+- **Aşama 5.** Barındırma, dış arşiv, uzaktan erişim, yedek, replikasyon, geri yükleme, sonraki aktarım ve alıcı nezdinde imha adımlarını ayrı ele al. Sağlayıcı, alt sağlayıcı ve alıcı kimliğini ve rollerini, sözleşme ve talimatı, veri kategorilerini, fiilî kopyayı, barındırma ve erişim ülkelerini, saklama ve imha sorumlusunu, yedekleme ve geri yükleme uygulamasını ve dış sistemde imha kanıtını iste. Dış kopya ihtimalini, tasarım kaydını ve fiilen doğrulanan kopyayı ayrı göster. Yurt dışı aktarım ihtimalini ve ilgili mekanizma incelemesini Aşama 5’e bağla. Açıklar yalnız etkilenen adımı bekletir. `Uygulanmaz` dayanağını ilgili ortamla sınırla ve üretim durumunu ayrı kaydet.
 
 Yeni kanıtı `K-…` ile kayda al ve etkilenen `E-…` ile karar kapsamını yeniden değerlendir. Bağımsız faaliyet, amaç veya operasyon ya da eksik devir kararı için Aşama 2’ye, rol ve talimat değişikliği için Aşama 3’e, işleme şartı veya özel nitelik kapsamı için Aşama 4’e, yeni alıcı veya aktarım akışı için Aşama 5’e dön. Açığı, sorumlu tarafı ve devam koşulunu belirt.
+
+## Sonraki sürümde esaslı taslağın açılması için koşullar
+
+Kapanış incelemesinde tüm koşulları birlikte doğrula. Bu liste `0.8.1` kullanım kapsamını genişletmez.
+
+1. Güncel faaliyet Aşama 2 ana envanterinde yer alır. Aşama 2 ve 3 esaslı devir kapsamı, faaliyet, hedef, amaç, veri, kişi grubu, operasyon, ortam ve taraf bakımından eşleşir. Aşama 4 kaydı incelenen saklama işlemini kapsar. Dış taraf, erişim veya kopya varsa ilgili Aşama 5 bağlantıları bulunur.
+2. Üretim, test, yedek, arşiv, kâğıt ve geri yükleme kopyaları ayrı kaydedilir. Başlangıç ve bitiş, hukuki dayanak ve fiilî saklama kanıtlıdır. m. 7/5 yöntem seçimi ve gerekçesi ile yöntem yeterliliği her ilgili kopya için belgelenir.
+3. Risk, tedbir, uygulayıcı, denetim ve kalan risk kayda bağlanır. Özel nitelikli veri ve ihlal kapsamı varsa ilgili süreç işletilir. İşlem tarihindeki yürürlük metni doğrulanır. Eksik ve sınırlı kanıtın etkisi taslakta gösterilir.
+4. Öngörülen kullanım için ayrı sürüm onayı belgelenir. Somut dosyaya ait nihai karar, gerekçesi ve dayanaklarıyla hukukçu karar kaydına işlenir.
