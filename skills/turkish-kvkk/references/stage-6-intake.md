@@ -1,6 +1,6 @@
 # Aşama 6 · Saklama, imha ve veri güvenliği için devir
 
-`0.8.1` hazırlık önizlemesi. Gerçek dosyalarda devir, olgusal inceleme ve kanıt talebi üret. Hukuki değerlendirme yöntemini sentetik metodoloji incelemesinde göster. Gerçek dosya kullanımının genişletilmesi, sürüme ve izin verilen kapsama ilişkin ayrı bir hukukçu onayı gerektirir. [İnceleme metodolojisi](stage-6-retention-security.md) · [Çıktı şablonu](../assets/stage-6-outputs.md)
+27 Kasım 2026 kapanış kararı `0.8.1` için sınırlı hazırlık kapsamını kabul etti. `0.8.2` bu kapsamda devir, olgusal inceleme ve kanıt talebi üretir. Belgelenmiş yöntem seçimini, gerekçesini ve başvuru olaylarını olgu olarak aktar. Hukuki değerlendirme yöntemini sentetik metodoloji incelemesinde göster. Gerçek dosya kullanımının genişletilmesi için ayrı bir sürüm onayı gerekir. [İnceleme metodolojisi](stage-6-retention-security.md) · [Çıktı şablonu](../assets/stage-6-outputs.md)
 
 ## Önceki aşamalardan alınacak kayıtlar
 
@@ -32,9 +32,19 @@ Yeni kanıtı `K-…` ile kayda al ve etkilenen `E-…` ile karar kapsamını ye
 
 ## Sonraki sürümde esaslı taslağın açılması için koşullar
 
-Kapanış incelemesinde tüm koşulları birlikte doğrula. Bu liste `0.8.1` kullanım kapsamını genişletmez.
+İleride gerçek dosyada esaslı taslak açılabilmesi için kapanış raporundaki aşağıdaki koşulları, her faaliyet ve alt kapsam için birlikte doğrula. Mevcut sürümün gerçek dosya çıktısı olgusal hazırlık kapsamındadır.
 
-1. Güncel faaliyet Aşama 2 ana envanterinde yer alır. Aşama 2 ve 3 esaslı devir kapsamı, faaliyet, hedef, amaç, veri, kişi grubu, operasyon, ortam ve taraf bakımından eşleşir. Aşama 4 kaydı incelenen saklama işlemini kapsar. Dış taraf, erişim veya kopya varsa ilgili Aşama 5 bağlantıları bulunur.
-2. Üretim, test, yedek, arşiv, kâğıt ve geri yükleme kopyaları ayrı kaydedilir. Başlangıç ve bitiş, hukuki dayanak ve fiilî saklama kanıtlıdır. m. 7/5 yöntem seçimi ve gerekçesi ile yöntem yeterliliği her ilgili kopya için belgelenir.
-3. Risk, tedbir, uygulayıcı, denetim ve kalan risk kayda bağlanır. Özel nitelikli veri ve ihlal kapsamı varsa ilgili süreç işletilir. İşlem tarihindeki yürürlük metni doğrulanır. Eksik ve sınırlı kanıtın etkisi taslakta gösterilir.
-4. Öngörülen kullanım için ayrı sürüm onayı belgelenir. Somut dosyaya ait nihai karar, gerekçesi ve dayanaklarıyla hukukçu karar kaydına işlenir.
+1. Güncel Aşama 2 envanterinde ve Aşama 3 rol ve devir kaydında aynı faaliyet, amaç, veri, kişi grubu, operasyon, ortam veya kopya, taraf ve Aşama 6 hedefi için açık ve gerekçeli esaslı devir bulunur.
+2. Aşama 4 kaydı aynı saklama işlemini ve işleme şartının devamını kapsar.
+3. Sağlayıcı, alıcı, uzaktan erişim veya dış kopya varsa Aşama 5 akışı, sözleşme, talimat ve kopya kanıtı eşleşir.
+4. Üretim, test, yedek, arşiv, replika, geri yükleme ve kâğıt ortamı envanterde ve kanıtta ayrı izlenir.
+5. Her veri ve kopyanın saklama başlangıcı, bitişi, hukuki dayanağı ve fiilî işleyişi belgelenir.
+6. m. 7/5 için imha yolu, ilgili Kurul kararı kontrolü, yöntem, seçen taraf, tarih ve gerekçe kaydedilir. Talepte açıklama ve yanıt kanıtına bağlanır.
+7. Yöntem yeterliliğini ilgili veri, ortam, kopya ve ilgili kullanıcı kapsamında uygulama ve doğrulama kanıtı destekler.
+8. Uygulanıyorsa üçüncü kişiye bildirim, alıcı nezdindeki fiilî işlem ve doğrulama ayrı belgelenir.
+9. m. 7/3 kapsamında işlem kaydı ve en az üç yıllık muhafaza, m. 7/4 kapsamında yöntemin politika ve prosedürde açıklanması doğrulanır.
+10. Risk, tedbir, uygulayıcı, denetleyen, uygulama kanıtı ve kalan risk ilişkilendirilir.
+11. Varsa özel nitelikli veri ve ihlal süreçleri Aşama 4, m. 6/4 tedbirleri veya olay kanıtlarıyla ayrı izlenir.
+12. İşlem tarihinde yürürlükteki metin resmî mevzuat veya yeterli resmî değişiklik zinciriyle doğrulanır.
+13. Çelişkiler, eksik kanıt ve test ortamı sınırları olgusal durum ve `K/E/H` kayıtlarıyla gösterilir.
+14. Yeni sürümün esaslı taslak üretimine açıkça izin veren hukukçu kararı belgelenir. Karar, güncellenen beceri dosyalarına ve kapsamına bağlanır. Somut dosyanın nihai kararı ayrı hukukçu karar kaydına işlenir.

@@ -23,6 +23,7 @@ GAPS = "Açık kayıtlar ve sonraki aşamaya devir"
 EVIDENCE = "Kanıt kaydı"
 SOURCES = "Hukuki kaynak kaydı"
 DECISIONS = "Hukukçu karar ve onay kaydı"
+EVIDENCE_LIMITS = SAMPLES / "evidence-limits-stage-6-draft.md"
 
 
 class StageSixExamples(unittest.TestCase):
@@ -164,3 +165,79 @@ class StageSixExamples(unittest.TestCase):
         self.assertEqual(stage_3.ids(request["Üçüncü kişiye bildirim"], "K"), {"K-014"})
         self.assertEqual(stage_3.ids(request["Üçüncü kişi işlemi ve takip"]), {"E-011"})
         self.assertIn("30 gün", request["Uygulanacak süre ve son tarih"])
+
+    def test_disposal_register_and_written_methods_match_recorded_operations(self):
+        sample = (SAMPLES / "disposal-method-stage-6-draft.md").read_text(encoding="utf-8")
+        records = {row["Ortam no."]: row for row in self.report_table(sample, DISPOSAL)}
+        self.assertEqual(set(records), {"1", "2", "3"})
+        evidence = {row["Kanıt kimliği"]: row for row in self.report_table(sample, EVIDENCE)}
+        for environment, operation in (("1", "K-011"), ("2", "K-013")):
+            with self.subTest(environment=environment):
+                record = records[environment]
+                self.assertEqual(stage_3.ids(record["Uygulanan yöntem ve kişi veya sistem"], "K"), {"K-015"})
+                self.assertEqual(stage_3.ids(record["Fiilî işlem ve tarihi"], "K"), {operation})
+                self.assertEqual(stage_3.ids(record["İmha kaydı ve kayıt süresi"], "K"), {operation, "K-016"})
+                self.assertIn("en az üç yıl", record["İmha kaydı ve kayıt süresi"])
+        self.assertIn("politika", evidence["K-015"]["Kaynak veya konum"])
+        self.assertIn("prosedürü", evidence["K-015"]["Kaynak veya konum"])
+        self.assertIn("ayrı", evidence["K-016"]["Gösterdiği olgu ve sınırı"])
+        self.assertIn("dolması gözlem kapsamı dışında", evidence["K-016"]["Gösterdiği olgu ve sınırı"])
+        recipient = records["3"]
+        self.assertEqual(stage_3.ids(recipient["Olgusal durum, kanıt ve açık kayıt"]), {"K-014", "E-011"})
+        self.assertFalse(stage_3.ids(recipient["İmha kaydı ve kayıt süresi"], "K"))
+
+    def test_contrary_board_decision_governs_only_the_documented_scope(self):
+        sample = EVIDENCE_LIMITS.read_text(encoding="utf-8")
+        automatic, *requests = self.report_table(sample, METHODS)
+        decision = "Kurul kararı ve kapsamı"
+        selection = "Seçim, seçen taraf ve tarih"
+        self.assertEqual(stage_3.ids(automatic[decision], "K"), {"K-021"})
+        self.assertIn("Yok etme", automatic[selection])
+        self.assertIn("E-020", stage_3.ids(automatic["Durum ve K/E/H kayıtları"], "E"))
+        for row in requests:
+            self.assertNotIn("K-021", stage_3.ids(row[decision] + row[selection], "K"))
+
+    def test_explanation_content_and_delivery_leave_different_gaps(self):
+        sample = EVIDENCE_LIMITS.read_text(encoding="utf-8")
+        _, omitted_reason, unverified_delivery = self.report_table(sample, METHODS)
+        explanation = "İlgili kişiye yöntem açıklaması ve kanıtı"
+        for row, evidence, gap in ((omitted_reason, "K-022", "E-021"),
+                                   (unverified_delivery, "K-023", "E-022")):
+            self.assertIn("Yok etme", row["Talep edilen yöntem"])
+            self.assertIn("Silme", row["Seçim, seçen taraf ve tarih"])
+            self.assertEqual(stage_3.ids(row[explanation]), {evidence, gap})
+        self.assertIn("gerekçesi eksik", omitted_reason[explanation])
+        self.assertIn("Teslim kanıtı sunulmadı", unverified_delivery[explanation])
+
+    def test_primary_deletion_does_not_close_remaining_copies_or_production(self):
+        sample = EVIDENCE_LIMITS.read_text(encoding="utf-8")
+        primary, backup, restored = self.report_table(sample, DISPOSAL)
+        self.assertEqual([row["Ortam no."] for row in (primary, backup, restored)], ["2", "4", "5"])
+        status = "Olgusal durum, kanıt ve açık kayıt"
+        self.assertIn("Birincil test kaydı silindi", primary["Fiilî işlem ve tarihi"])
+        for row in (backup, restored):
+            self.assertTrue(row["Sonuç veya hata"].endswith("mevcut."))
+            self.assertIn("E-023", stage_3.ids(row[status], "E"))
+        for row in (primary, backup, restored):
+            self.assertIn("E-024", stage_3.ids(row[status], "E"))
+
+    def test_related_user_scope_uses_actual_duties_and_effective_permissions(self):
+        sample = EVIDENCE_LIMITS.read_text(encoding="utf-8")
+        technical, operational = self.report_table(sample, ACCESS)
+        scope = "İlgili kullanıcı kapsamı, kanıt ve açık kayıt"
+        self.assertIn("Yalnız teknik yedekleme ve koruma", technical["Rol, fiilî işlev ve yetki"])
+        self.assertIn("istisnası kapsamında", technical[scope])
+        self.assertIn("müşteri işlemi", operational["Rol, fiilî işlev ve yetki"])
+        self.assertIn("ilgili kullanıcı kapsamına giriyor", operational[scope])
+        for row in (technical, operational):
+            self.assertEqual(stage_3.ids(row[scope]), {"K-025", "H-021", "E-024"})
+
+    def test_operation_log_leaves_retention_and_policy_evidence_separately_open(self):
+        sample = EVIDENCE_LIMITS.read_text(encoding="utf-8")
+        primary, *_ = self.report_table(sample, DISPOSAL)
+        self.assertEqual(stage_3.ids(primary["Fiilî işlem ve tarihi"], "K"), {"K-024"})
+        self.assertEqual(stage_3.ids(primary["İmha kaydı ve kayıt süresi"], "E"), {"E-025"})
+        self.assertEqual(stage_3.ids(primary["Uygulanan yöntem ve kişi veya sistem"], "E"), {"E-026"})
+        gaps = {row["Açık kayıt ve kaynak"].split(" · ", 1)[0]: row for row in self.report_table(sample, GAPS)}
+        self.assertIn("en az üç yıl", gaps["E-025"]["İstenecek maskelenmiş kanıt veya soru"])
+        self.assertIn("politika ve prosedür", gaps["E-026"]["İstenecek maskelenmiş kanıt veya soru"])

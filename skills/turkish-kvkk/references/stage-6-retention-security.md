@@ -21,7 +21,7 @@ Sicile kayıt yükümlülüğüne tabi veri sorumlusu, envanteriyle uyumlu sakla
 ### Yöntem seçimi ve gerekçesi · Yönetmelik m. 7/5
 
 - **Resen imha.** Kurulun aksine bir kararı varsa ilgili kayıt ve bağlayıcı yöntem kapsamını göster. Diğer durumlarda veri sorumlusu silme, yok etme veya anonimleştirme yöntemlerinden uygun olanı seçer. Seçimi kimin, ne zaman ve hangi hukuki ve teknik gerekçeyle yaptığını kaydet.
-- **İlgili kişi talebi.** Silme veya yok etme talebinde veri sorumlusu uygun yöntemi seçer ve gerekçesini açıklar. Talep edilen yöntemi, seçilen yöntemi, gerekçe metnini ve varsa bu gerekçenin ilgili kişiye iletildiğine ilişkin kayıtları bağla. Yöntem açıklamasıyla başvurunun kabul veya ret gerekçesini ayrı değerlendir.
+- **İlgili kişi talebi.** Silme veya yok etme talebinde veri sorumlusu uygun yöntemi seçer ve gerekçesini açıklar. Talep edilen yöntemi, seçilen yöntemi, gerekçe metnini ve ilgili kişiye yapılan açıklamayı bağla. Yanıtın içeriğini, gönderim kaydını ve teslim kanıtını ayrı göster. Yöntem açıklamasıyla başvurunun kabul veya ret gerekçesini ayrı değerlendir.
 - **Kapsam ve doğrulama.** Uygunluğu veri, ortam, kopya ve ilgili kullanıcı grubu düzeyinde incele. Seçim kaydını, yöntemin yeterliliğini doğrulayan kanıtı ve fiilî uygulamayı ayrı göster. Gerçek dosyada belgelenmiş seçimi aktar ve eksik karar veya gerekçeyi açık kayda bağla. Sentetik varsayımı ve test kapsamını belirt. [İmha Yönetmeliği, m. 7/5](https://www.resmigazete.gov.tr/eskiler/2017/10/20171028-10.htm)
 
 ### Resen imha · Yönetmelik m. 11

@@ -42,6 +42,8 @@ Her kayıt için Yönetmelik m. 7/5 yolunu, varsa Kurulun aksine kararını ve s
 
 ## İmha ve doğrulama
 
+`İmha kaydı ve kayıt süresi` alanında işlem kaydını, ayrıca muhafaza edildiği yeri ve muhafaza süresi dayanağını bağla. Politika ve prosedürde yöntemi açıklayan sürüm ve bölümü, fiilî işlemle ilişkili `K-…` kaydıyla göster. Yapılandırma veya süreç belgesiyle doğrulanan muhafaza süresini, sürenin fiilen tamamlandığına ilişkin kanıttan ayrı yaz.
+
 | Ortam no. | Faaliyet, veri ve kopya | Tetikleyici, tarih ve uygulanacak süre | Uygulanan yöntem ve kişi veya sistem | Fiilî işlem ve tarihi | Doğrulama yöntemi ve kapsamı | Sonuç veya hata | İmha kaydı ve kayıt süresi | Olgusal durum, kanıt ve açık kayıt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
