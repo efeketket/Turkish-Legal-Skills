@@ -11,10 +11,13 @@ SAMPLES = TESTS / "stage-6/samples"
 TEMPLATE = stage_1.SKILL / "assets/stage-6-outputs.md"
 HANDOFF = "Devir ve hazırlık"
 STORAGE = "Saklama ve kopyalar"
+POLICY = "Sicil ve saklama-imha politikası"
+SCHEDULE = "Resen imha ve ilgili kişi talebi"
 DISPOSAL = "İmha ve doğrulama"
 CONTROLS = "Teknik ve idari tedbirler"
 FINDINGS = "Taslak değerlendirme"
 GAPS = "Açık kayıtlar ve sonraki aşamaya devir"
+EVIDENCE = "Kanıt kaydı"
 SOURCES = "Hukuki kaynak kaydı"
 DECISIONS = "Hukukçu karar ve onay kaydı"
 
@@ -63,6 +66,7 @@ class StageSixExamples(unittest.TestCase):
         storage = self.report_table(sample, STORAGE)
         disposal = self.report_table(sample, DISPOSAL)
         controls = self.report_table(sample, CONTROLS)
+        evidence_ids = {row["Kanıt kimliği"] for row in self.report_table(sample, EVIDENCE)}
         self.assertCountEqual([row["Ortam no."] for row in storage], ["1", "2", "3"])
         self.assertCountEqual([row["Ortam no."] for row in disposal], ["1", "2", "3"])
         self.assertEqual([row["Ortam no."] for row in controls], ["3"])
@@ -71,16 +75,54 @@ class StageSixExamples(unittest.TestCase):
         for copy, evidence, gap in (("1", "K-003", "E-002"),
                                     ("2", "K-004", "E-003"), ("3", "K-004", "E-005")):
             self.assertEqual(stage_3.ids(disposal_by_copy[copy]["Olgusal durum, kanıt ve açık kayıt"], "E"), {gap})
-            self.assertIn(evidence, stage_3.ids(disposal_by_copy[copy]["Olgusal durum, kanıt ve açık kayıt"], "K"))
+            cited_evidence = stage_3.ids(disposal_by_copy[copy]["Olgusal durum, kanıt ve açık kayıt"], "K")
+            self.assertIn(evidence, cited_evidence)
+            self.assertLessEqual(cited_evidence, evidence_ids)
 
         gaps = self.report_table(sample, GAPS)
         open_ids = stage_3.ids(" ".join(row["Açık kayıt ve kaynak"] for row in gaps), "E")
         sources = {row["Kaynak kimliği"] for row in self.report_table(sample, SOURCES)}
-        handoff, = self.report_table(sample, HANDOFF)
-        self.assertIn("E-001", stage_3.ids(handoff["Kanıt ve açık kayıt"], "E"))
         for row in self.report_table(sample, FINDINGS):
             status = row["Durum, gerekçe ve açık kayıt"]
             self.assertEqual(status.split(" · ", 1)[0], "Ek kanıt gerekli")
             self.assertLessEqual(stage_3.ids(status, "E"), open_ids)
             self.assertLessEqual(stage_3.ids(row["Hukuki kaynak"], "H"), sources)
         self.assertEqual(self.report_table(sample, DECISIONS), [])
+
+    def test_provider_gap_leaves_internal_test_open_for_factual_review(self):
+        sample = (SAMPLES / "backup-stage-6-draft.md").read_text(encoding="utf-8")
+        internal, provider = self.report_table(sample, HANDOFF)
+        self.assertEqual(internal["Esaslı incelemeye devir"].split(" · ")[0], "Devredilebilir")
+        self.assertEqual(provider["Esaslı incelemeye devir"], "Bekletilir")
+        self.assertEqual(stage_3.ids(internal["Aşama 4 bağlantısı"], "E"), {"E-001"})
+        self.assertEqual(internal["Aşama 5 bağlantısı"].split(" · ")[0], "Uygulanmaz")
+        self.assertEqual(stage_3.ids(internal["Aşama 5 bağlantısı"], "K"), {"K-002"})
+        self.assertEqual(stage_3.ids(provider["Aşama 5 bağlantısı"], "E"), {"E-006"})
+        for section in (STORAGE, DISPOSAL, CONTROLS, FINDINGS):
+            for row in self.report_table(sample, section):
+                self.assertNotIn("E-006", stage_3.ids(" ".join(row.values()), "E"))
+
+    def test_retention_settings_and_disposal_routes_keep_distinct_evidence(self):
+        sample = (SAMPLES / "backup-stage-6-draft.md").read_text(encoding="utf-8")
+        primary, backup, _ = self.report_table(sample, STORAGE)
+        self.assertIn("30 gün", primary["Politika beyanı"])
+        self.assertIn("90 gün", primary["Yapılandırılan süre"])
+        self.assertIn("14 gün", backup["Yapılandırılan süre"])
+        for row in (primary, backup):
+            self.assertNotRegex(row["Fiilî saklama ve ortam"], r"\b(?:30|90|14) gün\b")
+        policy, = self.report_table(sample, POLICY)
+        self.assertEqual(stage_3.ids(policy["Kanıt ve açık kayıt"], "E"), {"E-007"})
+        automatic, request = self.report_table(sample, SCHEDULE)
+        self.assertIn("Resen", automatic["Ortam no. ve yol"])
+        self.assertIn("İlgili kişi talebi", request["Ortam no. ve yol"])
+        self.assertEqual(stage_3.ids(automatic["Hukuki kaynak, kanıt ve açık kayıt"], "E"), {"E-001", "E-007"})
+        self.assertEqual(stage_3.ids(request["Hukuki kaynak, kanıt ve açık kayıt"], "E"), {"E-006", "E-008"})
+
+    def test_central_text_timeout_preserves_the_source_gap(self):
+        sample = (SAMPLES / "backup-stage-6-draft.md").read_text(encoding="utf-8")
+        sources = {row["Kaynak kimliği"]: row for row in self.report_table(sample, SOURCES)}
+        self.assertIn("Zaman aşımı", sources["H-007"]["Erişim tarihi ve durumu"])
+        self.assertEqual(stage_3.ids(sources["H-007"]["Güncellik ve açık kayıt"], "E"), {"E-004"})
+        findings = self.report_table(sample, FINDINGS)
+        self.assertTrue(any("E-004" in stage_3.ids(row["Durum, gerekçe ve açık kayıt"], "E") for row in findings))
+        self.assertTrue(all("H-007" not in stage_3.ids(row["Hukuki kaynak"], "H") for row in findings))

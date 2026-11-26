@@ -3,7 +3,8 @@ name: turkish-kvkk
 description: >-
   Business discovery and processing activity inventory for Türkiye's personal
   data protection law (KVKK), including audit preparation, data flows,
-  activity-level role assessment, draft processing-condition assessment and transfer intake in
+  activity-level role assessment, draft processing-condition assessment,
+  transfer intake and factual retention, disposal and data-security review in
   software, SaaS or manual operations. Select only when
   the request or project evidence establishes a Turkish
   personal data review. Clarify the scope first if the jurisdiction is unclear.
@@ -11,10 +12,11 @@ description: >-
   ilişkin girdiler Türkiye'de kişisel veri incelemesine işaret ettiğinde kullan.
 license: MIT
 metadata:
-  version: "0.7.0"
+  version: "0.8.0"
   stage-3: "methodology-approved"
   stage-4: "methodology-approved"
   stage-5: "intake-approved"
+  stage-6: "intake-preview"
 ---
 
 # Turkish KVKK
@@ -33,5 +35,6 @@ metadata:
 - **Tam KVKK incelemesi veya faaliyet bazlı rol değerlendirmesi · Aşama 3.** [Teknik devir yönergesini](references/stage-3-integration.md) aç ve Aşama 2 ana envanteri ile geçiş gerekçesinden başlangıç yeterliliğini değerlendir. Eksik girdileri eldeki belgelerden güvenilir biçimde oluşturabiliyorsan önce gereken önceki aşamaları tamamla. Başlayabilen kapsamlar için [hukukçu onaylı rol metodolojisini](references/stage-3-legal-roles.md) ve [Aşama 3 şablonunu](assets/stage-3-outputs.md) yükle. Somut faaliyetler için üretilen rol değerlendirmeleri hukukçu incelemesine açık taslaklardır. Sonraki aşamalara rol bağlantılarını devret.
 - **İşleme şartları veya Aşama 4.** [Aşama 4 devir ve hazırlık yönergesiyle](references/stage-4-intake.md) güncel Aşama 2 envanterini ve Aşama 2 ile Aşama 3'ün eşleşen devir kararlarını kontrol et. Her kapsam için devir ve hazırlık notu üret. Gerçek ve sentetik dosyalarda yalnızca `Devredilebilir` kapsamlar için [hukukçu onaylı işleme şartı metodolojisini](references/stage-4-processing-conditions.md) ve [çıktı şablonunu](assets/stage-4-outputs.md) kullanarak hukukçu incelemesine sunulacak aday taslağını hazırla. Nihai tercihi yalnızca belgelenmiş hukukçu kararından aktar.
 - **Kişisel veri aktarımı veya Aşama 5.** [Devir yönergesiyle](references/stage-5-intake.md) güncel Aşama 2 faaliyetini, Aşama 5 hedefi için eşleşen Aşama 2 ve Aşama 3 kararlarını ve aynı aktarımı kapsayan Aşama 4 kaydını değerlendir. [Aşama 5 şablonuyla](assets/stage-5-outputs.md) devir ve hazırlık notu üret. Aktarım değerlendirmesi isteniyorsa [aday taslağı koşulları](references/stage-5-intake.md#aday-taslağı-koşulları) sağlanan akışlar için [aktarım metodolojisiyle](references/stage-5-transfers.md) hukukçuya sunulacak aday taslağını ekle. Nihai tercih için belgelenmiş hukukçu kararını kullan.
+- **Saklama, imha, veri güvenliği veya Aşama 6.** [Devir yönergesiyle](references/stage-6-intake.md) güncel faaliyeti, Aşama 6 hedefini, Aşama 2–3 kapsamlarını ve ilgili Aşama 4–5 bağlantılarını kontrol et. [Aşama 6 metodolojisini](references/stage-6-retention-security.md) ve [çıktı şablonunu](assets/stage-6-outputs.md) kullan. Gerçek dosyada devir, olgusal kanıt ve hedefli açıklarla ilerle. Esaslı değerlendirme taslağı yalnız sentetik ve metodoloji incelemesi kapsamındadır. Gerçek dosyada belgelenmiş hukukçu kararını kapsamı ve sürümüyle aktar.
 
-Birden fazla aşama raporunu aynı yanıtta veriyorsan her birini kendi birinci düzey Markdown başlığıyla başlat. Raporları teslim etmeden önce her rapordaki kayıt bağlantılarını çözümle. Her geçiş ölçütünün gerekçe hücresine en az bir dayanak kimliği yaz. Genel geçiş sonucu ve aktarım notunu şablondaki iki madde işaretiyle ver. Aktarım notuna her açık kaydın tam kimliğini yaz.
+Birden fazla aşama raporunu aynı yanıtta veriyorsan her birini kendi birinci düzey Markdown başlığıyla başlat. Raporları teslim etmeden önce her rapordaki kayıt bağlantılarını çözümle. Her geçiş ölçütünün gerekçe hücresine en az bir dayanak kimliği yaz. Şablonda genel geçiş sonucu ve aktarım notu varsa ikisini ilgili madde işaretleriyle ver. Aktarım notuna ilgili açık kayıtların tam kimliklerini yaz.

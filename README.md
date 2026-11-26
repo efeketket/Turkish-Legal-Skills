@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.7.0`. Counsel approved the Stage 2–4 methodologies and the Stage 5 intake and preparation scope. Stage 5 supports candidate drafts for counsel when the handoffs, processing-condition record and transfer evidence match. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 counsel decision](docs/küb-docs/history/asama5-kapanis.md) · [Live CLI verification record](tests/stage-3/README.md) |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.8.0`. Counsel approved the Stage 2–4 methodologies and the Stage 5 intake and preparation scope. Stage 5 supports candidate drafts for counsel under its intake conditions. Stage 6 previews factual preparation for retention, disposal and data security. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 counsel decision](docs/küb-docs/history/asama5-kapanis.md) · [Live CLI verification record](tests/stage-3/README.md) |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install
@@ -34,7 +34,7 @@ For a full KVKK review or role assessment by processing activity, Stage 3 uses t
 
 Stage 5 records recipients, transfer paths and matching Stage 2 and Stage 3 handoffs. Factual mapping can continue while the operation-specific Stage 4 record is pending. When transfer assessment is requested, each candidate draft requires a matching Stage 4 record and evidence that establishes the relevant transfer facts. Final mechanism choices require a documented decision by counsel. [Candidate conditions](skills/turkish-kvkk/references/stage-5-intake.md#aday-taslağı-koşulları) · [Masked intake example](tests/stage-5/samples/masked-stage-5-draft.md) · [Deferred transfer example](tests/stage-5/samples/phase-1.5-stage-5-intake.md) · [Remote support example](tests/stage-5/samples/remote-support-stage-5-intake.md)
 
-Stage 6 covers retention, disposal and data security. The draft methodology and synthetic examples are ready for counsel review. Skill routing awaits that review. [Stage 6 counsel brief](docs/küb-docs/asama-6-hukuk-inceleme-promptu.md)
+Stage 6 records matching handoffs, storage environments and copies, policy statements, settings, observed operations and evidence gaps. Real-case routing covers intake and factual preparation. Substantive methodology is demonstrated on synthetic examples pending counsel review. [Stage 6 closing review brief](docs/küb-docs/asama-6-kapanis-oncesi-inceleme-promptu.md)
 
 For CLI-managed installs, use `npx skills list` to find the installed copy. For GitHub installs, use `npx skills check` to check for updates and `npx skills update turkish-kvkk` to update it from its recorded source. For a local-path install, rerun the original add command when the source changes. Use `npx skills remove turkish-kvkk` from the project to remove it, adding `-g` for a global install. For a manual install, replace the installed folder to update it or remove that folder to uninstall it.
 
