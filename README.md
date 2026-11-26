@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.6.0`. Counsel approved the Stage 2–4 methodologies. Stage 5 provides transfer intake and a synthetic assessment draft for counsel review. Live CLI validation remains open. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 intake](skills/turkish-kvkk/references/stage-5-intake.md) |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.6.0`. Counsel approved the Stage 2–4 methodologies and the Stage 5 transfer intake and preparation scope. The Stage 5 mechanism draft supports synthetic and methodology review. Live CLI validation remains open. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 counsel decision](docs/küb-docs/asama5-kapanis.md) |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install

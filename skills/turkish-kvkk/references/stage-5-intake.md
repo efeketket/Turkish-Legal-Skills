@@ -1,6 +1,6 @@
 # Aşama 5 Aktarım incelemesi için devir ve hazırlık
 
-Her faaliyet ve aktarım kapsamı için [Aşama 5 şablonuyla](../assets/stage-5-outputs.md) devir ve hazırlık notu üret. Bu önizlemede [aktarım değerlendirmesi taslağını](stage-5-transfers.md) sentetik dosyalarda veya metodoloji incelemesinde, `Devredilebilir` kapsamlar için kullan. Gerçek dosyalarda çıktı devir ve hazırlık notudur.
+26 Kasım 2026 hukukçu kapanış kararı `0.6.0` önizlemesinin devir ve hazırlık kapsamını ve sentetik metodoloji incelemesini onayladı. Her faaliyet ve aktarım kapsamı için [Aşama 5 şablonuyla](../assets/stage-5-outputs.md) devir ve hazırlık notu üret. Gerçek dosya çıktısı bu nottur. [Aktarım değerlendirmesi taslağını](stage-5-transfers.md) sentetik dosyalarda veya metodoloji incelemesinde, `Devredilebilir` kapsamlar için kullan.
 
 ## Önceki aşama kayıtları
 

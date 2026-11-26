@@ -134,6 +134,17 @@ class StageFiveExamples(unittest.TestCase):
             self.assertEqual(row["Akış no."], "2")
             self.assertEqual(stage_3.ids(row["Açık kayıt ve istenecek kanıt"], "E"), {gap})
             self.assertTrue(row["Durum ve gerekçe"].startswith("Ek kanıt gerekli"))
+        self.assertIn("metin bütünlüğü", contract_records["Taraf, rol ve Kurul metni"]["Durum ve gerekçe"])
+        self.assertIn("Türkçe metindeki imzalar",
+                      contract_records["Temsil ve imzalar"]["Açık kayıt ve istenecek kanıt"])
+        notification = contract_records["m. 9/5 bildirimi"]
+        self.assertIn("belirlenip belirlenmediği açık", notification["Durum ve gerekçe"])
+        self.assertIn("belirleme yapılmamışsa veri aktaran", notification["Durum ve gerekçe"])
+        self.assertIn("H-007", stage_3.ids(notification["Kanıt, tarih ve sürüm"], "H"))
+        sources = {row["Kaynak kimliği"]: row for row in self.report_table(sample, "Hukuki kaynak kaydı")}
+        for source_id, issue in (("H-005", "29677"), ("H-006", "32487"), ("H-007", "32598")):
+            self.assertIn(issue, sources[source_id]["Erişilen bölüm"])
+            self.assertIn("E-011", stage_3.ids(sources[source_id]["Güncellik kontrolü ve açık kayıt"], "E"))
         self.assertEqual(self.report_table(sample, "Hukukçu karar ve onay kaydı"), [])
 
     def test_remote_access_and_onward_transfer_are_mapped_while_stage_four_linkage_is_open(self):

@@ -61,10 +61,10 @@ Aktarım ülkesindeki hak kullanma ve etkili başvuru koşullarını, güvencede
 
 Her akış için aşağıdaki kayıtları ayrı satırlara yaz. Her satırın kendi durumunu, dayanağını ve açık kayıt kimliğini göster.
 
-- Taraf kimlikleri, rol eşleşmesi ve Kurul metninin sürümü.
-- İmzacı kimlikleri, temsil yetkileri, her iki tarafın imza tarihi ve imzaların tamamlandığı tarih.
-- Nihai imzalı metin ve tamamlanmış ekler.
-- Bildirim yükümlüsü, m. 9/5 kapsamındaki beş iş günlük sürenin kontrolü, tarih, yöntem ve teslim ya da başvuru kaydı.
+- Taraf kimlikleri, rol eşleşmesi ve işlem tarihinde geçerli Kurul metninin sürümü. İzin verilen seçimlik veya alternatif içerikler dışında ekleme, çıkarma veya değişiklik bulunup bulunmadığını göster.
+- İmzacı kimlikleri, temsil ve imza yetkisi belgeleri, her iki tarafın imza tarihi ve imzaların tamamlandığı tarih. Yabancı dilde de düzenlenmişse iki tarafın Türkçe metindeki geçerli imzasını ayrı göster.
+- Nihai imzalı metnin Kurul metniyle uyumu ve tamamlanmış eklerin sürümü veya dosya referansı. İzin dışı değişiklik veya geçersiz imza tespitinde güvenceyi tamamlanmış olarak kaydetme.
+- Bildirim yükümlüsü, sözleşmedeki belirleme ve dayanağı. Belirleme yoksa Yönetmelik m. 14/5 uyarınca veri aktaranı yaz. Sözleşme erişimi eksikse bu olguyu ayrı kaydet. İmzaların tamamlanma tarihini, beş iş günlük süre hesabı ve son günü, fiilî bildirim tarihi, yöntemi ve teslim ya da başvuru kaydını ayrı göster.
 - Fiilî aktarımın metin ve eklerle uyumunu gösteren bağımsız uygulama kanıtı.
 
 | Akış no. | İncelenen kayıt | Kanıt, tarih ve sürüm | Durum ve gerekçe | Açık kayıt ve istenecek kanıt |
