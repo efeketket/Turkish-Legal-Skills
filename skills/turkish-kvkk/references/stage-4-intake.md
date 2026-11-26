@@ -22,7 +22,7 @@ Fiziksel kayıt için KVKK m. 2 kapsamı açık kaldığında ilgili kaydı ve h
 
 ## Devir ve hazırlık notu
 
-Her faaliyet ve kapsam için amacı, varsa Aşama 3 rol bağlantısını ve ilgili veri kategorisini kaynak raporlardan aktar. `A-…`, `K-…`, `E-…` ve varsa `H-…` kimliklerini kendi bağlamlarıyla kullan. Aşama 2 ve Aşama 3'e dönüş ihtiyacını kapsam bazında gerekçelendir. Yeni kanıt yoksa bu alanı `Yeni kanıt yok` olarak doldur. Devri engelleyen açıkları, aday incelenirken giderilebilecek açık kalemlerden ayır.
+Her faaliyet ve kapsam için amacı, varsa Aşama 3 rol bağlantısını ve ilgili veri kategorisini kaynak raporlardan aktar. Eşleşen Aşama 3 devir satırındaki faaliyet kimliğini ve kapsam adını koru. Aşama 2'de henüz faaliyet olarak kaydedilmemiş bağımsız bulgunun dönüşünü tablonun dışında, kendi `K-…` ve `E-…` bağıyla göster. `A-…`, `K-…`, `E-…` ve varsa `H-…` kimliklerini kendi bağlamlarıyla kullan. Aşama 2 ve Aşama 3'e dönüş ihtiyacını kapsam bazında gerekçelendir. Yeni kanıt yoksa bu alanı `Yeni kanıt yok` olarak doldur. Devri engelleyen açıkları, aday incelenirken giderilebilecek açık kalemlerden ayır.
 
 | Faaliyet ve kapsam | Aşama 2 kararı ve dayanağı | Aşama 3 devir durumu | Esaslı incelemeye devir | Amaç, veri ve rol bağlantısı | Hazırlık işi | Yeni kanıtın faaliyet sınırına etkisi | Aşama 2'ye dönüş | Aşama 3 rol güncellemesi | Engelleyen açık ve devam koşulu | Kanıt ve açık kayıt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

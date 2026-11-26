@@ -259,7 +259,7 @@ def check_handoff(tables, scopes, scopes_to_gaps, open_gaps, second, errors):
         threshold = row["Fiziksel kayıt m. 2 eşiği"]
         if threshold == "Doğrulanamadı":
             physical_scopes[row["Faaliyet"]].add(row["Faaliyet kapsamı"])
-        elif threshold not in {"Doğrulandı", "—"}:
+        elif threshold != "Doğrulandı" and threshold not in stage_2.NOT_APPLICABLE:
             errors.append(f"{COMPARISON}: fiziksel kayıt eşiği geçersiz.")
     for activity, gaps in manual.items():
         if gaps & open_gaps and not physical_scopes[activity]:
@@ -307,7 +307,7 @@ def check_activity_history(tables, second, activities, open_gaps, errors):
         before, after, gaps = key = revision_key(row["Önceki faaliyetler"], row["Sonraki faaliyetler"], row["Açık kayıt"])
         status = row["Durum"]
         if status == PENDING:
-            if row["Sonraki faaliyetler"] != "—" or not gaps or gaps - open_gaps:
+            if row["Sonraki faaliyetler"] not in stage_2.NOT_APPLICABLE or not gaps or gaps - open_gaps:
                 errors.append(f"{RETURNS}: bekleyen dönüş için açık kayıt ve atanmamış faaliyet gerekir.")
         elif status in {REVIEWED, INHERITED}:
             if key not in revisions or revisions[key] - ids(row["Kanıt"], "K"):

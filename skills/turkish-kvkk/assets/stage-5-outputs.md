@@ -1,6 +1,6 @@
 # Aşama 5 Aktarım incelemesi
 
-Rapor başında inceleme tarihini, ortamı ve kullanılan Aşama 2, 3 ve varsa 4 raporlarının sürümünü veya tarihini yaz. [Devir yönergesiyle](../references/stage-5-intake.md) her istenen faaliyet ve kapsamı değerlendir. Bu önizlemede gerçek dosya çıktısı devir ve hazırlık notudur. Sentetik değerlendirme için [aktarım metodolojisi taslağını](../references/stage-5-transfers.md) kullan.
+Rapor başında inceleme tarihini, ortamı ve kullanılan Aşama 2, 3 ve varsa 4 raporlarının sürümünü veya tarihini yaz. Her kapsam için istenen çıktıyı ve ulaşılan düzeyi belirt. Devir ve hazırlık notu, varsa olgusal haritalamayla birlikte her kapsamın hazırlık sonucunu gösterir. Hukukçuya sunulacak aday taslağı, aktarım değerlendirmesi istendiğinde ve [aday taslağı koşulları](../references/stage-5-intake.md#aday-taslağı-koşulları) sağlandığında eklenir.
 
 ## Devir ve hazırlık
 
@@ -11,14 +11,14 @@ Aşama 2 ve Aşama 3 kararlarını aynı faaliyet, veri, kişi, amaç, aktaran, 
 
 ## Aktarım akışları
 
-Sentetik incelemede her `Devredilebilir` aktarım adımına rapor içinde tekil bir akış numarası ver. Verinin barındırıldığı ülkeyi, erişim yetkisi olan ülkeleri, fiilî erişim ülkelerini ve aktarım hedefini ayrı göster. Yetkinin kapsamı ve süresini, erişimin gerçekleşip gerçekleşmediğini ve varsa indirmeyi kendi kanıtlarıyla yaz. Kişisel veri niteliğini ve kişi bağlantısını amaç ve veri alanında göster. Alıcı veya ülke belirsizse ilgili alana `Belirsiz` yaz. Belirsizlik uygulanacak hükmün belirlenmesini engelliyorsa mekanizma incelemesini `Ek kanıt gerekli` olarak kaydet ve mekanizma adayı açma. Sonraki aktarım için ayrı akış numarası, önceki akış numarası ve güvence bağlantısı gerekir. `Devredilebilir` kapsam yoksa akış ve aday tabloları boş kalır.
+Olgusal haritalamada her `Devredilebilir` aktarım adımına rapor içinde tekil bir akış numarası ver. Verinin barındırıldığı ülkeyi, erişim yetkisi olan ülkeleri, fiilî erişim ülkelerini ve aktarım hedefini ayrı göster. Yetkinin kapsamı ve süresini, erişimin gerçekleşip gerçekleşmediğini ve varsa indirmeyi kendi kanıtlarıyla yaz. Kişisel veri niteliğini ve kişi bağlantısını amaç ve veri alanında göster. Alıcı veya ülke belirsizse ilgili alana `Belirsiz` yaz. Belirsizlik uygulanacak hükmün belirlenmesini engelliyorsa mekanizma incelemesini `Ek kanıt gerekli` olarak kaydet ve mekanizma adayı açma. Sonraki aktarım için ayrı akış numarası, önceki akış numarası ve güvence bağlantısı gerekir. `Devredilebilir` kapsam yoksa akış ve aday tabloları boş kalır.
 
 | Akış no. | Faaliyet ve aktarım kapsamı | Amaç, ilgili kişi, veri ve kişi bağlantısı | Aktaran ve rol | Alıcı ve rol | İletim veya erişim, ortam ve sıklık | Barındırma ülkesi | Erişim yetkisi ülkeleri | Erişim yetkisi | Fiilî erişim ülkeleri | Fiilî erişim ve indirme | Aktarım hedefi ve yön | Önceki akış no. | Mekanizma inceleme durumu | Kanıt, ortam sınırı ve açık kayıt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 ## Aktarım şartı ve mekanizma adayları
 
-Her aday satırını akış numarasına, aynı aktarımı kapsayan Aşama 4 kaydına ve `H-…` dayanağına bağla. İşleme şartı ile mekanizma koşullarını kendi olgu ve kanıtlarıyla değerlendir. Aşama 4 bağlantısı eksik veya uyuşmazsa akışın mekanizma inceleme durumunu `Ek kanıt gerekli` olarak bırak. m. 9/4 veya m. 9/6 adayından önceki yolların sonucunu kaydet. Yeterlilik kararı araştırılırken m. 9/4 seçeneğini yalnız koşullu aday olarak kaydet. m. 9/6 için önceki yolların neden kullanılamadığı, arızilik ve ilgili bendin koşulları bakımından somut dayanak varsa aday aç.
+Aday taslağı koşulları karşılanıyorsa [aktarım metodolojisiyle](../references/stage-5-transfers.md) aday satırını akış numarasına, aynı aktarımı kapsayan Aşama 4 kaydına ve `H-…` dayanağına bağla. İşleme şartı ile mekanizma koşullarını kendi olgu ve kanıtlarıyla değerlendir. Aşama 4 bağlantısı eksik veya uyuşmazsa akışın mekanizma inceleme durumunu `Ek kanıt gerekli` olarak bırak. Eşleşen Aşama 4 kaydındaki `Ek kanıt gerekli` durumunu ve ilgili açık kaydı aday satırına taşı. m. 9/4 veya m. 9/6 adayından önceki yolların sonucunu kaydet. Yeterlilik kararı araştırılırken m. 9/4 seçeneğini yalnız koşullu aday olarak kaydet. m. 9/6 için önceki yolların neden kullanılamadığı, arızilik ve ilgili bendin koşulları bakımından somut dayanak varsa aday aç.
 
 - `Ek kanıt gerekli` · Bir koşul için gerekli olgu, belge, güncel kaynak veya Aşama 4 bağlantısı eksik. Erişim, ülke, sıklık, yeterlilik, hak ve başvuru yolları, imza, bildirim ve fiilî uygulama açıklarını ayrı göster.
 - `Hukukçu değerlendirmesi gerekli` · Koşulların incelenmesi için yeterli olgusal dayanak var ve kalan yorum hukukçu kararı gerektiriyor.

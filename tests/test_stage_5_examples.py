@@ -8,6 +8,7 @@ import validate_stage_3 as stage_3
 
 TESTS = Path(__file__).parent
 SAMPLES = TESTS / "stage-5" / "samples"
+MASKED_INPUT = TESTS / "stage-5" / "fixtures" / "masked-stage-5-input.md"
 TEMPLATE = stage_1.SKILL / "assets/stage-5-outputs.md"
 HANDOFF = "Devir ve hazırlık"
 FLOWS = "Aktarım akışları"
@@ -168,3 +169,55 @@ class StageFiveExamples(unittest.TestCase):
         for flow in (domestic, remote_access, onward):
             self.assertTrue(flow["Mekanizma inceleme durumu"].startswith("Ek kanıt gerekli"))
         self.assertEqual(self.report_table(sample, MECHANISMS), [])
+
+    def test_masked_intake_limits_candidate_drafts_to_matched_and_identified_flows(self):
+        sample = SAMPLES / "masked-stage-5-draft.md"
+        self.check_masked_intake_report(sample)
+
+    def check_masked_intake_report(self, sample):
+        scope_column = "Faaliyet ve aktarım kapsamı"
+        _, *upstream = table(MASKED_INPUT, "Aşama 2 · Envanter ve devredilen kapsam")
+        handoffs = {row[scope_column]: row for row in self.report_table(sample, HANDOFF)}
+        self.assertCountEqual(handoffs.keys(), [row[0] for row in upstream])
+
+        domestic = "A-010 · TR barındırma"
+        foreign = "A-010 · DE yedekleme"
+        missing_stage_four = "A-010 · TR test kurtarma"
+        unknown_country = "A-013 · Arşiv kopyası"
+        mapped = {domestic, foreign, missing_stage_four, unknown_country}
+        for scope, row in handoffs.items():
+            with self.subTest(scope=scope):
+                expected = "Devredilebilir" if scope in mapped else "Bekletilir"
+                self.assertEqual(row["Esaslı incelemeye devir"], expected)
+        self.assertIn("Aşama 4", handoffs[missing_stage_four]["Hazırlık işi, engel ve devam koşulu"])
+
+        flow_rows = self.report_table(sample, FLOWS)
+        flows = {row[scope_column]: row for row in flow_rows}
+        self.assertCountEqual([row[scope_column] for row in flow_rows], mapped)
+        self.assertEqual(len({row["Akış no."] for row in flow_rows}), len(mapped))
+        self.assertIn("test", flows[missing_stage_four]["İletim veya erişim, ortam ve sıklık"].lower())
+        self.assertIn("Belirsiz", flows[unknown_country]["Barındırma ülkesi"])
+        for scope in (missing_stage_four, unknown_country):
+            self.assertTrue(flows[scope]["Mekanizma inceleme durumu"].startswith("Ek kanıt gerekli"))
+
+        rows = self.report_table(sample, MECHANISMS)
+        candidates = {row["Akış no."]: row for row in rows}
+        self.assertCountEqual([row["Akış no."] for row in rows],
+                              [flows[domestic]["Akış no."], flows[foreign]["Akış no."]])
+        expected_candidates = [
+            (domestic, "m. 8/2-a", "21", "E-021"),
+            (foreign, "m. 9/4-c", "22", "E-025"),
+        ]
+        sources = {row["Kaynak kimliği"] for row in self.report_table(sample, "Hukuki kaynak kaydı")}
+        for scope, article, stage_four_id, inherited_gap in expected_candidates:
+            with self.subTest(scope=scope):
+                candidate = candidates[flows[scope]["Akış no."]]
+                self.assertIn(article, candidate["Aday hüküm ve mekanizma"])
+                self.assertIn(stage_four_id, candidate["Aşama 4 kayıt kimliği ve kapsam eşleşmesi"])
+                self.assertTrue(candidate["Taslak durum ve gerekçe"].startswith("Ek kanıt gerekli"))
+                self.assertIn(inherited_gap, stage_3.ids(candidate["Açık kayıt ve istenecek kanıt"], "E"))
+                references = stage_3.ids(candidate["Hukuki kaynak"], "H")
+                self.assertTrue(references)
+                self.assertLessEqual(references, sources)
+        self.assertIn("koşullu", candidates[flows[foreign]["Akış no."]]["Aday hüküm ve mekanizma"].lower())
+        self.assertEqual(self.report_table(sample, "Hukukçu karar ve onay kaydı"), [])

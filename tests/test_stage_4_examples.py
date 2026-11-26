@@ -18,9 +18,15 @@ def table(path, section):
 class StageFourExamples(unittest.TestCase):
     def test_blocked_chain_keeps_preparation_without_condition_candidates(self):
         sample = SAMPLES / "phase-1.5-stage-4-intake.md"
+        upstream = SAMPLES.parents[1] / "stage-3" / "samples" / "phase-1.5-to-stage-3.md"
+        expected_scopes = {
+            f"{row['Faaliyet']} · {row['Faaliyet kapsamı']}"
+            for row in stage_3.named_upstream_rows(upstream.read_text(encoding="utf-8"), stage_3.HANDOFF)
+            if row["Hedef aşama"] == "Aşama 4"
+        }
         header, *handoffs = table(sample, "Devir ve hazırlık")
         self.assertEqual(header, table(INTAKE, "Devir ve hazırlık notu")[0])
-        self.assertEqual(len(handoffs), 6)
+        self.assertCountEqual([row[0] for row in handoffs], expected_scopes)
         for row, expected_gaps in zip(
             handoffs,
             ({"E-002"}, {"E-009"}, {"E-009", "E-016"}, {"E-011"}, {"E-012"}, {"E-012"}),

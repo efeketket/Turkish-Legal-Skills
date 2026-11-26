@@ -76,7 +76,18 @@ python -X utf8 tests/check_stage_3_cli.py '<synthetic-project>' --before '<snaps
 
 ## Phase 1.6 CLI attempts
 
-On 26 November 2026, Windows Codex CLI `0.171.0-alpha.13.2` was invoked with an explicit `-C` pointing to each separate synthetic project and its verified local inputs. The natural and explicit requests each exited with code 1 before starting a turn. Both returned `Error finding codex home: Could not find home directory`. Skill selection and live report generation remain unverified. The automated report and trace-check regressions run independently of the CLI.
+On 26 November 2026, the first Windows Codex CLI `0.171.0-alpha.13.2` attempts exited with `Error finding codex home: Could not find home directory`. Later runs used the authenticated Windows user profile with each synthetic project still in read-only mode. Close stdin for noninteractive runs when the prompt is passed as an argument.
+
+## Live Stage 4 and Stage 5 checks
+
+On 26 November 2026, Windows Codex CLI `0.171.0-alpha.13.2` ran natural and explicit requests in separate projects with `gpt-6.2-sol`. The Stage 4 projects used the [current Phase 1.5 fixture](../stage-2/fixtures/manual-and-incomplete.md) and its [Stage 1](../stage-2/samples/manual-and-incomplete-stage-1.md), [Stage 2](../stage-2/samples/manual-and-incomplete-stage-2.md) and [Stage 3](samples/phase-1.5-to-stage-3.md) reports. The Stage 5 projects used the [masked intake fixture](../stage-5/fixtures/masked-stage-5-input.md) as `case.md` and excluded the [worked Stage 5 output](../stage-5/samples/masked-stage-5-draft.md). Both stages used Turkish requests for the complete report. Explicit requests prefixed the same prompt with `$turkish-kvkk`.
+
+| Stage | Report checks |
+| --- | --- |
+| 4 | Both requests preserved the six upstream scope labels, marked all six `Bekletilir` and returned empty candidate tables. The independent metrics finding was routed back to Stage 2 outside the handoff table. The reports carried an inherited Stage 3 legal-source record and left current-text verification open. |
+| 5 | Both reports passed the masked-intake table checks. Each returned one domestic m. 8/2-a candidate and one conditional m. 9/4-c candidate, each `Ek kanıt gerekli`. A missing Stage 4 record, mismatched handoffs, an unknown recipient and an unknown country generated no candidate rows. Neither report recorded a final choice. |
+
+The four traces showed reads of the relevant reference and output template. The automatic routes also read `SKILL.md`. The snapshot and trace checks passed for all four projects. Online source verification was disabled in these synthetic runs.
 
 ## Phase 1.4 observations
 

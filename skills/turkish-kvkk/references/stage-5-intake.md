@@ -1,6 +1,6 @@
 # Aşama 5 Aktarım incelemesi için devir ve hazırlık
 
-26 Kasım 2026 hukukçu kapanış kararı `0.6.0` önizlemesinin devir ve hazırlık kapsamını ve sentetik metodoloji incelemesini onayladı. Her faaliyet ve aktarım kapsamı için [Aşama 5 şablonuyla](../assets/stage-5-outputs.md) devir ve hazırlık notu üret. Gerçek dosya çıktısı bu nottur. [Aktarım değerlendirmesi taslağını](stage-5-transfers.md) sentetik dosyalarda veya metodoloji incelemesinde, `Devredilebilir` kapsamlar için kullan.
+26 Kasım 2026 hukukçu kapanış kararı `0.6.0` önizlemesinin devir ve hazırlık kapsamını ve sentetik metodoloji incelemesini onayladı. Her faaliyet ve aktarım kapsamı için [Aşama 5 şablonuyla](../assets/stage-5-outputs.md) devir ve hazırlık notu üret. `0.7.0` aktarım değerlendirmesi istendiğinde kapanış raporundaki koşulları sağlayan gerçek dosya akışları için hukukçuya sunulacak aday taslağını destekler. İstek devir, hazırlık veya olgusal haritalamayla sınırlıysa bu kapsamda kal.
 
 ## Önceki aşama kayıtları
 
@@ -20,7 +20,19 @@ Rapor tarihlerini veya sürümlerini göster. `A-…`, `K-…`, `E-…` ve `H-�
 
 ## Olgusal haritalama ve Aşama 4 eşiği
 
-Eşleşen Aşama 2 ve 3 kararları varsa Aşama 4 bağlantısı eksikken de olgusal akış haritalamasını sürdür. Aşama 4 bağlantısı yoksa veya kapsam uyuşmuyorsa akışın mekanizma durumunu `Ek kanıt gerekli` olarak kaydet ve ilgili işlemi Aşama 4'e yönlendir. Bir m. 8 veya m. 9 adayını adlandırmak için uygulanacak hükmü belirleyen aktarım olguları ve kapsamı eşleşen Aşama 4 kaydı gerekir. Eşleşen Aşama 4 adayında açık kalan işleme şartı varsa bu açığı mekanizma sonucuna taşı. Desteklenmiş bir mekanizma değerlendirmesi için işleme şartının ve aktarım yolunun kendi koşullarının dayanaklarını ayrı doğrula.
+Eşleşen Aşama 2 ve 3 kararları varsa Aşama 4 bağlantısı eksikken de olgusal akış haritalamasını sürdür. Aşama 4 bağlantısı yoksa veya kapsam uyuşmuyorsa akışın mekanizma durumunu `Ek kanıt gerekli` olarak kaydet ve ilgili işlemi Aşama 4'e yönlendir.
+
+## Aday taslağı koşulları
+
+Aktarım değerlendirmesi istendiğinde her akış için aşağıdaki koşulları birlikte uygula.
+
+1. Güncel `A-…` kaydı ile aynı veri, ilgili kişi, amaç, aktaran, alıcı ve aktarım operasyonu için Aşama 5 hedefine verilmiş gerekçeli ve eşleşen Aşama 2 ve Aşama 3 `Devredilebilir` kararlarını doğrula.
+2. Aynı faaliyetteki aynı amaç, ilgili kişi, veri, alıcı ve aktarım işlemi için Aşama 4'te kayıtlı işleme şartı adayını veya hukukçu kararını, kaynak raporu ve kayıt kimliğiyle bağla. Eşleşen kayıtta işleme şartı `Ek kanıt gerekli` durumundaysa açık kaydı ve durumunu Aşama 5 adayına taşı.
+3. Aktaran ile alıcının hukuki kimliği ve rolünü, verinin kişisel veri niteliğini ve kişi bağlantısını, amacı ve veri alanlarını, aktarım veya erişim yöntemini, barındırma ülkesini, erişim yetkisi ülkelerini, bilinen fiilî erişim ülkelerini, ortamı, sıklığı ve sürekliliği kanıtla bağla. Uygulanabilir olmayan bir erişim alanını gerekçelendir. Test izlerini test ortamıyla, üretim yapılandırmasını yapılandırma kapsamıyla ve fiilî üretim gözlemini gözlenen olayla sınırla.
+
+Bu koşullar aday açmayı engelliyorsa devir ve hazırlık notunda eksik kanıtı ve devam koşulunu göster. Devir uygunsa bilinen akış olgularını kaydet. Alıcı veya ülke belirsizliği, uygulanacak hükmü belirlemeyi engellediğinde mekanizma durumunu `Ek kanıt gerekli` olarak bırak. Aday tablosu yalnız koşulları karşılayan akışları içerir.
+
+Koşullar sağlandığında [aktarım metodolojisiyle](stage-5-transfers.md) akışa özgü m. 8 veya m. 9 yollarını ve her yolun kanıtını incele. Adayı ilgili `H-…` kaydına bağla ve `Ek kanıt gerekli`, `Hukukçu değerlendirmesi gerekli` veya `Aday desteklenmedi` durumunu gerekçelendir. Nihai mekanizma tercihini yalnız ilgili akış ve kanıt sürümlerini kapsayan belgelenmiş hukukçu kararından aktar.
 
 ## Hazırlıkta aranacak kanıt
 
