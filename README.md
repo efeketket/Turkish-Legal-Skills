@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.5.0`. Counsel approved the Stage 2–4 methodologies. Stage 4 prepares draft processing-condition candidates for counsel when both handoffs cover the scope. Live CLI validation remains open. [Stage 3 counsel decision](docs/küb-docs/history/asama3-kapanıs.md) · [Stage 4 counsel decision](docs/küb-docs/asama4-kapanıs.md) |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.6.0`. Counsel approved the Stage 2–4 methodologies. Stage 5 provides transfer intake and a synthetic assessment draft for counsel review. Live CLI validation remains open. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 intake](skills/turkish-kvkk/references/stage-5-intake.md) |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install
@@ -31,6 +31,8 @@ Use `--list` with `add` to see the available skills before installing. Use `-g` 
 For manual installation, copy the entire `skills/turkish-kvkk/` folder into a [skill directory for your agent](docs/compatibility.md#manual-installation), such as `.agents/skills/` at the target project's root for Codex. Open a new session if the agent does not pick up the change. Ask for a KVKK review to start with business discovery and continue to the preliminary inventory when the evidence supports it. A review limited to Stage 1 produces the five discovery outputs and a transition assessment. To resume, provide the existing Stage 1 report. See the [Stage 1 scenarios](tests/stage-1/README.md) and the [Stage 2 example report and checks](tests/stage-2/README.md).
 
 For a full KVKK review or role assessment by processing activity, Stage 3 uses the Stage 2 master inventory, activity-level decisions and role inputs to prepare a draft report for counsel. An open item can defer the affected scope. Requests limited to discovery or inventory end at the requested stage. Stage 4 records the handoff for each requested scope and prepares draft candidates for counsel only where the current activity has matching Stage 2 and Stage 3 decisions for that scope and Stage 4. [Stage 3 examples and checks](tests/stage-3/README.md) · [Stage 4 intake example](tests/stage-4/samples/phase-1.5-stage-4-intake.md) · [Stage 4 assessment example](tests/stage-4/samples/booking-stage-4-draft.md)
+
+Stage 5 records recipients, transfer paths and matching Stage 2 and Stage 3 handoffs for the Stage 5 target. It links any Stage 4 processing-condition record that covers the operation. The preview uses the preparation note for real cases and the domestic and cross-border assessment draft for synthetic and methodology reviews. [Deferred transfer example](tests/stage-5/samples/phase-1.5-stage-5-intake.md) · [Domestic and cross-border example](tests/stage-5/samples/hosting-stage-5-draft.md)
 
 For CLI-managed installs, use `npx skills list` to find the installed copy. For GitHub installs, use `npx skills check` to check for updates and `npx skills update turkish-kvkk` to update it from its recorded source. For a local-path install, rerun the original add command when the source changes. Use `npx skills remove turkish-kvkk` from the project to remove it, adding `-g` for a global install. For a manual install, replace the installed folder to update it or remove that folder to uninstall it.
 

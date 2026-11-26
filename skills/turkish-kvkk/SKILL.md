@@ -3,7 +3,7 @@ name: turkish-kvkk
 description: >-
   Business discovery and processing activity inventory for Türkiye's personal
   data protection law (KVKK), including audit preparation, data flows,
-  activity-level role assessment and draft processing-condition assessment in
+  activity-level role assessment, draft processing-condition assessment and transfer intake in
   software, SaaS or manual operations. Select only when
   the request or project evidence establishes a Turkish
   personal data review. Clarify the scope first if the jurisdiction is unclear.
@@ -11,9 +11,10 @@ description: >-
   ilişkin girdiler Türkiye'de kişisel veri incelemesine işaret ettiğinde kullan.
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   stage-3: "methodology-approved"
   stage-4: "methodology-approved"
+  stage-5: "draft-preview"
 ---
 
 # Turkish KVKK
@@ -31,5 +32,6 @@ metadata:
 - **Kapsamlı inceleme, faaliyet envanteri veya Aşama 2.** Mevcut Aşama 1 raporunun beş çıktısını, kanıt kaydını ve geçiş değerlendirmesini kullan veya önce Aşama 1'i tamamla. [Aşama 2 metodolojisiyle](references/stage-2-processing-activities.md) Aşama 1 → 2 başlangıç eşiğini değerlendir. Devamı engelleyen açıklar varsa dayanağı ve hedefli bilgi talebini kaydet. Yeterli temel varsa devredilen kimlikleri, açıkları ve kanıt sınırlarını koru. [Aşama 2 şablonuyla](assets/stage-2-outputs.md) altı çıktıyı, faaliyet bazlı devir kararlarını ve varsa revizyon geçmişini tek ön çalışma raporunda sun. Kullanıcı kapsamı hazırlık, keşif veya envanterle sınırladığında istenen son aşamada dur.
 - **Tam KVKK incelemesi veya faaliyet bazlı rol değerlendirmesi · Aşama 3.** [Teknik devir yönergesini](references/stage-3-integration.md) aç ve Aşama 2 ana envanteri ile geçiş gerekçesinden başlangıç yeterliliğini değerlendir. Eksik girdileri eldeki belgelerden güvenilir biçimde oluşturabiliyorsan önce gereken önceki aşamaları tamamla. Başlayabilen kapsamlar için [hukukçu onaylı rol metodolojisini](references/stage-3-legal-roles.md) ve [Aşama 3 şablonunu](assets/stage-3-outputs.md) yükle. Somut faaliyetler için üretilen rol değerlendirmeleri hukukçu incelemesine açık taslaklardır. Sonraki aşamalara rol bağlantılarını devret.
 - **İşleme şartları veya Aşama 4.** [Aşama 4 devir ve hazırlık yönergesiyle](references/stage-4-intake.md) güncel Aşama 2 envanterini ve Aşama 2 ile Aşama 3'ün eşleşen devir kararlarını kontrol et. Her kapsam için devir ve hazırlık notu üret. Gerçek ve sentetik dosyalarda yalnızca `Devredilebilir` kapsamlar için [hukukçu onaylı işleme şartı metodolojisini](references/stage-4-processing-conditions.md) ve [çıktı şablonunu](assets/stage-4-outputs.md) kullanarak hukukçu incelemesine sunulacak aday taslağını hazırla. Nihai tercihi yalnızca belgelenmiş hukukçu kararından aktar.
+- **Kişisel veri aktarımı veya Aşama 5.** [Aşama 5 devir yönergesiyle](references/stage-5-intake.md) güncel Aşama 2 faaliyetini, Aşama 5 hedefine ilişkin eşleşen Aşama 2 ve Aşama 3 kararlarını ve varsa işleme şartına ilişkin Aşama 4 kaydını değerlendir. [Aşama 5 şablonuyla](assets/stage-5-outputs.md) devir ve hazırlık notu üret. [Aktarım değerlendirmesi taslağını](references/stage-5-transfers.md) sentetik değerlendirmede veya metodoloji incelemesinde yalnız `Devredilebilir` kapsamlar için kullan.
 
 Birden fazla aşama raporunu aynı yanıtta veriyorsan her birini kendi birinci düzey Markdown başlığıyla başlat. Raporları teslim etmeden önce her rapordaki kayıt bağlantılarını çözümle. Her geçiş ölçütünün gerekçe hücresine en az bir dayanak kimliği yaz. Genel geçiş sonucu ve aktarım notunu şablondaki iki madde işaretiyle ver. Aktarım notuna her açık kaydın tam kimliğini yaz.
