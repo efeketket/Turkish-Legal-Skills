@@ -8,7 +8,7 @@ The project provides research and review workflows for human oversight. Legal ad
 
 | Skill | Status |
 | --- | --- |
-| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.8.2`. Counsel approved the Stage 2–4 methodologies and the Stage 5 intake and preparation scope. Stage 5 supports candidate drafts for counsel under its intake conditions. The Stage 6 `0.8.1` closing review accepted limited real-case intake and factual preparation. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 counsel decision](docs/küb-docs/history/asama5-kapanis.md) · [Stage 6 closing decision](docs/küb-docs/history/asama6-kapanisimsibisey.md) · [Live CLI verification record](tests/stage-3/README.md) |
+| [`turkish-kvkk`](skills/turkish-kvkk/SKILL.md) | Unreleased `0.8.2`. Counsel approved the Stage 2–4 methodologies and the Stage 5 intake and preparation scope. Stage 5 supports candidate drafts for counsel under its intake conditions. Counsel accepted limited real-case intake and factual preparation for Stage 6 and cleared Stage 7 design and synthetic preparation. The Stage 7 draft is ready for legal review. [Stage 4 counsel decision](docs/küb-docs/history/asama4-kapanıs.md) · [Stage 5 counsel decision](docs/küb-docs/history/asama5-kapanis.md) · [Stage 6 `0.8.2` decision](docs/küb-docs/efekalpkubra.md) · [Stage 7 review brief](docs/küb-docs/asama-7-hukuk-inceleme-promptu.md) · [Live CLI verification record](tests/stage-3/README.md) |
 | `turkish-legal-research`, `turkish-contracts`, `turkish-consumer-law`, `turkish-ecommerce-law` | Planned. |
 
 ## Install
